@@ -36,5 +36,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string></string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>instagram</string>
+    </array>
 </dict>
 </plist>

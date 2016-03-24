@@ -15,6 +15,14 @@
 		CF1BC9051CA4707B007D3BAD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1BC9041CA4707B007D3BAD /* CloudKit.framework */; };
 		CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */; };
 		CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC90A1CA47BF1007D3BAD /* AppError.swift */; };
+		CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA486D1CA4996200B9033E /* AppTheme.swift */; };
+		CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48701CA4998700B9033E /* AppUtils.swift */; };
+		CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48721CA499AE00B9033E /* DeviceModel.swift */; };
+		CFDA48751CA49D3100B9033E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48741CA49D3100B9033E /* WelcomeViewController.swift */; };
+		CFDA48771CA4A31400B9033E /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48761CA4A31400B9033E /* LocationPermissionViewController.swift */; };
+		CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48781CA4A62100B9033E /* CameraPermissionsViewController.swift */; };
+		CFDA487B1CA4A92A00B9033E /* MicrophonePermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487A1CA4A92A00B9033E /* MicrophonePermissionViewController.swift */; };
+		CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +37,14 @@
 		CF1BC9041CA4707B007D3BAD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		CF1BC90A1CA47BF1007D3BAD /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		CFDA486D1CA4996200B9033E /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		CFDA48701CA4998700B9033E /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		CFDA48721CA499AE00B9033E /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		CFDA48741CA49D3100B9033E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		CFDA48761CA4A31400B9033E /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
+		CFDA48781CA4A62100B9033E /* CameraPermissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPermissionsViewController.swift; sourceTree = "<group>"; };
+		CFDA487A1CA4A92A00B9033E /* MicrophonePermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophonePermissionViewController.swift; sourceTree = "<group>"; };
+		CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +81,10 @@
 			children = (
 				CF1BC9061CA47A76007D3BAD /* CloudKit Helper */,
 				CF1BC9091CA47BE8007D3BAD /* Error */,
+				CFDA486F1CA4997D00B9033E /* Utils */,
+				CFDA486C1CA4995800B9033E /* Appearance */,
+				CFDA486B1CA498DF00B9033E /* Permissions */,
+				CFDA487E1CA4B27C00B9033E /* My Footprints */,
 				CF1BC8F11CA46F84007D3BAD /* AppDelegate.swift */,
 				CF1BC8F31CA46F84007D3BAD /* LaunchViewController.swift */,
 				CF1BC8F51CA46F84007D3BAD /* Main.storyboard */,
@@ -90,6 +110,42 @@
 				CF1BC90A1CA47BF1007D3BAD /* AppError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		CFDA486B1CA498DF00B9033E /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA48741CA49D3100B9033E /* WelcomeViewController.swift */,
+				CFDA48761CA4A31400B9033E /* LocationPermissionViewController.swift */,
+				CFDA48781CA4A62100B9033E /* CameraPermissionsViewController.swift */,
+				CFDA487A1CA4A92A00B9033E /* MicrophonePermissionViewController.swift */,
+				CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		CFDA486C1CA4995800B9033E /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA486D1CA4996200B9033E /* AppTheme.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		CFDA486F1CA4997D00B9033E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA48701CA4998700B9033E /* AppUtils.swift */,
+				CFDA48721CA499AE00B9033E /* DeviceModel.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CFDA487E1CA4B27C00B9033E /* My Footprints */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "My Footprints";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,9 +226,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */,
+				CFDA48751CA49D3100B9033E /* WelcomeViewController.swift in Sources */,
+				CFDA48771CA4A31400B9033E /* LocationPermissionViewController.swift in Sources */,
+				CFDA487B1CA4A92A00B9033E /* MicrophonePermissionViewController.swift in Sources */,
 				CF1BC8F41CA46F84007D3BAD /* LaunchViewController.swift in Sources */,
+				CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */,
+				CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */,
+				CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */,
 				CF1BC8F21CA46F84007D3BAD /* AppDelegate.swift in Sources */,
+				CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */,
 				CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */,
+				CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

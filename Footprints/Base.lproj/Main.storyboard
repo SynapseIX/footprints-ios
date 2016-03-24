@@ -41,10 +41,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="9Oi-qM-Bpy">
             <objects>
-                <viewController id="XJb-6A-oXc" sceneMemberID="viewController">
+                <viewController id="XJb-6A-oXc" customClass="WelcomeViewController" customModule="Footprints" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iia-58-ebi"/>
                         <viewControllerLayoutGuide type="bottom" id="w3x-s8-4mm"/>
@@ -53,25 +53,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PERMISSIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-7q-pey">
-                                <rect key="frame" x="245" y="99" width="110" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bGQ-S0-xJF">
+                                <rect key="frame" x="180" y="50" width="240" height="206"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bGQ-S0-xJF" secondAttribute="height" multiplier="333:286" id="hiB-dL-FQZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Footprints" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reT-nY-sIR">
+                                <rect key="frame" x="213" y="286" width="174" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to your digital treasure box of great memories and moments. Let's get your app ready to immortalize your footprints." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVH-eW-DT5">
+                                <rect key="frame" x="45" y="337" width="510" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67Q-F5-9fb">
+                                <rect key="frame" x="242" y="408" width="117" height="30"/>
+                                <state key="normal" title="Let's Get Started"/>
+                                <connections>
+                                    <action selector="permissionAction:" destination="XJb-6A-oXc" eventType="touchUpInside" id="JrZ-cv-VB5"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="67Q-F5-9fb" firstAttribute="centerX" secondItem="cuD-TZ-upO" secondAttribute="centerX" id="7iQ-ZZ-l3p"/>
+                            <constraint firstItem="cVH-eW-DT5" firstAttribute="top" secondItem="reT-nY-sIR" secondAttribute="bottom" constant="30" id="DLS-Et-e0B"/>
+                            <constraint firstItem="67Q-F5-9fb" firstAttribute="top" secondItem="cVH-eW-DT5" secondAttribute="bottom" constant="30" id="KpL-eO-Klu"/>
+                            <constraint firstItem="reT-nY-sIR" firstAttribute="top" secondItem="bGQ-S0-xJF" secondAttribute="bottom" constant="30" id="LeR-w9-6hj"/>
+                            <constraint firstItem="bGQ-S0-xJF" firstAttribute="width" secondItem="cuD-TZ-upO" secondAttribute="width" multiplier="0.4" id="USJ-Ys-0G7"/>
+                            <constraint firstItem="bGQ-S0-xJF" firstAttribute="top" secondItem="Iia-58-ebi" secondAttribute="bottom" constant="30" id="Wgt-5n-6xh"/>
+                            <constraint firstItem="reT-nY-sIR" firstAttribute="centerX" secondItem="cuD-TZ-upO" secondAttribute="centerX" id="bgz-Pa-YTf"/>
+                            <constraint firstItem="bGQ-S0-xJF" firstAttribute="centerX" secondItem="cuD-TZ-upO" secondAttribute="centerX" id="gsf-n1-FbL"/>
+                            <constraint firstItem="cVH-eW-DT5" firstAttribute="centerX" secondItem="cuD-TZ-upO" secondAttribute="centerX" id="tAa-On-Fzr"/>
+                            <constraint firstItem="cVH-eW-DT5" firstAttribute="width" secondItem="cuD-TZ-upO" secondAttribute="width" multiplier="0.85" id="xnl-Y8-eKL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YWP-3M-nmO"/>
+                    <connections>
+                        <outlet property="headingLabel" destination="reT-nY-sIR" id="cVa-L6-g5U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2b-rZ-lcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="291"/>
+            <point key="canvasLocation" x="1929" y="-399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rJ4-3I-5Nh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3LW-SN-cPq" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3LW-SN-cPq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kTe-he-oxX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -84,9 +118,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ts4-EF-FUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="291"/>
+            <point key="canvasLocation" x="1117" y="-399"/>
         </scene>
-        <!--Item-->
+        <!--MY FOOTPRINTS-->
         <scene sceneID="sr2-na-OTo">
             <objects>
                 <viewController id="Qdg-cM-rgt" sceneMemberID="viewController">
@@ -95,23 +129,28 @@
                         <viewControllerLayoutGuide type="bottom" id="bAB-Mj-yse"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q4n-Zd-YRl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58t-CC-AUg">
-                                <rect key="frame" x="279" y="57" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_content" translatesAutoresizingMaskIntoConstraints="NO" id="f2W-Zf-e2H">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f2W-Zf-e2H" firstAttribute="width" secondItem="q4n-Zd-YRl" secondAttribute="width" id="F5J-zx-dJ0"/>
+                            <constraint firstItem="f2W-Zf-e2H" firstAttribute="centerX" secondItem="q4n-Zd-YRl" secondAttribute="centerX" id="Y3Y-ni-0hw"/>
+                            <constraint firstItem="f2W-Zf-e2H" firstAttribute="centerY" secondItem="q4n-Zd-YRl" secondAttribute="centerY" id="YuN-tR-eCM"/>
+                            <constraint firstItem="f2W-Zf-e2H" firstAttribute="height" secondItem="q4n-Zd-YRl" secondAttribute="height" id="aex-CH-DkA"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="g74-2X-9gC"/>
+                    <navigationItem key="navigationItem" title="MY FOOTPRINTS" id="lt5-8v-mZD">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="grid" id="yFA-s5-jGE"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynL-bm-hK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="1066"/>
+            <point key="canvasLocation" x="2741" y="363"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Nb5-wN-rMa">
@@ -123,15 +162,315 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Qdg-cM-rgt" kind="relationship" relationship="viewControllers" id="IQH-dh-nR5"/>
+                        <segue destination="WVL-ab-7AW" kind="relationship" relationship="viewControllers" id="IQH-dh-nR5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELR-Z8-M2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="1066"/>
+            <point key="canvasLocation" x="1117" y="363"/>
+        </scene>
+        <!--Location Permission View Controller-->
+        <scene sceneID="ddn-8U-mEj">
+            <objects>
+                <viewController storyboardIdentifier="locationPermissionViewController" id="1ZX-hS-zi8" customClass="LocationPermissionViewController" customModule="Footprints" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j7Q-9E-ZNM"/>
+                        <viewControllerLayoutGuide type="bottom" id="tEQ-qi-9nC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3NI-5r-sWf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="world" translatesAutoresizingMaskIntoConstraints="NO" id="uGs-0r-VYI">
+                                <rect key="frame" x="180" y="50" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uGs-0r-VYI" secondAttribute="height" multiplier="1:1" id="0qy-ng-YIT"/>
+                                    <constraint firstAttribute="width" secondItem="uGs-0r-VYI" secondAttribute="height" multiplier="333:286" id="FHv-0O-5uz"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FHv-0O-5uz"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Places Make Great Memories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92k-K3-wBF">
+                                <rect key="frame" x="165" y="320" width="270" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qf-5n-gfy">
+                                <rect key="frame" x="45" y="371" width="510" height="61"/>
+                                <string key="text">Footprints needs to access your location to determine places you are and places you were. If you don't allow location access, you won't be able to locate your footprints on a map.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCH-Ta-tvf">
+                                <rect key="frame" x="224" y="462" width="153" height="30"/>
+                                <state key="normal" title="Allow Location Access"/>
+                                <connections>
+                                    <action selector="permissionAction:" destination="1ZX-hS-zi8" eventType="touchUpInside" id="QmZ-di-xvs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1qf-5n-gfy" firstAttribute="top" secondItem="92k-K3-wBF" secondAttribute="bottom" constant="30" id="1n7-h0-WQe"/>
+                            <constraint firstItem="1qf-5n-gfy" firstAttribute="width" secondItem="3NI-5r-sWf" secondAttribute="width" multiplier="0.85" id="4YZ-Sc-0IT"/>
+                            <constraint firstItem="sCH-Ta-tvf" firstAttribute="centerX" secondItem="3NI-5r-sWf" secondAttribute="centerX" id="6hE-Qi-34k"/>
+                            <constraint firstItem="1qf-5n-gfy" firstAttribute="centerX" secondItem="3NI-5r-sWf" secondAttribute="centerX" id="8J9-lI-hA1"/>
+                            <constraint firstItem="uGs-0r-VYI" firstAttribute="centerX" secondItem="3NI-5r-sWf" secondAttribute="centerX" id="8y0-Il-SAy"/>
+                            <constraint firstItem="sCH-Ta-tvf" firstAttribute="top" secondItem="1qf-5n-gfy" secondAttribute="bottom" constant="30" id="J4n-sS-Fak"/>
+                            <constraint firstItem="uGs-0r-VYI" firstAttribute="top" secondItem="j7Q-9E-ZNM" secondAttribute="bottom" constant="30" id="MAk-fe-5jQ"/>
+                            <constraint firstItem="92k-K3-wBF" firstAttribute="centerX" secondItem="3NI-5r-sWf" secondAttribute="centerX" id="TR6-lE-Vfg"/>
+                            <constraint firstItem="uGs-0r-VYI" firstAttribute="width" secondItem="3NI-5r-sWf" secondAttribute="width" multiplier="0.4" id="X6R-tf-VG7"/>
+                            <constraint firstItem="92k-K3-wBF" firstAttribute="top" secondItem="uGs-0r-VYI" secondAttribute="bottom" constant="30" id="eTA-PL-8La"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lAh-QH-isr"/>
+                    <connections>
+                        <outlet property="headingLabel" destination="92k-K3-wBF" id="S9d-ZO-K89"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRp-M2-7mq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2741" y="-399"/>
+        </scene>
+        <!--Camera Permission View Controller-->
+        <scene sceneID="v2J-fd-gvS">
+            <objects>
+                <viewController storyboardIdentifier="cameraPermissionViewController" id="9DY-44-2uN" customClass="CameraPermissionViewController" customModule="Footprints" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ow2-Mg-r3n"/>
+                        <viewControllerLayoutGuide type="bottom" id="q02-KH-sWL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TZx-81-q27">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="bLl-Yp-1WY">
+                                <rect key="frame" x="180" y="50" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bLl-Yp-1WY" secondAttribute="height" multiplier="333:286" id="aIX-ix-Woe"/>
+                                    <constraint firstAttribute="width" secondItem="bLl-Yp-1WY" secondAttribute="height" multiplier="1:1" id="uaz-mC-yX1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aIX-ix-Woe"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An Image Is Worth 1000 Words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXg-7v-6uk">
+                                <rect key="frame" x="181" y="320" width="237" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIn-Ic-NF2">
+                                <rect key="frame" x="45" y="371" width="510" height="61"/>
+                                <string key="text">Footprints needs to access your camera to help you capture your best moments. If you don't allow camera access, you won't be able to take pictures.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDh-cr-WFJ">
+                                <rect key="frame" x="226" y="462" width="148" height="30"/>
+                                <state key="normal" title="Allow Camera Access"/>
+                                <connections>
+                                    <action selector="permissionAction:" destination="9DY-44-2uN" eventType="touchUpInside" id="zVa-MY-VCe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="XDh-cr-WFJ" firstAttribute="top" secondItem="RIn-Ic-NF2" secondAttribute="bottom" constant="30" id="1iV-Y1-Pia"/>
+                            <constraint firstItem="AXg-7v-6uk" firstAttribute="centerX" secondItem="TZx-81-q27" secondAttribute="centerX" id="2VC-PA-sx7"/>
+                            <constraint firstItem="RIn-Ic-NF2" firstAttribute="width" secondItem="TZx-81-q27" secondAttribute="width" multiplier="0.85" id="8HX-gi-rGO"/>
+                            <constraint firstItem="bLl-Yp-1WY" firstAttribute="centerX" secondItem="TZx-81-q27" secondAttribute="centerX" id="NPw-Cm-ghz"/>
+                            <constraint firstItem="AXg-7v-6uk" firstAttribute="top" secondItem="bLl-Yp-1WY" secondAttribute="bottom" constant="30" id="T7b-OP-xRS"/>
+                            <constraint firstItem="XDh-cr-WFJ" firstAttribute="centerX" secondItem="TZx-81-q27" secondAttribute="centerX" id="W4W-U0-Xgu"/>
+                            <constraint firstItem="bLl-Yp-1WY" firstAttribute="width" secondItem="TZx-81-q27" secondAttribute="width" multiplier="0.4" id="ZiT-Xs-Aqw"/>
+                            <constraint firstItem="bLl-Yp-1WY" firstAttribute="top" secondItem="ow2-Mg-r3n" secondAttribute="bottom" constant="30" id="jsK-iP-x7z"/>
+                            <constraint firstItem="RIn-Ic-NF2" firstAttribute="centerX" secondItem="TZx-81-q27" secondAttribute="centerX" id="mTm-Vz-CCs"/>
+                            <constraint firstItem="RIn-Ic-NF2" firstAttribute="top" secondItem="AXg-7v-6uk" secondAttribute="bottom" constant="30" id="nM8-ym-Z4x"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jr3-Zs-uLa"/>
+                    <connections>
+                        <outlet property="headingLabel" destination="AXg-7v-6uk" id="jqu-sU-hoq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSI-ev-A7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3553" y="-399"/>
+        </scene>
+        <!--Microphone Permission View Controller-->
+        <scene sceneID="q9d-3L-Fqx">
+            <objects>
+                <viewController storyboardIdentifier="microphonePermissionViewController" id="2yx-GO-Hk9" customClass="MicrophonePermissionViewController" customModule="Footprints" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kzN-w6-Fon"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q5n-Xc-Npo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yXU-dv-fXn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic" translatesAutoresizingMaskIntoConstraints="NO" id="uXk-lM-3qc">
+                                <rect key="frame" x="180" y="50" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uXk-lM-3qc" secondAttribute="height" multiplier="1:1" id="k34-gp-HFS"/>
+                                    <constraint firstAttribute="width" secondItem="uXk-lM-3qc" secondAttribute="height" multiplier="333:286" id="reo-nX-YLH"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="reo-nX-YLH"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phrases, Lyrics or Great Thoughts..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAz-cb-446">
+                                <rect key="frame" x="163" y="320" width="274" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R50-FC-5Lw">
+                                <rect key="frame" x="45" y="371" width="510" height="61"/>
+                                <string key="text">Footprints needs to access your microphone to help you capture audio notes and add them to your footprints. If you don't allow microphone access, you won't be able to record audio notes.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QlK-Fj-3tB">
+                                <rect key="frame" x="212" y="462" width="176" height="30"/>
+                                <state key="normal" title="Allow Microphone Access"/>
+                                <connections>
+                                    <action selector="permissionAction:" destination="2yx-GO-Hk9" eventType="touchUpInside" id="Ass-6C-dBL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GAz-cb-446" firstAttribute="top" secondItem="uXk-lM-3qc" secondAttribute="bottom" constant="30" id="9yT-Fk-t0e"/>
+                            <constraint firstItem="uXk-lM-3qc" firstAttribute="width" secondItem="yXU-dv-fXn" secondAttribute="width" multiplier="0.4" id="Wrk-Br-Zek"/>
+                            <constraint firstItem="QlK-Fj-3tB" firstAttribute="centerX" secondItem="yXU-dv-fXn" secondAttribute="centerX" id="XQv-dA-vxb"/>
+                            <constraint firstItem="uXk-lM-3qc" firstAttribute="top" secondItem="kzN-w6-Fon" secondAttribute="bottom" constant="30" id="cO7-Dj-r2z"/>
+                            <constraint firstItem="R50-FC-5Lw" firstAttribute="width" secondItem="yXU-dv-fXn" secondAttribute="width" multiplier="0.85" id="fyc-1x-OoR"/>
+                            <constraint firstItem="QlK-Fj-3tB" firstAttribute="top" secondItem="R50-FC-5Lw" secondAttribute="bottom" constant="30" id="kyn-NA-GVl"/>
+                            <constraint firstItem="R50-FC-5Lw" firstAttribute="top" secondItem="GAz-cb-446" secondAttribute="bottom" constant="30" id="nPf-cE-eeX"/>
+                            <constraint firstItem="uXk-lM-3qc" firstAttribute="centerX" secondItem="yXU-dv-fXn" secondAttribute="centerX" id="uGA-R0-qpT"/>
+                            <constraint firstItem="R50-FC-5Lw" firstAttribute="centerX" secondItem="yXU-dv-fXn" secondAttribute="centerX" id="uX2-ex-nPx"/>
+                            <constraint firstItem="GAz-cb-446" firstAttribute="centerX" secondItem="yXU-dv-fXn" secondAttribute="centerX" id="wZE-bg-2ft"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uWU-lv-3Ro"/>
+                    <connections>
+                        <outlet property="headingLabel" destination="GAz-cb-446" id="9Z9-Ye-RLZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gOD-Nz-LBB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4365" y="-399"/>
+        </scene>
+        <!--Permissions Setup View Controller-->
+        <scene sceneID="Jjd-dM-CZr">
+            <objects>
+                <viewController storyboardIdentifier="permissionsSetupViewController" id="ahM-sU-cLO" customClass="PermissionsSetupViewController" customModule="Footprints" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FbZ-SH-4K9"/>
+                        <viewControllerLayoutGuide type="bottom" id="CqK-9x-ww0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jZD-RG-idW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="done" translatesAutoresizingMaskIntoConstraints="NO" id="7rk-VH-cQn">
+                                <rect key="frame" x="180" y="50" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7rk-VH-cQn" secondAttribute="height" multiplier="333:286" id="0Mx-8E-xsW"/>
+                                    <constraint firstAttribute="width" secondItem="7rk-VH-cQn" secondAttribute="height" multiplier="1:1" id="mQF-wx-OIR"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0Mx-8E-xsW"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Are Ready" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdM-f5-2Lh">
+                                <rect key="frame" x="244" y="320" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2W-Fp-oZG">
+                                <rect key="frame" x="45" y="371" width="510" height="61"/>
+                                <string key="text">You're all set! Time to start building your greatest memories. Start by creating your first footprint by tapping the 'Footprint' tab button. Enjoy the app.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaA-Oe-bS3">
+                                <rect key="frame" x="282" y="462" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="permissionAction:" destination="ahM-sU-cLO" eventType="touchUpInside" id="YGv-Rx-yFQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="VaA-Oe-bS3" firstAttribute="centerX" secondItem="jZD-RG-idW" secondAttribute="centerX" id="2Jc-Wg-ukz"/>
+                            <constraint firstItem="7rk-VH-cQn" firstAttribute="top" secondItem="FbZ-SH-4K9" secondAttribute="bottom" constant="30" id="887-dz-Aq0"/>
+                            <constraint firstItem="7rk-VH-cQn" firstAttribute="width" secondItem="jZD-RG-idW" secondAttribute="width" multiplier="0.4" id="GzJ-C9-g4B"/>
+                            <constraint firstItem="U2W-Fp-oZG" firstAttribute="centerX" secondItem="jZD-RG-idW" secondAttribute="centerX" id="LoT-JX-8wV"/>
+                            <constraint firstItem="U2W-Fp-oZG" firstAttribute="width" secondItem="jZD-RG-idW" secondAttribute="width" multiplier="0.85" id="P8m-c5-DQH"/>
+                            <constraint firstItem="U2W-Fp-oZG" firstAttribute="top" secondItem="NdM-f5-2Lh" secondAttribute="bottom" constant="30" id="QY1-RY-t1u"/>
+                            <constraint firstItem="NdM-f5-2Lh" firstAttribute="top" secondItem="7rk-VH-cQn" secondAttribute="bottom" constant="30" id="b0z-cQ-dVW"/>
+                            <constraint firstItem="7rk-VH-cQn" firstAttribute="centerX" secondItem="jZD-RG-idW" secondAttribute="centerX" id="cEI-X4-hiI"/>
+                            <constraint firstItem="VaA-Oe-bS3" firstAttribute="top" secondItem="U2W-Fp-oZG" secondAttribute="bottom" constant="30" id="diA-QL-f1k"/>
+                            <constraint firstItem="NdM-f5-2Lh" firstAttribute="centerX" secondItem="jZD-RG-idW" secondAttribute="centerX" id="mbn-R5-mXd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aeH-qz-zSx"/>
+                    <connections>
+                        <outlet property="headingLabel" destination="NdM-f5-2Lh" id="HdN-IL-AkF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wOU-eJ-rEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5177" y="-399"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="E6k-qj-2IS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WVL-ab-7AW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home" id="g74-2X-9gC">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="1mU-cs-7cn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qdg-cM-rgt" kind="relationship" relationship="rootViewController" id="Ju3-HF-Dlv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQD-oS-ssz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="363"/>
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="338" height="338"/>
+        <image name="done" width="338" height="338"/>
+        <image name="grid" width="22" height="22"/>
+        <image name="home" width="28" height="28"/>
         <image name="logo" width="333" height="286"/>
+        <image name="mic" width="338" height="338"/>
+        <image name="no_content" width="338" height="338"/>
+        <image name="world" width="338" height="338"/>
     </resources>
 </document>
