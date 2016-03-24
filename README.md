@@ -7,6 +7,3 @@ Bookmark your favorite ones to easily find them. Search your footprints by title
 Track your footprints in the world by locating them on a map. Cover the entire world with your footprints!
 
 Footprints is the best place to save the best experiences of your life, whether it's an amazing place you traveled to, an unforgettable date with your special someone, or that stunning dish you ate.
-
-Available on the App Store
-https://itunes.apple.com/us/app/footprints-your-fondest-memories/id1058674366?mt=8
