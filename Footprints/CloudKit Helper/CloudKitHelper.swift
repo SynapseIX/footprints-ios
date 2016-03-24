@@ -13,7 +13,7 @@ class CloudKitHelper {
 
     private static let database = CKContainer.defaultContainer().privateCloudDatabase;
     
-    class func checkAccountStatus(onAvailable: () -> Void, onNoAccount: () -> Void, onRestricted: () -> Void, onError: () -> Void) {
+    class func checkAccountStatus(onAvailable: () -> Void, onNoAccount: () -> Void, onRestricted: () -> Void, onError: (error: NSError?) -> Void) {
         CKContainer.defaultContainer().accountStatusWithCompletionHandler { accountStatus, error in
             if error == nil {
                 switch accountStatus {
@@ -28,7 +28,7 @@ class CloudKitHelper {
                     break
                 }
             } else {
-                onError()
+                onError(error: error)
             }
         }
     }
