@@ -47,6 +47,8 @@ class MyFootprintsViewController: UIViewController {
 //        }
         
         UIView.animateWithDuration(0.5) {
+            self.tableView.scrollsToTop = false
+            self.collectionView.scrollsToTop = true
             self.collectionView.alpha = 1.0
         }
     }
@@ -55,6 +57,8 @@ class MyFootprintsViewController: UIViewController {
         navigationItem.rightBarButtonItem = gridButton
         
         UIView.animateWithDuration(0.5) {
+            self.collectionView.scrollsToTop = false
+            self.tableView.scrollsToTop = true
             self.collectionView.alpha = 0.0
         }
     }
