@@ -117,18 +117,18 @@ class MyFootprintsViewController: UIViewController {
                         self.refreshControl.endRefreshing()
                     }
                     
-                    CloudKitHelper.fetchFootprintsPictures { error in
-                        if (error == nil) {
-                            dispatch_async(dispatch_get_main_queue()) {
-                                self.tableView.reloadData()
-                                self.collectionView.reloadData()
-                            }
-                        } else {
-                            dispatch_async(dispatch_get_main_queue()) {
-                                AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
-                            }
-                        }
-                    }
+//                    CloudKitHelper.fetchFootprintsPictures { error in
+//                        if (error == nil) {
+//                            dispatch_async(dispatch_get_main_queue()) {
+//                                self.tableView.reloadData()
+//                                self.collectionView.reloadData()
+//                            }
+//                        } else {
+//                            dispatch_async(dispatch_get_main_queue()) {
+//                                AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
+//                            }
+//                        }
+//                    }
                 }
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -145,7 +145,7 @@ class MyFootprintsViewController: UIViewController {
     // MARK: - Cell configuration methods
     
     func configureCell(cell: FootprintTableViewCell, indexPath: NSIndexPath) {
-        let footprint = CloudKitHelper.allFootprints[indexPath.row]
+        var footprint = CloudKitHelper.allFootprints[indexPath.row]
         
         cell.titleLabel.font = AppTheme.defaultMediumFont?.fontWithSize(16.0)
         cell.titleLabel.textColor = AppTheme.darkGrayColor
@@ -155,8 +155,19 @@ class MyFootprintsViewController: UIViewController {
         cell.dateLabel.textColor = AppTheme.darkGrayColor
         cell.dateLabel.text = AppUtils.formattedStringFromDate(footprint.date)
         
+        cell.pictureImageView.image = UIImage(named: "default_picture")
+        
         if let picture = footprint.picture {
             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
+        } else {
+            CloudKitHelper.fetchFootprintPicture(&footprint) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let picture = footprint.picture {
+                        cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
+                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    }
+                }
+            }
         }
     }
     
@@ -248,6 +259,7 @@ extension MyFootprintsViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
 }
 
 
