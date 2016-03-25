@@ -84,8 +84,10 @@ class CloudKitHelper {
         
         operation.recordFetchedBlock = { record in
             if let footprint = allFootprints.filter({$0.recordID == record.recordID}).first {
-                let asset = record["picture"] as! CKAsset
-                footprint.picture = asset.fileURL
+                if footprint.picture == nil {
+                    let asset = record["picture"] as! CKAsset
+                    footprint.picture = asset.fileURL
+                }
             }
         }
         
