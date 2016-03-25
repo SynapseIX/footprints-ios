@@ -25,15 +25,25 @@
                                     <constraint firstAttribute="width" secondItem="TBc-uA-lBZ" secondAttribute="height" multiplier="333:286" id="jpM-Sv-x3l"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW5-hl-29i">
+                                <rect key="frame" x="282" y="429" width="37" height="30"/>
+                                <state key="normal" title="Retry"/>
+                                <connections>
+                                    <action selector="retryAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcA-wV-XqZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="TBc-uA-lBZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Zw-Ah-8iu"/>
                             <constraint firstItem="TBc-uA-lBZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cil-z3-3me"/>
+                            <constraint firstItem="eW5-hl-29i" firstAttribute="centerX" secondItem="TBc-uA-lBZ" secondAttribute="centerX" id="iyf-iG-3ct"/>
                             <constraint firstItem="TBc-uA-lBZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.33" id="qqd-Ba-d2z"/>
+                            <constraint firstItem="eW5-hl-29i" firstAttribute="top" secondItem="TBc-uA-lBZ" secondAttribute="bottom" constant="30" id="w48-PC-PKn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="retryButton" destination="eW5-hl-29i" id="9YS-xk-5x3"/>
                         <segue destination="3LW-SN-cPq" kind="presentation" identifier="permissionsNavigationControllerSegue" id="mUn-dD-v7X"/>
                         <segue destination="jCG-oa-57G" kind="presentation" identifier="mainTabBarControllerSegue" modalTransitionStyle="flipHorizontal" id="fOc-tg-bDM"/>
                     </connections>

@@ -10,9 +10,11 @@ import UIKit
 
 class AppError {
     
-    class func handleAsAlert(title: String?, message: String?, presentingViewController: UIViewController, completion: ((action: UIAlertAction) -> Void)?) {
+    class func handleAsAlert(title: String?, message: String?, presentingViewController: UIViewController, completion: (() -> Void)?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: completion)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: { action in
+            completion?()
+        })
         
         alert.addAction(dismissAction)
         presentingViewController.presentViewController(alert, animated: true, completion: nil)
