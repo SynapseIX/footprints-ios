@@ -72,7 +72,7 @@ class CloudKitHelper {
         database.addOperation(operation)
     }
     
-    class func fetchFootprintPicture(inout footprint: Footprint, completion: () -> Void) {
+    class func fetchFootprintPicture(inout footprint: Footprint, completion: (error: NSError?) -> Void) {
         if footprint.picture == nil {
             let predicate = NSPredicate(format: "recordID == %@", footprint.recordID)
             let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
@@ -89,14 +89,14 @@ class CloudKitHelper {
             }
             
             operation.queryCompletionBlock = { cursor, error in
-                completion()
+                completion(error: error)
             }
             
             database.addOperation(operation)
         }
     }
     
-    class func fetchFootprintAudio(inout footprint: Footprint, completion: () -> Void) {
+    class func fetchFootprintAudio(inout footprint: Footprint, completion: (error: NSError?) -> Void) {
         if footprint.audio == nil {
             let predicate = NSPredicate(format: "recordID == %@", footprint.recordID)
             let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
@@ -113,7 +113,7 @@ class CloudKitHelper {
             }
             
             operation.queryCompletionBlock = { cursor, error in
-                completion()
+                completion(error: error)
             }
             
             database.addOperation(operation)

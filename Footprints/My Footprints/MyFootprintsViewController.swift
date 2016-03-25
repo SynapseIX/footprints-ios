@@ -147,11 +147,17 @@ class MyFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            CloudKitHelper.fetchFootprintPicture(&footprint) {
-                dispatch_async(dispatch_get_main_queue()) {
-                    if let picture = footprint.picture {
-                        cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
-                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            CloudKitHelper.fetchFootprintPicture(&footprint) { error in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if let picture = footprint.picture {
+                            cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
+                            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                        }
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
                     }
                 }
             }
@@ -166,11 +172,17 @@ class MyFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            CloudKitHelper.fetchFootprintPicture(&footprint) {
-                dispatch_async(dispatch_get_main_queue()) {
-                    if let picture = footprint.picture {
-                        imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
+            CloudKitHelper.fetchFootprintPicture(&footprint) { error in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if let picture = footprint.picture {
+                            imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
+                            self.collectionView.reloadItemsAtIndexPaths([indexPath])
+                        }
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
                     }
                 }
             }
