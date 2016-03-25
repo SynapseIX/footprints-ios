@@ -95,4 +95,28 @@ class CloudKitHelper {
             database.addOperation(operation)
         }
     }
+    
+    class func fetchFootprintAudio(inout footprint: Footprint, completion: () -> Void) {
+        if footprint.audio == nil {
+            let predicate = NSPredicate(format: "recordID == %@", footprint.recordID)
+            let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+            
+            let query = CKQuery(recordType: "Footprint", predicate: predicate)
+            query.sortDescriptors = [sortDescriptor]
+            
+            let operation = CKQueryOperation(query: query)
+            operation.desiredKeys = ["audio"]
+            
+            operation.recordFetchedBlock = { record in
+                let asset = record["audio"] as! CKAsset
+                footprint.audio = asset.fileURL
+            }
+            
+            operation.queryCompletionBlock = { cursor, error in
+                completion()
+            }
+            
+            database.addOperation(operation)
+        }
+    }
 }
