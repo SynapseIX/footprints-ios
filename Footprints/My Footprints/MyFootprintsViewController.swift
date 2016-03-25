@@ -116,19 +116,6 @@ class MyFootprintsViewController: UIViewController {
                     if self.refreshControl.refreshing {
                         self.refreshControl.endRefreshing()
                     }
-                    
-//                    CloudKitHelper.fetchFootprintsPictures { error in
-//                        if (error == nil) {
-//                            dispatch_async(dispatch_get_main_queue()) {
-//                                self.tableView.reloadData()
-//                                self.collectionView.reloadData()
-//                            }
-//                        } else {
-//                            dispatch_async(dispatch_get_main_queue()) {
-//                                AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
-//                            }
-//                        }
-//                    }
                 }
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -171,11 +158,22 @@ class MyFootprintsViewController: UIViewController {
         }
     }
     
-    func configureCell(cell: UICollectionViewCell, indexPath: NSIndexPath, footprint: Footprint) {
+    func configureCell(cell: UICollectionViewCell, indexPath: NSIndexPath, inout footprint: Footprint) {
         let imageView = cell.viewWithTag(1) as! UIImageView
         
-        if let pictureURL = footprint.picture {
-            imageView.image = UIImage(data: NSData(contentsOfURL: pictureURL)!)
+        imageView.image = UIImage(named: "default_picture")
+        
+        if let picture = footprint.picture {
+            imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
+        } else {
+            CloudKitHelper.fetchFootprintPicture(&footprint) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let picture = footprint.picture {
+                        imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
+                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    }
+                }
+            }
         }
         
     }
@@ -252,10 +250,10 @@ extension MyFootprintsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let footprint = CloudKitHelper.allFootprints[indexPath.item]
+        var footprint = CloudKitHelper.allFootprints[indexPath.item]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(collectionViewCellIdentifier, forIndexPath: indexPath)
         
-        configureCell(cell, indexPath: indexPath, footprint: footprint)
+        configureCell(cell, indexPath: indexPath, footprint: &footprint)
         
         return cell
     }
