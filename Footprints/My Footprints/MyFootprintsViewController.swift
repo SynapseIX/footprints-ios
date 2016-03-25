@@ -152,7 +152,6 @@ class MyFootprintsViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                         if let picture = footprint.picture {
                             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
-                            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                         }
                     }
                 } else {
@@ -177,7 +176,6 @@ class MyFootprintsViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                         if let picture = footprint.picture {
                             imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
-                            self.collectionView.reloadItemsAtIndexPaths([indexPath])
                         }
                     }
                 } else {
