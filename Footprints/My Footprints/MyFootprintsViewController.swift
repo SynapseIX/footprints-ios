@@ -10,10 +10,12 @@ import UIKit
 import CloudKit
 
 let tableViewCellIdentifier = "ListCell"
+let collectionViewCellIdentifier = "CollectionCell"
 
 class MyFootprintsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingView: UIView!
     
@@ -37,12 +39,24 @@ class MyFootprintsViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func gridAction(sender: AnyObject) {
-        // TODO: implement
+    func gridAction(sender: AnyObject) {
+        navigationItem.rightBarButtonItem = listButton
+        
+//        if searchBar.isFirstResponder() {
+//            searchBar.resignFirstResponder()
+//        }
+        
+        UIView.animateWithDuration(0.5) {
+            self.collectionView.alpha = 1.0
+        }
     }
     
-    @IBAction func listAction(sender: AnyObject) {
-        // TODO: implement
+    func listAction(sender: AnyObject) {
+        navigationItem.rightBarButtonItem = gridButton
+        
+        UIView.animateWithDuration(0.5) {
+            self.collectionView.alpha = 0.0
+        }
     }
     
     // MARK: - UI Methods
@@ -93,6 +107,7 @@ class MyFootprintsViewController: UIViewController {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.loadingView.hidden = true
                     self.tableView.reloadData()
+                    self.collectionView.reloadData()
                     
                     if self.refreshControl.refreshing {
                         self.refreshControl.endRefreshing()
@@ -102,6 +117,7 @@ class MyFootprintsViewController: UIViewController {
                         if (error == nil) {
                             dispatch_async(dispatch_get_main_queue()) {
                                 self.tableView.reloadData()
+                                self.collectionView.reloadData()
                             }
                         } else {
                             dispatch_async(dispatch_get_main_queue()) {
@@ -123,6 +139,7 @@ class MyFootprintsViewController: UIViewController {
     }
     
     // MARK: - Cell configuration methods
+    
     func configureCell(cell: FootprintTableViewCell, indexPath: NSIndexPath) {
         let footprint = CloudKitHelper.allFootprints[indexPath.row]
         
@@ -137,6 +154,15 @@ class MyFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
         }
+    }
+    
+    func configureCell(cell: UICollectionViewCell, indexPath: NSIndexPath, footprint: Footprint) {
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        
+        if let pictureURL = footprint.picture {
+            imageView.image = UIImage(data: NSData(contentsOfURL: pictureURL)!)
+        }
+        
     }
 
 }
@@ -192,12 +218,51 @@ extension MyFootprintsViewController: UITableViewDelegate {
         if DeviceModel.iPhone4 || DeviceModel.iPhone5  {
             return 450.0
         } else if DeviceModel.iPhone6 {
-            return 485.0
+            return 500.0
         } else if DeviceModel.iPhone6Plus {
             return 540.0
         }
         
         return 0.0
+    }
+    
+}
+
+// MARK: - Collection view data source
+
+extension MyFootprintsViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return CloudKitHelper.allFootprints.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let footprint = CloudKitHelper.allFootprints[indexPath.item]
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(collectionViewCellIdentifier, forIndexPath: indexPath)
+        
+        configureCell(cell, indexPath: indexPath, footprint: footprint)
+        
+        return cell
+    }
+}
+
+
+// MARK: - Collection view delegate
+
+extension MyFootprintsViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let footprint = CloudKitHelper.allFootprints[indexPath.item]
+        
+        // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let width = (UIScreen.mainScreen().bounds.size.width / 2.0)
+        let height = width
+        
+        return CGSizeMake(width, height)
     }
     
 }

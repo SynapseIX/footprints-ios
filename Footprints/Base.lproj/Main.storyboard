@@ -140,6 +140,41 @@
                                     <outlet property="delegate" destination="Qdg-cM-rgt" id="tjg-Rr-xIi"/>
                                 </connections>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="urR-sk-3wy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="vUd-OC-CJf">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="Dbr-fZ-1wC">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_picture" translatesAutoresizingMaskIntoConstraints="NO" id="jD1-YQ-FIz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="jD1-YQ-FIz" firstAttribute="height" secondItem="Dbr-fZ-1wC" secondAttribute="height" id="4DK-zH-V7y"/>
+                                            <constraint firstItem="jD1-YQ-FIz" firstAttribute="width" secondItem="Dbr-fZ-1wC" secondAttribute="width" id="9Ip-cb-rp4"/>
+                                            <constraint firstItem="jD1-YQ-FIz" firstAttribute="centerX" secondItem="Dbr-fZ-1wC" secondAttribute="centerX" id="UFn-0R-HI6"/>
+                                            <constraint firstItem="jD1-YQ-FIz" firstAttribute="centerY" secondItem="Dbr-fZ-1wC" secondAttribute="centerY" id="nOL-rm-FK7"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qdg-cM-rgt" id="AiD-jC-Kxe"/>
+                                    <outlet property="delegate" destination="Qdg-cM-rgt" id="fj7-Jj-lsS"/>
+                                </connections>
+                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNx-gz-77N">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <subviews>
@@ -157,11 +192,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="urR-sk-3wy" firstAttribute="width" secondItem="q4n-Zd-YRl" secondAttribute="width" id="0Nj-oS-fwa"/>
                             <constraint firstItem="f1D-e7-WmR" firstAttribute="centerX" secondItem="q4n-Zd-YRl" secondAttribute="centerX" id="BX1-Dn-fjH"/>
+                            <constraint firstItem="urR-sk-3wy" firstAttribute="centerY" secondItem="q4n-Zd-YRl" secondAttribute="centerY" id="HuH-3q-VTS"/>
                             <constraint firstItem="f1D-e7-WmR" firstAttribute="height" secondItem="q4n-Zd-YRl" secondAttribute="height" id="NPr-Af-CJE"/>
                             <constraint firstItem="xNx-gz-77N" firstAttribute="height" secondItem="q4n-Zd-YRl" secondAttribute="height" id="Uuk-je-3p6"/>
                             <constraint firstItem="xNx-gz-77N" firstAttribute="width" secondItem="q4n-Zd-YRl" secondAttribute="width" id="Z10-QK-Ya5"/>
                             <constraint firstItem="xNx-gz-77N" firstAttribute="centerY" secondItem="q4n-Zd-YRl" secondAttribute="centerY" id="dau-eE-HVx"/>
+                            <constraint firstItem="urR-sk-3wy" firstAttribute="height" secondItem="q4n-Zd-YRl" secondAttribute="height" id="hcz-xI-89q"/>
+                            <constraint firstItem="urR-sk-3wy" firstAttribute="centerX" secondItem="q4n-Zd-YRl" secondAttribute="centerX" id="iGg-oi-ZmS"/>
                             <constraint firstItem="xNx-gz-77N" firstAttribute="centerX" secondItem="q4n-Zd-YRl" secondAttribute="centerX" id="oZp-l6-gDh"/>
                             <constraint firstItem="f1D-e7-WmR" firstAttribute="centerY" secondItem="q4n-Zd-YRl" secondAttribute="centerY" id="vYy-52-Rlr"/>
                             <constraint firstItem="f1D-e7-WmR" firstAttribute="width" secondItem="q4n-Zd-YRl" secondAttribute="width" id="xvF-Vd-ORp"/>
@@ -171,6 +210,7 @@
                         <barButtonItem key="rightBarButtonItem" enabled="NO" image="grid" id="yFA-s5-jGE"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="urR-sk-3wy" id="QvD-Wg-17E"/>
                         <outlet property="loadingView" destination="xNx-gz-77N" id="1ZU-hj-Y7j"/>
                         <outlet property="tableView" destination="f1D-e7-WmR" id="pib-KQ-iuT"/>
                     </connections>
@@ -492,6 +532,7 @@
     </scenes>
     <resources>
         <image name="camera" width="338" height="338"/>
+        <image name="default_picture" width="338" height="338"/>
         <image name="done" width="338" height="338"/>
         <image name="grid" width="22" height="22"/>
         <image name="home" width="28" height="28"/>
