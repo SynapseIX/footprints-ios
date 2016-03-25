@@ -29,7 +29,7 @@ class AppUtils {
     class func formattedStringFromDate(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         // dateFormatter.dateFormat = "MMM d, h:mm a"
-        dateFormatter.dateFormat = "EEEE MMMM d, yyyy"
+        dateFormatter.dateFormat = "EEEE MMMM d, yyyy at hh:mm a"
         
         return dateFormatter.stringFromDate(date)
     }

@@ -123,7 +123,7 @@
         <!--MY FOOTPRINTS-->
         <scene sceneID="sr2-na-OTo">
             <objects>
-                <viewController id="Qdg-cM-rgt" sceneMemberID="viewController">
+                <viewController id="Qdg-cM-rgt" customClass="MyFootprintsViewController" customModule="Footprints" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vqf-7D-eWv"/>
                         <viewControllerLayoutGuide type="bottom" id="bAB-Mj-yse"/>
@@ -132,21 +132,48 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_content" translatesAutoresizingMaskIntoConstraints="NO" id="f2W-Zf-e2H">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f1D-e7-WmR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                            </imageView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qdg-cM-rgt" id="Fhw-it-6wx"/>
+                                    <outlet property="delegate" destination="Qdg-cM-rgt" id="tjg-Rr-xIi"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNx-gz-77N">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="UNO-ra-Ovb">
+                                        <rect key="frame" x="281" y="250" width="37" height="37"/>
+                                        <color key="color" red="0.93725490196078431" green="0.26666666666666666" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="UNO-ra-Ovb" firstAttribute="centerX" secondItem="xNx-gz-77N" secondAttribute="centerX" id="Obe-30-2Mp"/>
+                                    <constraint firstItem="UNO-ra-Ovb" firstAttribute="centerY" secondItem="xNx-gz-77N" secondAttribute="centerY" id="pGL-Ng-9UM"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="f2W-Zf-e2H" firstAttribute="width" secondItem="q4n-Zd-YRl" secondAttribute="width" id="F5J-zx-dJ0"/>
-                            <constraint firstItem="f2W-Zf-e2H" firstAttribute="centerX" secondItem="q4n-Zd-YRl" secondAttribute="centerX" id="Y3Y-ni-0hw"/>
-                            <constraint firstItem="f2W-Zf-e2H" firstAttribute="centerY" secondItem="q4n-Zd-YRl" secondAttribute="centerY" id="YuN-tR-eCM"/>
-                            <constraint firstItem="f2W-Zf-e2H" firstAttribute="height" secondItem="q4n-Zd-YRl" secondAttribute="height" id="aex-CH-DkA"/>
+                            <constraint firstItem="f1D-e7-WmR" firstAttribute="centerX" secondItem="q4n-Zd-YRl" secondAttribute="centerX" id="BX1-Dn-fjH"/>
+                            <constraint firstItem="f1D-e7-WmR" firstAttribute="height" secondItem="q4n-Zd-YRl" secondAttribute="height" id="NPr-Af-CJE"/>
+                            <constraint firstItem="xNx-gz-77N" firstAttribute="height" secondItem="q4n-Zd-YRl" secondAttribute="height" id="Uuk-je-3p6"/>
+                            <constraint firstItem="xNx-gz-77N" firstAttribute="width" secondItem="q4n-Zd-YRl" secondAttribute="width" id="Z10-QK-Ya5"/>
+                            <constraint firstItem="xNx-gz-77N" firstAttribute="centerY" secondItem="q4n-Zd-YRl" secondAttribute="centerY" id="dau-eE-HVx"/>
+                            <constraint firstItem="xNx-gz-77N" firstAttribute="centerX" secondItem="q4n-Zd-YRl" secondAttribute="centerX" id="oZp-l6-gDh"/>
+                            <constraint firstItem="f1D-e7-WmR" firstAttribute="centerY" secondItem="q4n-Zd-YRl" secondAttribute="centerY" id="vYy-52-Rlr"/>
+                            <constraint firstItem="f1D-e7-WmR" firstAttribute="width" secondItem="q4n-Zd-YRl" secondAttribute="width" id="xvF-Vd-ORp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MY FOOTPRINTS" id="lt5-8v-mZD">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" image="grid" id="yFA-s5-jGE"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="loadingView" destination="xNx-gz-77N" id="1ZU-hj-Y7j"/>
+                        <outlet property="tableView" destination="f1D-e7-WmR" id="pib-KQ-iuT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynL-bm-hK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -470,7 +497,6 @@
         <image name="home" width="28" height="28"/>
         <image name="logo" width="333" height="286"/>
         <image name="mic" width="338" height="338"/>
-        <image name="no_content" width="338" height="338"/>
         <image name="world" width="338" height="338"/>
     </resources>
 </document>

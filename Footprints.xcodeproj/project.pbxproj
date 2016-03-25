@@ -23,6 +23,10 @@
 		CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48781CA4A62100B9033E /* CameraPermissionsViewController.swift */; };
 		CFDA487B1CA4A92A00B9033E /* MicrophonePermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487A1CA4A92A00B9033E /* MicrophonePermissionViewController.swift */; };
 		CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */; };
+		CFDA48801CA4B71A00B9033E /* MyFootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */; };
+		CFDA48831CA4BE4A00B9033E /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48821CA4BE4A00B9033E /* Footprint.swift */; };
+		CFDA48871CA4D4A700B9033E /* FootprintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48851CA4D4A700B9033E /* FootprintTableViewCell.swift */; };
+		CFDA48881CA4D4A700B9033E /* FootprintTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDA48861CA4D4A700B9033E /* FootprintTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +49,10 @@
 		CFDA48781CA4A62100B9033E /* CameraPermissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPermissionsViewController.swift; sourceTree = "<group>"; };
 		CFDA487A1CA4A92A00B9033E /* MicrophonePermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophonePermissionViewController.swift; sourceTree = "<group>"; };
 		CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsSetupViewController.swift; sourceTree = "<group>"; };
+		CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFootprintsViewController.swift; sourceTree = "<group>"; };
+		CFDA48821CA4BE4A00B9033E /* Footprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
+		CFDA48851CA4D4A700B9033E /* FootprintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintTableViewCell.swift; sourceTree = "<group>"; };
+		CFDA48861CA4D4A700B9033E /* FootprintTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootprintTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +87,11 @@
 		CF1BC8F01CA46F84007D3BAD /* Footprints */ = {
 			isa = PBXGroup;
 			children = (
-				CF1BC9061CA47A76007D3BAD /* CloudKit Helper */,
 				CF1BC9091CA47BE8007D3BAD /* Error */,
 				CFDA486F1CA4997D00B9033E /* Utils */,
 				CFDA486C1CA4995800B9033E /* Appearance */,
+				CF1BC9061CA47A76007D3BAD /* CloudKit Helper */,
+				CFDA48811CA4BE3D00B9033E /* Model */,
 				CFDA486B1CA498DF00B9033E /* Permissions */,
 				CFDA487E1CA4B27C00B9033E /* My Footprints */,
 				CF1BC8F11CA46F84007D3BAD /* AppDelegate.swift */,
@@ -144,8 +153,27 @@
 		CFDA487E1CA4B27C00B9033E /* My Footprints */ = {
 			isa = PBXGroup;
 			children = (
+				CFDA48841CA4CE3800B9033E /* Table View Cells */,
+				CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */,
 			);
 			path = "My Footprints";
+			sourceTree = "<group>";
+		};
+		CFDA48811CA4BE3D00B9033E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA48821CA4BE4A00B9033E /* Footprint.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CFDA48841CA4CE3800B9033E /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA48851CA4D4A700B9033E /* FootprintTableViewCell.swift */,
+				CFDA48861CA4D4A700B9033E /* FootprintTableViewCell.xib */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +242,7 @@
 			files = (
 				CF1BC8FC1CA46F84007D3BAD /* LaunchScreen.storyboard in Resources */,
 				CF1BC8F91CA46F84007D3BAD /* Assets.xcassets in Resources */,
+				CFDA48881CA4D4A700B9033E /* FootprintTableViewCell.xib in Resources */,
 				CF1BC8F71CA46F84007D3BAD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +257,7 @@
 				CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */,
 				CFDA48751CA49D3100B9033E /* WelcomeViewController.swift in Sources */,
 				CFDA48771CA4A31400B9033E /* LocationPermissionViewController.swift in Sources */,
+				CFDA48831CA4BE4A00B9033E /* Footprint.swift in Sources */,
 				CFDA487B1CA4A92A00B9033E /* MicrophonePermissionViewController.swift in Sources */,
 				CF1BC8F41CA46F84007D3BAD /* LaunchViewController.swift in Sources */,
 				CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */,
@@ -235,6 +265,8 @@
 				CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */,
 				CF1BC8F21CA46F84007D3BAD /* AppDelegate.swift in Sources */,
 				CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */,
+				CFDA48871CA4D4A700B9033E /* FootprintTableViewCell.swift in Sources */,
+				CFDA48801CA4B71A00B9033E /* MyFootprintsViewController.swift in Sources */,
 				CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */,
 				CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */,
 			);
