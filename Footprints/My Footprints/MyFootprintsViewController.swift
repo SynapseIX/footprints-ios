@@ -23,6 +23,8 @@ class MyFootprintsViewController: UIViewController {
     var listButton: UIBarButtonItem!
     var refreshControl: UIRefreshControl!
     
+    var data = [Footprint]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -42,9 +44,9 @@ class MyFootprintsViewController: UIViewController {
     func gridAction(sender: AnyObject) {
         navigationItem.rightBarButtonItem = listButton
         
-//        if searchBar.isFirstResponder() {
-//            searchBar.resignFirstResponder()
-//        }
+        if searchBar.isFirstResponder() {
+            searchBar.resignFirstResponder()
+        }
         
         UIView.animateWithDuration(0.5) {
             self.tableView.scrollsToTop = false
@@ -66,7 +68,7 @@ class MyFootprintsViewController: UIViewController {
     // MARK: - UI Methods
     
     func setupUI() {
-        //tableView.setContentOffset(CGPointMake(0, 44), animated: false)
+        tableView.setContentOffset(CGPointMake(0, 44), animated: false)
         tableView.registerNib(UINib(nibName: "FootprintTableViewCell", bundle: nil), forCellReuseIdentifier: tableViewCellIdentifier)
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
@@ -95,8 +97,9 @@ class MyFootprintsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(MyFootprintsViewController.reloadData), forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
         
-        // Removes serach bar border
-        //searchBar.backgroundImage = UIImage()
+        // Removes search bar border
+        searchBar.backgroundImage = UIImage()
+        searchBar.backgroundColor = AppTheme.lightPinkColor
     }
     
     // MARK: - Data methods
@@ -106,6 +109,7 @@ class MyFootprintsViewController: UIViewController {
         
         CloudKitHelper.fetchAllFootprintsNoAssets { error in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            self.data = CloudKitHelper.allFootprints
             
             if error == nil {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -132,7 +136,7 @@ class MyFootprintsViewController: UIViewController {
     // MARK: - Cell configuration methods
     
     func configureCell(cell: FootprintTableViewCell, indexPath: NSIndexPath) {
-        var footprint = CloudKitHelper.allFootprints[indexPath.row]
+        var footprint = data[indexPath.row]
         
         cell.titleLabel.font = AppTheme.defaultMediumFont?.fontWithSize(16.0)
         cell.titleLabel.textColor = AppTheme.darkGrayColor
@@ -195,7 +199,7 @@ class MyFootprintsViewController: UIViewController {
 extension MyFootprintsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfFootprints = CloudKitHelper.allFootprints.count
+        let numberOfFootprints = data.count
         
         if numberOfFootprints > 0 {
             navigationItem.rightBarButtonItem?.enabled = true
@@ -228,7 +232,7 @@ extension MyFootprintsViewController: UITableViewDataSource {
 extension MyFootprintsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let footprint = CloudKitHelper.allFootprints[indexPath.row]
+        let footprint = data[indexPath.row]
         
         // Keeps insets visible
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
@@ -256,11 +260,11 @@ extension MyFootprintsViewController: UITableViewDelegate {
 extension MyFootprintsViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CloudKitHelper.allFootprints.count
+        return data.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var footprint = CloudKitHelper.allFootprints[indexPath.item]
+        var footprint = data[indexPath.item]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(collectionViewCellIdentifier, forIndexPath: indexPath)
         
         configureCell(cell, indexPath: indexPath, footprint: &footprint)
@@ -276,7 +280,7 @@ extension MyFootprintsViewController: UICollectionViewDataSource {
 extension MyFootprintsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let footprint = CloudKitHelper.allFootprints[indexPath.item]
+        let footprint = data[indexPath.item]
         
         // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
     }
@@ -287,6 +291,34 @@ extension MyFootprintsViewController: UICollectionViewDelegateFlowLayout {
         let height = width
         
         return CGSizeMake(width, height)
+    }
+    
+}
+
+// MARK: - Search bar delegate
+
+extension MyFootprintsViewController: UISearchBarDelegate {
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            data = data.filter {
+                let theSearch = searchText.lowercaseString
+                let title = $0.title.lowercaseString
+                let notes = $0.notes?.lowercaseString
+                let placeName = $0.placeName?.lowercaseString
+                
+                return title.containsString(theSearch) || (notes != nil && notes!.containsString(theSearch)) || (placeName != nil && placeName!.containsString(theSearch))
+            }
+        } else {
+            data = CloudKitHelper.allFootprints
+        }
+        
+        tableView.reloadData()
+        collectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
 }

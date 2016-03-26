@@ -142,9 +142,17 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f1D-e7-WmR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f1D-e7-WmR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for titles, notes or places..." id="mSA-2Q-gX4">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="Qdg-cM-rgt" id="fnA-mb-iO6"/>
+                                    </connections>
+                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="Qdg-cM-rgt" id="Fhw-it-6wx"/>
                                     <outlet property="delegate" destination="Qdg-cM-rgt" id="tjg-Rr-xIi"/>
@@ -222,6 +230,7 @@
                     <connections>
                         <outlet property="collectionView" destination="urR-sk-3wy" id="QvD-Wg-17E"/>
                         <outlet property="loadingView" destination="xNx-gz-77N" id="1ZU-hj-Y7j"/>
+                        <outlet property="searchBar" destination="mSA-2Q-gX4" id="XYs-Vv-8Dh"/>
                         <outlet property="tableView" destination="f1D-e7-WmR" id="pib-KQ-iuT"/>
                     </connections>
                 </viewController>
