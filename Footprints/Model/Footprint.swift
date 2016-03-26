@@ -18,6 +18,6 @@ class Footprint {
     var date: NSDate!
     var picture: NSURL?
     var audio: NSURL?
-    var favorite: Bool = false
+    var favorite: Int = 0
     
 }

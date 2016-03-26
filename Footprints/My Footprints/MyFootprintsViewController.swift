@@ -165,6 +165,14 @@ class MyFootprintsViewController: UIViewController {
                 }
             }
         }
+        
+        if footprint.favorite == 1 {
+            cell.favoriteButton.setImage(UIImage(named: "favorite_selected"), forState: .Normal)
+        } else {
+            cell.favoriteButton.setImage(UIImage(named: "favorite_not_selected"), forState: .Normal)
+        }
+        
+        cell.favoriteButton.addTarget(self, action: #selector(MyFootprintsViewController.favoriteFootprint(_:)), forControlEvents: .TouchUpInside)
     }
     
     func configureCell(cell: UICollectionViewCell, indexPath: NSIndexPath, inout footprint: Footprint) {
@@ -190,6 +198,38 @@ class MyFootprintsViewController: UIViewController {
             }
         }
         
+    }
+    
+    // MARK: - Favorite handler
+    
+    func favoriteFootprint(sender: UIButton) {
+        let buttonPointOnTableView = sender.convertPoint(CGPointZero, toView: tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(buttonPointOnTableView)
+        let footprint = data[indexPath!.row]
+        
+        if footprint.favorite == 1 {
+            footprint.favorite = 0
+            sender.setImage(UIImage(named: "favorite_not_selected"), forState: .Normal)
+        } else {
+            footprint.favorite = 1
+            sender.setImage(UIImage(named: "favorite_selected"), forState: .Normal)
+        }
+        
+        tableView.reloadData()
+        
+        CloudKitHelper.saveFootprint(footprint) { error in
+            if error == nil {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
+            } else {
+                if error!.code != 14 {
+                    AppError.handleAsAlert("Error", message: error!.localizedDescription, presentingViewController: self, completion: nil)
+                } else {
+                    NSLog("\(error), \(error!.userInfo)")
+                }
+            }
+        }
     }
 
 }
