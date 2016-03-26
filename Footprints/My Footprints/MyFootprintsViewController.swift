@@ -217,7 +217,7 @@ class MyFootprintsViewController: UIViewController {
         
         tableView.reloadData()
         
-        CloudKitHelper.saveFootprint(footprint) { error in
+        CloudKitHelper.saveFootprint(footprint) { record, error in
             if error == nil {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.tableView.reloadData()

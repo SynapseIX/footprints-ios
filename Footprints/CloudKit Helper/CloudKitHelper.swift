@@ -127,7 +127,7 @@ class CloudKitHelper {
     
     // MARK: - Save methods
     
-    class func saveFootprint(footprint: Footprint, completion:(error: NSError?) -> Void) {
+    class func saveFootprint(footprint: Footprint, completion:(record: CKRecord?, error: NSError?) -> Void) {
         if let recordID = footprint.recordID {
             database.fetchRecordWithID(recordID) { record, error in
                 if error == nil {
@@ -148,15 +148,15 @@ class CloudKitHelper {
                         }
                         
                         database.saveRecord(fetchedRecord) { record, error in
-                            completion(error: error)
+                            completion(record: record, error: error)
                         }
                     }
                 } else {
-                    completion(error: error)
+                    completion(record: record, error: error)
                 }
             }
         } else {
-            // TODO: this is a new footprint, create new record and save it
+            // TODO: this is a new footprint, create new record and save it, add it to allFootprints
         }
     }
 }
