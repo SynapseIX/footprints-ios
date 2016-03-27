@@ -27,6 +27,7 @@
 		CFDA48831CA4BE4A00B9033E /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48821CA4BE4A00B9033E /* Footprint.swift */; };
 		CFF1C5DD1CA7891A00E19D9E /* FootprintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */; };
 		CFF1C5DE1CA7891A00E19D9E /* FootprintTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */; };
+		CFF1C5E41CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5E31CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		CFDA48821CA4BE4A00B9033E /* Footprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
 		CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintTableViewCell.swift; sourceTree = "<group>"; };
 		CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootprintTableViewCell.xib; sourceTree = "<group>"; };
+		CFF1C5E31CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFavoriteFootprintsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				CFDA48811CA4BE3D00B9033E /* Model */,
 				CFDA486B1CA498DF00B9033E /* Permissions */,
 				CFDA487E1CA4B27C00B9033E /* My Footprints */,
+				CFF1C5E21CA85A6900E19D9E /* My Favorite Footprints */,
 				CF1BC8F11CA46F84007D3BAD /* AppDelegate.swift */,
 				CF1BC8F31CA46F84007D3BAD /* LaunchViewController.swift */,
 				CF1BC8F51CA46F84007D3BAD /* Main.storyboard */,
@@ -176,6 +179,14 @@
 			path = "Table View Cell";
 			sourceTree = "<group>";
 		};
+		CFF1C5E21CA85A6900E19D9E /* My Favorite Footprints */ = {
+			isa = PBXGroup;
+			children = (
+				CFF1C5E31CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift */,
+			);
+			path = "My Favorite Footprints";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF1C5E41CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift in Sources */,
 				CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */,
 				CFDA48751CA49D3100B9033E /* WelcomeViewController.swift in Sources */,
 				CFDA48771CA4A31400B9033E /* LocationPermissionViewController.swift in Sources */,

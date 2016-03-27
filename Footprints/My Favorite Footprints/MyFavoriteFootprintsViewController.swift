@@ -1,19 +1,16 @@
 //
-//  MyFootprintsViewController.swift
+//  MyFavoriteFootprintsViewController.swift
 //  Footprints
 //
-//  Created by Jorge Tapia on 3/24/16.
+//  Created by Jorge Tapia on 3/27/16.
 //  Copyright © 2016 Jorge Tapia. All rights reserved.
 //
 
 import UIKit
 import Social
 
-let tableViewCellIdentifier = "ListCell"
-let collectionViewCellIdentifier = "CollectionCell"
+class MyFavoriteFootprintsViewController: UIViewController {
 
-class MyFootprintsViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -35,12 +32,9 @@ class MyFootprintsViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if (data.count == 0) {
-            reloadData()
-        }
+        reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -100,10 +94,10 @@ class MyFootprintsViewController: UIViewController {
         // Setup footprint tab bar item
         // TODO: uncomment once implemented
         /*let tabBarItemImage = UIImage(named: "footprints_tab")?.imageWithRenderingMode(.AlwaysOriginal)
-        let footprintTabBarItem = tabBarController?.tabBar.items?[2]
-        
-        footprintTabBarItem?.selectedImage = tabBarItemImage
-        footprintTabBarItem?.image = tabBarItemImage*/
+         let footprintTabBarItem = tabBarController?.tabBar.items?[2]
+         
+         footprintTabBarItem?.selectedImage = tabBarItemImage
+         footprintTabBarItem?.image = tabBarItemImage*/
         
         // Remove navigation bar border
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -131,31 +125,16 @@ class MyFootprintsViewController: UIViewController {
     // MARK: - Data methods
     
     func reloadData() {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        data = CloudKitHelper.allFootprints.filter {
+            $0.favorite == 1
+        }
         
-        CloudKitHelper.fetchAllFootprintsNoAssets { error in
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            self.data = CloudKitHelper.allFootprints
-            
-            if error == nil {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.loadingView.hidden = true
-                    self.tableView.reloadData()
-                    self.collectionView.reloadData()
-                    
-                    if self.refreshControl.refreshing {
-                        self.refreshControl.endRefreshing()
-                    }
-                }
-            } else {
-                dispatch_async(dispatch_get_main_queue()) {
-                    if self.refreshControl.refreshing {
-                        self.refreshControl.endRefreshing()
-                    }
-                    
-                    AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
-                }
-            }
+        loadingView.hidden = true
+        tableView.reloadData()
+        collectionView.reloadData()
+        
+        if refreshControl.refreshing {
+            refreshControl.endRefreshing()
         }
     }
     
@@ -250,12 +229,12 @@ class MyFootprintsViewController: UIViewController {
             sender.setImage(UIImage(named: "favorite_selected"), forState: .Normal)
         }
         
-        tableView.reloadData()
+        reloadData()
         
         CloudKitHelper.saveFootprint(footprint) { record, error in
             if error == nil {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.tableView.reloadData()
+                    self.reloadData()
                 }
             } else {
                 if error!.code != 14 {
@@ -326,7 +305,7 @@ class MyFootprintsViewController: UIViewController {
         
         let twitterImage = UIImage(named: "twitter")!.imageWithRenderingMode(.AlwaysOriginal)
         twitterAction.setValue(twitterImage, forKey: "image")
-            
+        
         alert.addAction(twitterAction)
         
         // Instagram action
@@ -366,12 +345,12 @@ class MyFootprintsViewController: UIViewController {
         alert.view.tintColor = AppTheme.disabledColor
         presentViewController(alert, animated: true, completion: nil)
     }
-
+    
 }
 
 // MARK: - Table view data source
 
-extension MyFootprintsViewController: UITableViewDataSource {
+extension MyFavoriteFootprintsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfFootprints = data.count
@@ -382,7 +361,7 @@ extension MyFootprintsViewController: UITableViewDataSource {
         } else {
             navigationItem.rightBarButtonItem?.enabled = false
             
-            let noContentImageView = UIImageView(image: UIImage(named: "no_content"))
+            let noContentImageView = UIImageView(image: UIImage(named: "no_favorites"))
             noContentImageView.contentMode = .ScaleAspectFit
             noContentImageView.backgroundColor = UIColor.whiteColor()
             
@@ -404,7 +383,7 @@ extension MyFootprintsViewController: UITableViewDataSource {
 
 // MARK: - Table view delegate
 
-extension MyFootprintsViewController: UITableViewDelegate {
+extension MyFavoriteFootprintsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let footprint = data[indexPath.row]
@@ -421,7 +400,7 @@ extension MyFootprintsViewController: UITableViewDelegate {
 
 // MARK: - Collection view data source
 
-extension MyFootprintsViewController: UICollectionViewDataSource {
+extension MyFavoriteFootprintsViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
@@ -441,7 +420,7 @@ extension MyFootprintsViewController: UICollectionViewDataSource {
 
 // MARK: - Collection view delegate
 
-extension MyFootprintsViewController: UICollectionViewDelegateFlowLayout {
+extension MyFavoriteFootprintsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let footprint = data[indexPath.item]
@@ -462,7 +441,7 @@ extension MyFootprintsViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Search bar delegate
 
-extension MyFootprintsViewController: UISearchBarDelegate {
+extension MyFavoriteFootprintsViewController: UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
@@ -475,7 +454,9 @@ extension MyFootprintsViewController: UISearchBarDelegate {
                 return title.containsString(theSearch) || (notes != nil && notes!.containsString(theSearch)) || (placeName != nil && placeName!.containsString(theSearch))
             }
         } else {
-            data = CloudKitHelper.allFootprints
+            data = CloudKitHelper.allFootprints.filter {
+                $0.favorite == 1
+            }
         }
         
         tableView.reloadData()
