@@ -68,6 +68,8 @@ class MyFootprintsViewController: UIViewController {
     // MARK: - UI Methods
     
     func setupUI() {
+        tableView.estimatedRowHeight = 320.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.setContentOffset(CGPointMake(0, 44), animated: false)
         tableView.registerNib(UINib(nibName: "FootprintTableViewCell", bundle: nil), forCellReuseIdentifier: tableViewCellIdentifier)
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -283,18 +285,6 @@ extension MyFootprintsViewController: UITableViewDelegate {
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
         // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if DeviceModel.iPhone4 || DeviceModel.iPhone5  {
-            return 450.0
-        } else if DeviceModel.iPhone6 {
-            return 500.0
-        } else if DeviceModel.iPhone6Plus {
-            return 540.0
-        }
-        
-        return 0.0
     }
     
 }
