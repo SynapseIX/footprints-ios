@@ -89,8 +89,9 @@ class CloudKitHelper {
             operation.desiredKeys = ["picture"]
             
             operation.recordFetchedBlock = { record in
-                let asset = record["picture"] as! CKAsset
-                footprint.picture = asset.fileURL
+                if let asset = record["picture"] as? CKAsset {
+                    footprint.picture = asset.fileURL
+                }
             }
             
             operation.queryCompletionBlock = { cursor, error in
@@ -113,8 +114,9 @@ class CloudKitHelper {
             operation.desiredKeys = ["audio"]
             
             operation.recordFetchedBlock = { record in
-                let asset = record["audio"] as! CKAsset
-                footprint.audio = asset.fileURL
+                if let asset = record["audio"] as? CKAsset {
+                    footprint.audio = asset.fileURL
+                }
             }
             
             operation.queryCompletionBlock = { cursor, error in
@@ -156,7 +158,7 @@ class CloudKitHelper {
                 }
             }
         } else {
-            // TODO: this is a new footprint, create new record and save it, add it to allFootprints
+            // TODO: this is a new footprint; create a new record and save it and add it to allFootprints
         }
     }
 }

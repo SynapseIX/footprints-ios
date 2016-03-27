@@ -156,6 +156,8 @@ class MyFootprintsViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                         if let picture = footprint.picture {
                             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
+                        } else {
+                            cell.pictureImageView?.image = UIImage(named: "no_picture")
                         }
                     }
                 } else {
@@ -188,6 +190,8 @@ class MyFootprintsViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                         if let picture = footprint.picture {
                             imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
+                        } else {
+                            imageView.image = UIImage(named: "no_picture")
                         }
                     }
                 } else {
