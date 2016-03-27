@@ -14,6 +14,7 @@ class FootprintTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -35,13 +35,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3be-Ao-3NF">
-                        <rect key="frame" x="16" y="411.5" width="28" height="27"/>
+                        <rect key="frame" x="16" y="411" width="28" height="27"/>
                         <state key="normal" image="favorite_not_selected"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNQ-ee-Zeg">
+                        <rect key="frame" x="294" y="411" width="28" height="27"/>
+                        <color key="tintColor" red="0.95686274509803915" green="0.5607843137254902" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" image="share"/>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="5YK-1m-0xV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="069-72-kNN"/>
                     <constraint firstItem="46M-XP-SLl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="3eN-wp-egv"/>
+                    <constraint firstItem="ZNQ-ee-Zeg" firstAttribute="height" secondItem="3be-Ao-3NF" secondAttribute="height" id="8b2-Ij-ozh"/>
+                    <constraint firstItem="ZNQ-ee-Zeg" firstAttribute="centerY" secondItem="3be-Ao-3NF" secondAttribute="centerY" id="9DH-S1-h1o"/>
                     <constraint firstItem="3be-Ao-3NF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HBF-t8-rKa"/>
                     <constraint firstItem="VST-kh-7mf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Nfi-eg-Hsb"/>
                     <constraint firstItem="VST-kh-7mf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SAr-S1-PLs"/>
@@ -50,10 +57,12 @@
                     <constraint firstItem="VST-kh-7mf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ejc-cX-TCj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="3be-Ao-3NF" secondAttribute="bottom" constant="8" id="gPt-Ch-jbg"/>
                     <constraint firstItem="VST-kh-7mf" firstAttribute="top" secondItem="5YK-1m-0xV" secondAttribute="bottom" constant="8" id="gXv-LD-top"/>
+                    <constraint firstAttribute="trailing" secondItem="ZNQ-ee-Zeg" secondAttribute="trailing" constant="16" id="h3i-QG-Bsb"/>
                     <constraint firstItem="VST-kh-7mf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iNh-wh-NFP"/>
                     <constraint firstItem="5YK-1m-0xV" firstAttribute="top" secondItem="46M-XP-SLl" secondAttribute="bottom" id="jH3-GW-AM5"/>
                     <constraint firstItem="3be-Ao-3NF" firstAttribute="top" secondItem="VST-kh-7mf" secondAttribute="bottom" constant="16" id="l7i-fg-mBU"/>
                     <constraint firstItem="46M-XP-SLl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="nBd-iO-81W"/>
+                    <constraint firstItem="ZNQ-ee-Zeg" firstAttribute="width" secondItem="3be-Ao-3NF" secondAttribute="width" id="vH9-eJ-9Nl"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -68,6 +77,7 @@
                 <outlet property="dateLabel" destination="5YK-1m-0xV" id="d5R-6s-5xH"/>
                 <outlet property="favoriteButton" destination="3be-Ao-3NF" id="p9V-FC-D4i"/>
                 <outlet property="pictureImageView" destination="VST-kh-7mf" id="0zY-Ti-pyD"/>
+                <outlet property="shareButton" destination="ZNQ-ee-Zeg" id="WIh-NU-4ZZ"/>
                 <outlet property="titleLabel" destination="46M-XP-SLl" id="cbA-MA-cG3"/>
             </connections>
             <point key="canvasLocation" x="233" y="235.5"/>
@@ -76,5 +86,6 @@
     <resources>
         <image name="default_picture" width="338" height="338"/>
         <image name="favorite_not_selected" width="28" height="25"/>
+        <image name="share" width="28" height="28"/>
     </resources>
 </document>

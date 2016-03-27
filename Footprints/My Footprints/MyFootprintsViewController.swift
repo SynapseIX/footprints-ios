@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import Social
 
 let tableViewCellIdentifier = "ListCell"
 let collectionViewCellIdentifier = "CollectionCell"
@@ -23,6 +24,9 @@ class MyFootprintsViewController: UIViewController {
     var listButton: UIBarButtonItem!
     var refreshControl: UIRefreshControl!
     
+    var fileToShare: NSURL?
+    var documentInteractionController: UIDocumentInteractionController!
+    
     var data = [Footprint]()
     
     override func viewDidLoad() {
@@ -33,6 +37,23 @@ class MyFootprintsViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         reloadData()
+    }
+    
+    deinit {
+        let fileManager = NSFileManager.defaultManager()
+        
+        if let fileToShare = fileToShare {
+            let path = fileToShare.absoluteString
+            
+            if fileManager.fileExistsAtPath(path) {
+                do {
+                    try fileManager.removeItemAtPath(path)
+                } catch {
+                    let error = error as NSError
+                    AppError.handleAsLog(error.localizedDescription)
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +96,7 @@ class MyFootprintsViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
         // Setup footprint tab bar item
+        // TODO: uncomment once implemented
         /*let tabBarItemImage = UIImage(named: "footprints_tab")?.imageWithRenderingMode(.AlwaysOriginal)
         let footprintTabBarItem = tabBarController?.tabBar.items?[2]
         
@@ -158,8 +180,10 @@ class MyFootprintsViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                         if let picture = footprint.picture {
                             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
+                            cell.shareButton.hidden = false
                         } else {
                             cell.pictureImageView?.image = UIImage(named: "no_picture")
+                            cell.shareButton.hidden = true
                         }
                     }
                 } else {
@@ -177,6 +201,9 @@ class MyFootprintsViewController: UIViewController {
         }
         
         cell.favoriteButton.addTarget(self, action: #selector(MyFootprintsViewController.favoriteFootprint(_:)), forControlEvents: .TouchUpInside)
+        
+        cell.shareButton.hidden = footprint.picture == nil ? true : false
+        cell.shareButton.addTarget(self, action: #selector(MyFootprintsViewController.shareFootprint(_:)), forControlEvents: .TouchUpInside)
     }
     
     func configureCell(cell: UICollectionViewCell, indexPath: NSIndexPath, inout footprint: Footprint) {
@@ -237,6 +264,106 @@ class MyFootprintsViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Share handler
+    
+    func shareFootprint(sender: UIButton) {
+        let buttonPointOnTableView = sender.convertPoint(CGPointZero, toView: tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(buttonPointOnTableView)
+        let footprint = data[indexPath!.row]
+        
+        // Facebook action
+        let alert = UIAlertController(title: "Share Your Footprint", message: "Where do you want to share your footprint?", preferredStyle: .ActionSheet)
+        
+        let facebookAction = UIAlertAction(title: "Facebook", style: .Default) { action in
+            let composeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                composeViewController.completionHandler = { result in
+                    if result == .Done {
+                        NSLog("Successfully shared on Facebook.")
+                    }
+                }
+                
+                let pictureImage = UIImage(contentsOfFile: footprint.picture!.relativePath!)
+                composeViewController.addImage(pictureImage!)
+                
+                self.presentViewController(composeViewController, animated: true, completion: nil)
+            } else {
+                AppError.handleAsAlert("Sign in to Facebook", message: "You are not signed in with Facebook. On the Home screen, launch Settings, tap Facebook, and sign in to your account.", presentingViewController: self, completion: nil)
+            }
+        }
+        
+        let facebookImage = UIImage(named: "facebook")!.imageWithRenderingMode(.AlwaysOriginal)
+        facebookAction.setValue(facebookImage, forKey: "image")
+        
+        alert.addAction(facebookAction)
+        
+        // Twitter action
+        let twitterAction = UIAlertAction(title: "Twitter", style: .Default) { action in
+            let composeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                composeViewController.completionHandler = { result in
+                    if result == .Done {
+                        NSLog("Successfully shared on Twitter.")
+                    }
+                }
+                
+                composeViewController.setInitialText(AppUtils.twitterfyString("\(footprint.title) #FootprintsApp"))
+                composeViewController.addURL(AppUtils.appStoreURL)
+                
+                let pictureImage = UIImage(contentsOfFile: footprint.picture!.relativePath!)
+                composeViewController.addImage(pictureImage!)
+                
+                self.presentViewController(composeViewController, animated: true, completion: nil)
+            } else {
+                AppError.handleAsAlert("Sign in to Twitter", message: "You are not signed in with Twitter. On the Home screen, launch Settings, tap Twitter, and sign in to your account.", presentingViewController: self, completion: nil)
+            }
+        }
+        
+        let twitterImage = UIImage(named: "twitter")!.imageWithRenderingMode(.AlwaysOriginal)
+        twitterAction.setValue(twitterImage, forKey: "image")
+            
+        alert.addAction(twitterAction)
+        
+        // Instagram action
+        let instagramAction = UIAlertAction(title: "Instagram", style: .Default) { action in
+            let instagramURL = NSURL(string: "instagram://app")!
+            
+            if UIApplication.sharedApplication().canOpenURL(instagramURL) {
+                let buttonPointOnTableView = sender.convertPoint(CGPointZero, toView: self.tableView)
+                let indexPath = self.tableView.indexPathForRowAtPoint(buttonPointOnTableView)
+                let footprint = self.data[indexPath!.row]
+                
+                self.fileToShare = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("\(footprint.recordID.recordName).igo")
+                
+                if let fileToShare = self.fileToShare {
+                    let shareImage = UIImage(contentsOfFile: footprint.picture!.relativePath!)
+                    UIImageJPEGRepresentation(shareImage!, 1.0)?.writeToFile(fileToShare.relativePath!, atomically: true)
+                    
+                    self.documentInteractionController = UIDocumentInteractionController(URL: fileToShare)
+                    self.documentInteractionController.UTI = "com.instagram.exclusivegram"
+                    
+                    self.documentInteractionController.presentOpenInMenuFromRect(CGRectZero, inView: self.view, animated: true)
+                }
+            } else {
+                AppError.handleAsAlert("Instagram Not Installed", message: "Instagram is not installed. To share your footrpints on Instagram, download the app from the App Store.", presentingViewController: self, completion: nil)
+            }
+        }
+        
+        let instagramImage = UIImage(named: "instagram")!.imageWithRenderingMode(.AlwaysOriginal)
+        instagramAction.setValue(instagramImage, forKey: "image")
+        
+        alert.addAction(instagramAction)
+        
+        // Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        alert.view.tintColor = AppTheme.disabledColor
+        presentViewController(alert, animated: true, completion: nil)
+    }
 
 }
 
@@ -284,6 +411,7 @@ extension MyFootprintsViewController: UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
+        // TODO: uncomment once implemented
         // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
     }
     
@@ -316,6 +444,7 @@ extension MyFootprintsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let footprint = data[indexPath.item]
         
+        // TODO: uncomment once implemented
         // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
     }
     

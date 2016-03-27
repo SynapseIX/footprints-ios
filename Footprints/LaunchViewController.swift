@@ -48,6 +48,7 @@ class LaunchViewController: UIViewController {
     func initialize() {
         CloudKitHelper.checkAccountStatus({
             dispatch_async(dispatch_get_main_queue()) {
+                self.retryButton.alpha = 0.0
                 self.launchInitialViewController()
             }
             }, onNoAccount: {
