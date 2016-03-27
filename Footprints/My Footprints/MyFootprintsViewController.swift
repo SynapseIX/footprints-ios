@@ -163,11 +163,11 @@ class MyFootprintsViewController: UIViewController {
         var footprint = data[indexPath.row]
         
         cell.titleLabel.font = AppTheme.defaultMediumFont?.fontWithSize(16.0)
-        cell.titleLabel.textColor = AppTheme.darkGrayColor
+        cell.titleLabel.textColor = AppTheme.disabledColor
         cell.titleLabel.text = footprint.title
         
         cell.dateLabel.font = AppTheme.defaultFont?.fontWithSize(14.0)
-        cell.dateLabel.textColor = AppTheme.darkGrayColor
+        cell.dateLabel.textColor = AppTheme.disabledColor
         cell.dateLabel.text = AppUtils.formattedStringFromDate(footprint.date)
         
         cell.pictureImageView.image = UIImage(named: "default_picture")
@@ -273,7 +273,7 @@ class MyFootprintsViewController: UIViewController {
         let footprint = data[indexPath!.row]
         
         // Facebook action
-        let alert = UIAlertController(title: "Share Your Footprint", message: "Where do you want to share your footprint?", preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: footprint.title, message: "Where do you want to share your footprint?", preferredStyle: .ActionSheet)
         
         let facebookAction = UIAlertAction(title: "Facebook", style: .Default) { action in
             let composeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)

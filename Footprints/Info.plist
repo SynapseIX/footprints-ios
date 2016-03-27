@@ -42,5 +42,16 @@
     <array>
         <string>instagram</string>
     </array>
+    <key>UIApplicationShortcutItems</key>
+    <array>
+        <dict>
+            <key>UIApplicationShortcutItemIconFile</key>
+            <string>logo</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>Create New Footprint</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER).CreateNew</string>
+        </dict>
+    </array>
 </dict>
 </plist>
