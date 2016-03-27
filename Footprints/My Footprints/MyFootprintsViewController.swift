@@ -38,6 +38,10 @@ class MyFootprintsViewController: UIViewController {
         super.viewDidAppear(animated)
         reloadData()
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     deinit {
         let fileManager = NSFileManager.defaultManager()
@@ -55,10 +59,6 @@ class MyFootprintsViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     // MARK: - Actions
     
@@ -69,7 +69,7 @@ class MyFootprintsViewController: UIViewController {
             searchBar.resignFirstResponder()
         }
         
-        UIView.animateWithDuration(0.5) {
+        UIView.animateWithDuration(1.0) {
             self.tableView.scrollsToTop = false
             self.collectionView.scrollsToTop = true
             self.collectionView.alpha = 1.0
@@ -79,7 +79,7 @@ class MyFootprintsViewController: UIViewController {
     func listAction(sender: AnyObject) {
         navigationItem.rightBarButtonItem = gridButton
         
-        UIView.animateWithDuration(0.5) {
+        UIView.animateWithDuration(1.0) {
             self.collectionView.scrollsToTop = false
             self.tableView.scrollsToTop = true
             self.collectionView.alpha = 0.0
