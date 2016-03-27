@@ -25,8 +25,8 @@
 		CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */; };
 		CFDA48801CA4B71A00B9033E /* MyFootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */; };
 		CFDA48831CA4BE4A00B9033E /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48821CA4BE4A00B9033E /* Footprint.swift */; };
-		CFDA48871CA4D4A700B9033E /* FootprintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48851CA4D4A700B9033E /* FootprintTableViewCell.swift */; };
-		CFDA48881CA4D4A700B9033E /* FootprintTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDA48861CA4D4A700B9033E /* FootprintTableViewCell.xib */; };
+		CFF1C5DD1CA7891A00E19D9E /* FootprintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */; };
+		CFF1C5DE1CA7891A00E19D9E /* FootprintTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +51,8 @@
 		CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsSetupViewController.swift; sourceTree = "<group>"; };
 		CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFootprintsViewController.swift; sourceTree = "<group>"; };
 		CFDA48821CA4BE4A00B9033E /* Footprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
-		CFDA48851CA4D4A700B9033E /* FootprintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintTableViewCell.swift; sourceTree = "<group>"; };
-		CFDA48861CA4D4A700B9033E /* FootprintTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootprintTableViewCell.xib; sourceTree = "<group>"; };
+		CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintTableViewCell.swift; sourceTree = "<group>"; };
+		CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootprintTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 		CFDA487E1CA4B27C00B9033E /* My Footprints */ = {
 			isa = PBXGroup;
 			children = (
-				CFDA48841CA4CE3800B9033E /* Table View Cells */,
+				CFF1C5DA1CA7891A00E19D9E /* Table View Cell */,
 				CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */,
 			);
 			path = "My Footprints";
@@ -167,13 +167,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CFDA48841CA4CE3800B9033E /* Table View Cells */ = {
+		CFF1C5DA1CA7891A00E19D9E /* Table View Cell */ = {
 			isa = PBXGroup;
 			children = (
-				CFDA48851CA4D4A700B9033E /* FootprintTableViewCell.swift */,
-				CFDA48861CA4D4A700B9033E /* FootprintTableViewCell.xib */,
+				CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */,
+				CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */,
 			);
-			path = "Table View Cells";
+			path = "Table View Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,8 +242,8 @@
 			files = (
 				CF1BC8FC1CA46F84007D3BAD /* LaunchScreen.storyboard in Resources */,
 				CF1BC8F91CA46F84007D3BAD /* Assets.xcassets in Resources */,
-				CFDA48881CA4D4A700B9033E /* FootprintTableViewCell.xib in Resources */,
 				CF1BC8F71CA46F84007D3BAD /* Main.storyboard in Resources */,
+				CFF1C5DE1CA7891A00E19D9E /* FootprintTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +265,7 @@
 				CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */,
 				CF1BC8F21CA46F84007D3BAD /* AppDelegate.swift in Sources */,
 				CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */,
-				CFDA48871CA4D4A700B9033E /* FootprintTableViewCell.swift in Sources */,
+				CFF1C5DD1CA7891A00E19D9E /* FootprintTableViewCell.swift in Sources */,
 				CFDA48801CA4B71A00B9033E /* MyFootprintsViewController.swift in Sources */,
 				CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */,
 				CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */,
