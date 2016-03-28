@@ -11,7 +11,7 @@ import AVFoundation
 
 class AppUtils {
     
-    static let appStoreURL = NSURL(string: "https://itunes.apple.com/us/app/footprints-your-fondest-memories/id1058674366?ls=1&mt=8")!
+    static let appStoreURL = NSURL(string: "https://itunes.apple.com/us/app/footprints-your-best-memories/id1058674366?ls=1&mt=8")!
 
     class func imageWithFillColor(color: UIColor, rect: CGRect) -> UIImage {
         UIGraphicsBeginImageContext(rect.size)
@@ -28,7 +28,6 @@ class AppUtils {
     
     class func formattedStringFromDate(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
-        // dateFormatter.dateFormat = "MMM d, h:mm a"
         dateFormatter.dateFormat = "EEEE MMMM d, yyyy"
         
         return dateFormatter.stringFromDate(date)
