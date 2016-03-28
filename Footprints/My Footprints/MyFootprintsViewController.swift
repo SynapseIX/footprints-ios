@@ -36,7 +36,7 @@ class MyFootprintsViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if (data.count == 0) {
+        if data.count == 0 {
             reloadData()
         }
         
@@ -96,7 +96,7 @@ class MyFootprintsViewController: UIViewController {
         }
     }
     
-    // MARK: - Quick actions handlers
+    // MARK: - Create New Footprint quick action
     
     func presentCreateNewFootprintViewController() {
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -372,7 +372,7 @@ class MyFootprintsViewController: UIViewController {
                     self.documentInteractionController.presentOpenInMenuFromRect(CGRectZero, inView: self.view, animated: true)
                 }
             } else {
-                AppError.handleAsAlert("Instagram Not Installed", message: "Instagram is not installed. To share your footrpints on Instagram, download the app from the App Store.", presentingViewController: self, completion: nil)
+                AppError.handleAsAlert("Instagram Not Installed", message: "Instagram is not installed. To share your footprints on Instagram, download the app from the App Store.", presentingViewController: self, completion: nil)
             }
         }
         

@@ -26,8 +26,8 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW5-hl-29i">
-                                <rect key="frame" x="282" y="429" width="37" height="30"/>
-                                <state key="normal" title="Retry"/>
+                                <rect key="frame" x="184" y="429" width="234" height="30"/>
+                                <state key="normal" title="Continue if iCloud Settings are OK"/>
                                 <connections>
                                     <action selector="retryAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcA-wV-XqZ"/>
                                 </connections>

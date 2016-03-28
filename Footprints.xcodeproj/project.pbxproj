@@ -100,6 +100,7 @@
 				CFDA486B1CA498DF00B9033E /* Permissions */,
 				CFDA487E1CA4B27C00B9033E /* My Footprints */,
 				CFF1C5E21CA85A6900E19D9E /* My Favorite Footprints */,
+				CFF1C5E81CA9CABA00E19D9E /* Create New Footprint */,
 				CF1BC8F11CA46F84007D3BAD /* AppDelegate.swift */,
 				CF1BC8F31CA46F84007D3BAD /* LaunchViewController.swift */,
 				CF1BC8F51CA46F84007D3BAD /* Main.storyboard */,
@@ -196,6 +197,13 @@
 				CFF1C5E61CA8DA8400E19D9E /* ShortcutIdentifier.swift */,
 			);
 			path = "Quick Actions";
+			sourceTree = "<group>";
+		};
+		CFF1C5E81CA9CABA00E19D9E /* Create New Footprint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Create New Footprint";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

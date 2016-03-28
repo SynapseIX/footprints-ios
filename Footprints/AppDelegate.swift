@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(handleQuickAction(shortcutItem))
     }
     
+    // MARK: - Quick action handler
+    
     private func handleQuickAction(shortcutItem: UIApplicationShortcutItem) -> Bool {
         let shortcutType = shortcutItem.type
         
