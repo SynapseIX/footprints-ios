@@ -28,6 +28,7 @@
 		CFF1C5DD1CA7891A00E19D9E /* FootprintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */; };
 		CFF1C5DE1CA7891A00E19D9E /* FootprintTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */; };
 		CFF1C5E41CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5E31CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift */; };
+		CFF1C5E71CA8DA8400E19D9E /* ShortcutIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5E61CA8DA8400E19D9E /* ShortcutIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintTableViewCell.swift; sourceTree = "<group>"; };
 		CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootprintTableViewCell.xib; sourceTree = "<group>"; };
 		CFF1C5E31CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFavoriteFootprintsViewController.swift; sourceTree = "<group>"; };
+		CFF1C5E61CA8DA8400E19D9E /* ShortcutIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				CFDA486F1CA4997D00B9033E /* Utils */,
 				CFDA486C1CA4995800B9033E /* Appearance */,
 				CF1BC9061CA47A76007D3BAD /* CloudKit Helper */,
+				CFF1C5E51CA8DA5F00E19D9E /* Quick Actions */,
 				CFDA48811CA4BE3D00B9033E /* Model */,
 				CFDA486B1CA498DF00B9033E /* Permissions */,
 				CFDA487E1CA4B27C00B9033E /* My Footprints */,
@@ -187,6 +190,14 @@
 			path = "My Favorite Footprints";
 			sourceTree = "<group>";
 		};
+		CFF1C5E51CA8DA5F00E19D9E /* Quick Actions */ = {
+			isa = PBXGroup;
+			children = (
+				CFF1C5E61CA8DA8400E19D9E /* ShortcutIdentifier.swift */,
+			);
+			path = "Quick Actions";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,6 +285,7 @@
 				CF1BC8F41CA46F84007D3BAD /* LaunchViewController.swift in Sources */,
 				CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */,
 				CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */,
+				CFF1C5E71CA8DA8400E19D9E /* ShortcutIdentifier.swift in Sources */,
 				CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */,
 				CF1BC8F21CA46F84007D3BAD /* AppDelegate.swift in Sources */,
 				CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */,

@@ -39,6 +39,12 @@ class MyFootprintsViewController: UIViewController {
         if (data.count == 0) {
             reloadData()
         }
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey("launchCreateNew") {
+            presentCreateNewFootprintViewController()
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyFootprintsViewController.presentCreateNewFootprintViewController), name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +66,8 @@ class MyFootprintsViewController: UIViewController {
                 }
             }
         }
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // MARK: - Actions
@@ -85,6 +93,20 @@ class MyFootprintsViewController: UIViewController {
             self.collectionView.scrollsToTop = false
             self.tableView.scrollsToTop = true
             self.collectionView.alpha = 0.0
+        }
+    }
+    
+    // MARK: - Quick actions handlers
+    
+    func presentCreateNewFootprintViewController() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if defaults.boolForKey("launchCreateNew") {
+            defaults.removeObjectForKey("launchCreateNew")
+            defaults.synchronize()
+            
+            // TODO: present the actual view controller
+            UIAlertView(title: "Success", message: "Launched from 3D touch quick action...", delegate: nil, cancelButtonTitle: "Dismiss").show()
         }
     }
     

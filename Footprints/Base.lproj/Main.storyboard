@@ -661,7 +661,7 @@
         <!--Navigation Controller-->
         <scene sceneID="fqE-zq-oGc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ape-OH-lLs" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="fav" automaticallyAdjustsScrollViewInsets="NO" id="ape-OH-lLs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="favorite_not_selected" id="kwx-Az-GiK">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
