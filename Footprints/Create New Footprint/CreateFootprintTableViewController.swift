@@ -85,16 +85,11 @@ class CreateFootprintTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 55.0
-    }
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44.0
-    }
-    
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let headerView = view as! UITableViewHeaderFooterView
-        headerView.textLabel?.textColor = UIColor.lightTextColor()
+        if DeviceModel.iPhone4 || DeviceModel.iPhone5 {
+            return 44.0
+        } else {
+            return 66.0
+        }
     }
     
     // MARK: - Navigation
