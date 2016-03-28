@@ -106,7 +106,7 @@ class MyFootprintsViewController: UIViewController {
             defaults.synchronize()
             
             // TODO: present the actual view controller
-            UIAlertView(title: "Success", message: "Launched from 3D touch quick action...", delegate: nil, cancelButtonTitle: "Dismiss").show()
+            self.tabBarController?.selectedIndex = 2
         }
     }
     
@@ -120,12 +120,11 @@ class MyFootprintsViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
         // Setup footprint tab bar item
-        // TODO: uncomment once implemented
-        /*let tabBarItemImage = UIImage(named: "footprints_tab")?.imageWithRenderingMode(.AlwaysOriginal)
+        let tabBarItemImage = UIImage(named: "create_tab")?.imageWithRenderingMode(.AlwaysOriginal)
         let footprintTabBarItem = tabBarController?.tabBar.items?[2]
         
         footprintTabBarItem?.selectedImage = tabBarItemImage
-        footprintTabBarItem?.image = tabBarItemImage*/
+        footprintTabBarItem?.image = tabBarItemImage
         
         // Remove navigation bar border
         navigationController?.navigationBar.shadowImage = UIImage()
