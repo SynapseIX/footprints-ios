@@ -141,7 +141,7 @@ class MyFavoriteFootprintsViewController: UIViewController {
     // MARK: - Cell configuration methods
     
     func configureCell(cell: FootprintTableViewCell, indexPath: NSIndexPath) {
-        var footprint = data[indexPath.row]
+        let footprint = data[indexPath.row]
         
         cell.titleLabel.font = AppTheme.defaultMediumFont?.fontWithSize(16.0)
         cell.titleLabel.textColor = AppTheme.disabledColor
@@ -156,20 +156,16 @@ class MyFavoriteFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            CloudKitHelper.fetchFootprintPicture(&footprint) { error in
-                if error == nil {
+            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { [unowned cell] picture in
+                if let picture = picture {
+                    footprint.picture = picture
+                    
                     dispatch_async(dispatch_get_main_queue()) {
-                        if let picture = footprint.picture {
-                            cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
-                            cell.shareButton.hidden = false
-                        } else {
-                            cell.pictureImageView?.image = UIImage(named: "no_picture")
-                            cell.shareButton.hidden = true
-                        }
+                        cell.pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
-                        AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
+                        cell.pictureImageView.image = UIImage(named: "no_picture")
                     }
                 }
             }
@@ -189,24 +185,21 @@ class MyFavoriteFootprintsViewController: UIViewController {
     
     func configureCell(cell: UICollectionViewCell, indexPath: NSIndexPath, inout footprint: Footprint) {
         let imageView = cell.viewWithTag(1) as! UIImageView
-        
         imageView.image = UIImage(named: "default_picture")
         
         if let picture = footprint.picture {
             imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            CloudKitHelper.fetchFootprintPicture(&footprint) { error in
-                if error == nil {
+            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { [unowned imageView] picture in
+                if let picture = picture {
+                    footprint.picture = picture
+                    
                     dispatch_async(dispatch_get_main_queue()) {
-                        if let picture = footprint.picture {
-                            imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
-                        } else {
-                            imageView.image = UIImage(named: "no_picture")
-                        }
+                        imageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
-                        AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
+                        imageView.image = UIImage(named: "no_picture")
                     }
                 }
             }

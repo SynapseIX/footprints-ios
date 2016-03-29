@@ -77,54 +77,40 @@ class CloudKitHelper {
         database.addOperation(operation)
     }
     
-    class func fetchFootprintPicture(inout footprint: Footprint, completion: (error: NSError?) -> Void) {
-        if footprint.picture == nil {
-            let predicate = NSPredicate(format: "recordID == %@", footprint.recordID)
-            let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+    class func fetchFootprintPicture(recordID: CKRecordID, completion: (picture: NSURL?) -> Void) {
+        let predicate = NSPredicate(format: "recordID == %@", recordID)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
             
-            let query = CKQuery(recordType: "Footprint", predicate: predicate)
-            query.sortDescriptors = [sortDescriptor]
+        let query = CKQuery(recordType: "Footprint", predicate: predicate)
+        query.sortDescriptors = [sortDescriptor]
             
-            let operation = CKQueryOperation(query: query)
-            operation.desiredKeys = ["picture"]
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["picture"]
             
-            operation.recordFetchedBlock = { record in
-                if let asset = record["picture"] as? CKAsset {
-                    footprint.picture = asset.fileURL
-                }
-            }
-            
-            operation.queryCompletionBlock = { cursor, error in
-                completion(error: error)
-            }
-            
-            database.addOperation(operation)
+        operation.recordFetchedBlock = { record in
+            let asset = record["picture"] as? CKAsset
+            completion(picture: asset?.fileURL)
         }
+            
+        database.addOperation(operation)
     }
     
-    class func fetchFootprintAudio(inout footprint: Footprint, completion: (error: NSError?) -> Void) {
-        if footprint.audio == nil {
-            let predicate = NSPredicate(format: "recordID == %@", footprint.recordID)
-            let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-            
-            let query = CKQuery(recordType: "Footprint", predicate: predicate)
-            query.sortDescriptors = [sortDescriptor]
-            
-            let operation = CKQueryOperation(query: query)
-            operation.desiredKeys = ["audio"]
-            
-            operation.recordFetchedBlock = { record in
-                if let asset = record["audio"] as? CKAsset {
-                    footprint.audio = asset.fileURL
-                }
-            }
-            
-            operation.queryCompletionBlock = { cursor, error in
-                completion(error: error)
-            }
-            
-            database.addOperation(operation)
+    class func fetchFootprintAudio(recordID: CKRecordID, completion: (audio: NSURL?) -> Void) {
+        let predicate = NSPredicate(format: "recordID == %@", recordID)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        
+        let query = CKQuery(recordType: "Footprint", predicate: predicate)
+        query.sortDescriptors = [sortDescriptor]
+        
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["audio"]
+        
+        operation.recordFetchedBlock = { record in
+            let asset = record["audio"] as? CKAsset
+            completion(audio: asset?.fileURL)
         }
+        
+        database.addOperation(operation)
     }
     
     // MARK: - Save methods
