@@ -198,16 +198,18 @@ class MyFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { [unowned cell] picture in
+            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { picture in
                 if let picture = picture {
                     footprint.picture = picture
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
+                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(named: "no_picture")
+                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     }
                 }
             }
@@ -232,16 +234,18 @@ class MyFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { [unowned imageView] picture in
+            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { picture in
                 if let picture = picture {
                     footprint.picture = picture
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         imageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
+                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
                         imageView.image = UIImage(named: "no_picture")
+                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 }
             }
