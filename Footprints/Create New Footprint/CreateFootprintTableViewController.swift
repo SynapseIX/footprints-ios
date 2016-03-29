@@ -40,7 +40,7 @@ class CreateFootprintTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK : - Actions
+    // MARK: - Actions
     
     @IBAction func dismissAction(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -55,10 +55,6 @@ class CreateFootprintTableViewController: UITableViewController {
     private func setupUI() {
         clearsSelectionOnViewWillAppear = true
         saveButton.enabled = false
-        
-        // Remove navigation bar border
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = AppTheme.tableVieCellSelectionColor
@@ -75,6 +71,10 @@ class CreateFootprintTableViewController: UITableViewController {
         // Change this navigation controller only
         navigationController?.navigationBar.barTintColor = AppTheme.darkGrayColor
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
+        // Remove navigation bar border
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
     }
     
     // MARK: - Table view delegate
@@ -101,7 +101,7 @@ class CreateFootprintTableViewController: UITableViewController {
     
 }
 
-// Image picker controller delegate
+// MARK: - Image picker controller delegate
 
 extension CreateFootprintTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     

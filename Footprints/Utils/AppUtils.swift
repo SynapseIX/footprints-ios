@@ -11,7 +11,7 @@ import AVFoundation
 
 class AppUtils {
     
-    static let appStoreURL = NSURL(string: "https://itunes.apple.com/us/app/footprints-your-best-memories/id1058674366?ls=1&mt=8")!
+    static let appStoreURL = NSURL(string: "https://itunes.apple.com/us/app/id1058674366?ls=1&mt=8")!
 
     class func imageWithFillColor(color: UIColor, rect: CGRect) -> UIImage {
         UIGraphicsBeginImageContext(rect.size)
