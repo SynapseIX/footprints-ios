@@ -199,6 +199,7 @@ class MyFootprintsViewController: UIViewController {
         
         if let picture = footprint.picture {
             cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
+            collectionView.reloadItemsAtIndexPaths([indexPath])
         } else {
             CloudKitHelper.fetchFootprintPicture(footprint.recordID) { picture in
                 if let picture = picture {

@@ -12,6 +12,7 @@ import MobileCoreServices
 
 class CreateFootprintTableViewController: UITableViewController {
 
+    @IBOutlet weak var dismissButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var addTitleLabel: UILabel!
     @IBOutlet weak var addTextNoteLabel: UILabel!
@@ -69,7 +70,9 @@ class CreateFootprintTableViewController: UITableViewController {
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
-        self.view.userInteractionEnabled = false
+        view.userInteractionEnabled = false
+        saveButton.enabled = false
+        dismissButton.enabled = false
         
         CloudKitHelper.saveFootprint(footprint) { record, error in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -82,6 +85,8 @@ class CreateFootprintTableViewController: UITableViewController {
                 AppUtils.deleteFile(imageFilePath)
                 
                 dispatch_async(dispatch_get_main_queue()) {
+                    self.saveButton.enabled = true
+                    self.dismissButton.enabled = true
                     self.view.userInteractionEnabled = true
                     activityIndicator.removeFromSuperview()
                     
@@ -89,6 +94,8 @@ class CreateFootprintTableViewController: UITableViewController {
                 }
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
+                    self.saveButton.enabled = true
+                    self.dismissButton.enabled = true
                     self.view.userInteractionEnabled = true
                     activityIndicator.removeFromSuperview()
                     

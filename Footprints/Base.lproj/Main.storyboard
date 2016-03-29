@@ -862,6 +862,7 @@
                         <outlet property="addPlaceLabel" destination="DM0-Ev-dhw" id="FW8-IF-a80"/>
                         <outlet property="addTextNoteLabel" destination="oL5-e0-fy1" id="Xc0-xZ-fbE"/>
                         <outlet property="addTitleLabel" destination="GDa-0U-v2U" id="mkt-vB-sPN"/>
+                        <outlet property="dismissButton" destination="Kk8-rx-hWE" id="7RS-ts-g66"/>
                         <outlet property="pictureImageView" destination="HUD-Te-jhe" id="7vs-H2-Dtw"/>
                         <outlet property="saveButton" destination="Qpe-wQ-dNY" id="gTr-N8-wWu"/>
                     </connections>
