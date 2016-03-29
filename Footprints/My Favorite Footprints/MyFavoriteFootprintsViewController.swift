@@ -40,20 +40,7 @@ class MyFavoriteFootprintsViewController: UIViewController {
     }
     
     deinit {
-        let fileManager = NSFileManager.defaultManager()
-        
-        if let fileToShare = fileToShare {
-            let path = fileToShare.absoluteString
-            
-            if fileManager.fileExistsAtPath(path) {
-                do {
-                    try fileManager.removeItemAtPath(path)
-                } catch {
-                    let error = error as NSError
-                    AppError.handleAsLog(error.localizedDescription)
-                }
-            }
-        }
+        AppUtils.deleteFile(fileToShare)
     }
     
     // MARK: - Actions
@@ -114,7 +101,7 @@ class MyFavoriteFootprintsViewController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = AppTheme.lightPinkColor
         refreshControl.tintColor = UIColor.whiteColor()
-        refreshControl.addTarget(self, action: #selector(MyFootprintsViewController.reloadData), forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(MyFavoriteFootprintsViewController.reloadData), forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
         
         // Removes search bar border
@@ -162,12 +149,12 @@ class MyFavoriteFootprintsViewController: UIViewController {
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
-                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(named: "no_picture")
-                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 }
             }
@@ -192,21 +179,7 @@ class MyFavoriteFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { picture in
-                if let picture = picture {
-                    footprint.picture = picture
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        imageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
-                    }
-                } else {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        imageView.image = UIImage(named: "no_picture")
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
-                    }
-                }
-            }
+            imageView.image = UIImage(named: "no_picture")
         }
         
     }

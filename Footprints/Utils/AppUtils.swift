@@ -101,4 +101,21 @@ class AppUtils {
         return "\(minutesString):\(secondsString)"
     }
     
+    class func deleteFile(fileURL: NSURL?) {
+        let fileManager = NSFileManager.defaultManager()
+        
+        if let fileToDelete = fileURL {
+            let path = fileToDelete.absoluteString
+            
+            if fileManager.fileExistsAtPath(path) {
+                do {
+                    try fileManager.removeItemAtPath(path)
+                } catch {
+                    let error = error as NSError
+                    AppError.handleAsLog(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
 }

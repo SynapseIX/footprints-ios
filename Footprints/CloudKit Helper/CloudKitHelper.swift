@@ -91,6 +91,12 @@ class CloudKitHelper {
             let asset = record["picture"] as? CKAsset
             completion(picture: asset?.fileURL)
         }
+        
+        operation.queryCompletionBlock = { cursor, error in
+            if let error = error {
+                AppError.handleAsLog(error.description)
+            }
+        }
             
         database.addOperation(operation)
     }
@@ -110,6 +116,12 @@ class CloudKitHelper {
             completion(audio: asset?.fileURL)
         }
         
+        operation.queryCompletionBlock = { cursor, error in
+            if let error = error {
+                AppError.handleAsLog(error.description)
+            }
+        }
+        
         database.addOperation(operation)
     }
     
@@ -121,7 +133,7 @@ class CloudKitHelper {
                 if error == nil {
                     if let fetchedRecord = record {
                         fetchedRecord["title"] = footprint.title
-                        fetchedRecord["date"] = footprint.date ?? NSDate()
+                        fetchedRecord["date"] = footprint.date
                         fetchedRecord["notes"] = footprint.notes
                         fetchedRecord["placeName"] = footprint.placeName
                         fetchedRecord["location"] = footprint.location
@@ -144,7 +156,26 @@ class CloudKitHelper {
                 }
             }
         } else {
-            // TODO: this is a new footprint; create a new record and save it and add it to allFootprints
+            let recordID = CKRecordID(recordName: NSUUID().UUIDString)
+            let record = CKRecord(recordType: "Footprint", recordID: recordID)
+            record["title"] = footprint.title
+            record["date"] = footprint.date
+            record["notes"] = footprint.notes
+            record["placeName"] = footprint.placeName
+            record["location"] = footprint.location
+            record["favorite"] = footprint.favorite
+            
+            if let picture = footprint.picture {
+                record["picture"] = CKAsset(fileURL: picture)
+            }
+            
+            if let audio = footprint.audio {
+                record["audio"] = CKAsset(fileURL: audio)
+            }
+            
+            database.saveRecord(record) { record, error in
+                completion(record: record, error: error)
+            }
         }
     }
 }

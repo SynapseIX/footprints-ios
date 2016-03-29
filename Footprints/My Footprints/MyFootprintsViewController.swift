@@ -37,7 +37,9 @@ class MyFootprintsViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if data.count == 0 {
-            reloadData()
+            reloadData(false)
+        } else {
+            reloadData(true)
         }
         
         if NSUserDefaults.standardUserDefaults().boolForKey("launchCreateNew") {
@@ -52,21 +54,7 @@ class MyFootprintsViewController: UIViewController {
     }
     
     deinit {
-        let fileManager = NSFileManager.defaultManager()
-        
-        if let fileToShare = fileToShare {
-            let path = fileToShare.absoluteString
-            
-            if fileManager.fileExistsAtPath(path) {
-                do {
-                    try fileManager.removeItemAtPath(path)
-                } catch {
-                    let error = error as NSError
-                    AppError.handleAsLog(error.localizedDescription)
-                }
-            }
-        }
-        
+        AppUtils.deleteFile(fileToShare)
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
@@ -141,7 +129,7 @@ class MyFootprintsViewController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = AppTheme.lightPinkColor
         refreshControl.tintColor = UIColor.whiteColor()
-        refreshControl.addTarget(self, action: #selector(MyFootprintsViewController.reloadData), forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(MyFootprintsViewController.refresh), forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
         
         // Removes search bar border
@@ -151,7 +139,17 @@ class MyFootprintsViewController: UIViewController {
     
     // MARK: - Data methods
     
-    func reloadData() {
+    private func reloadData(localOnly: Bool) {
+        if localOnly {
+            data = CloudKitHelper.allFootprints
+            
+            tableView.reloadData()
+            collectionView.reloadData()
+            
+            return
+        }
+        
+        
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         CloudKitHelper.fetchAllFootprintsNoAssets { error in
@@ -180,6 +178,10 @@ class MyFootprintsViewController: UIViewController {
         }
     }
     
+    func refresh() {
+        reloadData(false)
+    }
+    
     // MARK: - Cell configuration methods
     
     func configureCell(cell: FootprintTableViewCell, indexPath: NSIndexPath) {
@@ -204,12 +206,12 @@ class MyFootprintsViewController: UIViewController {
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
-                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(named: "no_picture")
-                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 }
             }
@@ -234,21 +236,7 @@ class MyFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { picture in
-                if let picture = picture {
-                    footprint.picture = picture
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        imageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
-                    }
-                } else {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        imageView.image = UIImage(named: "no_picture")
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
-                    }
-                }
-            }
+            imageView.image = UIImage(named: "no_picture")
         }
         
     }
@@ -294,6 +282,7 @@ class MyFootprintsViewController: UIViewController {
         
         // Facebook action
         let alert = UIAlertController(title: footprint.title, message: "Where do you want to share your footprint?", preferredStyle: .ActionSheet)
+        alert.view.tintColor = AppTheme.disabledColor
         
         let facebookAction = UIAlertAction(title: "Facebook", style: .Default) { action in
             let composeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
@@ -381,7 +370,6 @@ class MyFootprintsViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alert.addAction(cancelAction)
         
-        alert.view.tintColor = AppTheme.disabledColor
         presentViewController(alert, animated: true, completion: nil)
     }
 

@@ -21,6 +21,7 @@ class CreateFootprintTableViewController: UITableViewController {
     
     var footprint = Footprint()
     
+    var userPicture: UIImage?
     var audioSession: AVAudioSession!
     var audioPlayer: AVAudioPlayer!
     
@@ -47,8 +48,54 @@ class CreateFootprintTableViewController: UITableViewController {
     }
     
     @IBAction func saveAction(sender: AnyObject) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         tableView.setContentOffset(CGPointZero, animated: true)
-        // TODO: complete
+        
+        // TODO: set selected date
+        footprint.date = NSDate()
+        
+        // Process photo
+        var imageFilePath: NSURL?
+        
+        if userPicture != nil {
+            imageFilePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("\(NSUUID().UUIDString).igo")
+            UIImageJPEGRepresentation(userPicture!, 1.0)?.writeToFile(imageFilePath!.relativePath!, atomically: true)
+            footprint.picture = imageFilePath
+        }
+        
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        activityIndicator.frame = CGRect(x: (UIScreen.mainScreen().bounds.width / 2.0) - (activityIndicator.frame.width / 2.0), y: (UIScreen.mainScreen().bounds.height / 2.0) - activityIndicator.frame.height - 64.0, width: activityIndicator.frame.width, height: activityIndicator.frame.height)
+        activityIndicator.color = AppTheme.lightPinkColor
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        
+        self.view.userInteractionEnabled = false
+        
+        CloudKitHelper.saveFootprint(footprint) { record, error in
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            if error == nil {
+                self.footprint.recordID = record?.recordID
+                self.footprint.picture = nil
+                
+                CloudKitHelper.allFootprints.insert(self.footprint, atIndex: 0)
+                AppUtils.deleteFile(imageFilePath)
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.view.userInteractionEnabled = true
+                    activityIndicator.removeFromSuperview()
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            } else {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.view.userInteractionEnabled = true
+                    activityIndicator.removeFromSuperview()
+                    
+                    AppError.handleAsAlert("Ooops!", message: error?.localizedDescription, presentingViewController: self, completion: nil)
+                }
+            }
+        }
     }
     
     // MARK: - UI methods
@@ -82,6 +129,16 @@ class CreateFootprintTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TODO: implement
         NSLog("Selected section \(indexPath.section), row \(indexPath.row)...")
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            presentNameFootprintAlertController(indexPath)
+        }
+        
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                presentTakeOrChoosePictureAlertController(indexPath)
+            }
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -99,6 +156,107 @@ class CreateFootprintTableViewController: UITableViewController {
         // TODO: implement
     }
     
+    // MARK: - Name footprint methods
+    
+    private func presentNameFootprintAlertController(indexPath: NSIndexPath) {
+        weak var weakSelf = self
+        
+        let alert = UIAlertController(title: "Name your Footprint", message: nil, preferredStyle: .Alert)
+        
+        let addAction = UIAlertAction(title: "Name It", style: .Cancel) { action in
+            dispatch_async(dispatch_get_main_queue()) {
+                weakSelf?.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                weakSelf?.footprint.title = alert.textFields?.first?.text
+                weakSelf?.addTitleLabel.text = weakSelf?.footprint.title
+                weakSelf?.saveButton.enabled = true
+            }
+        }
+        addAction.enabled = false
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { action in
+            dispatch_async(dispatch_get_main_queue()) {
+                weakSelf?.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+        }
+        
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.autocapitalizationType = .Words
+            textField.spellCheckingType = .Yes
+            textField.autocorrectionType = .Yes
+            textField.placeholder = "My Most Amazing Moment"
+            textField.keyboardAppearance = .Dark
+            textField.clearButtonMode = .WhileEditing
+            
+            NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+                addAction.enabled = textField.text?.characters.count > 0
+            }
+        }
+        
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Take or choose picture methods
+    
+    private func presentTakeOrChoosePictureAlertController(indexPath: NSIndexPath) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        alert.view.tintColor = AppTheme.disabledColor
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { action in
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .Default) { action in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.navigationBar.barTintColor = AppTheme.darkGrayColor
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .PhotoLibrary
+            imagePickerController.mediaTypes = [String(kUTTypeImage)]
+            imagePickerController.allowsEditing = true
+            
+            self.presentViewController(imagePickerController, animated: true) {
+                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+        }
+        
+        let takeAction = UIAlertAction(title: "Take Photo", style: .Default) { action in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.navigationBar.barTintColor = AppTheme.darkGrayColor
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .Camera
+            imagePickerController.mediaTypes = [String(kUTTypeImage)]
+            imagePickerController.allowsEditing = true
+            
+            self.presentViewController(imagePickerController, animated: true) {
+                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+        }
+        
+        let removeAction = UIAlertAction(title: "Remove", style: .Destructive) { action in
+            self.userPicture = nil
+            self.pictureImageView.image = UIImage(named: "camera")
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        
+        if userPicture != nil {
+            alert.addAction(removeAction)
+        }
+        
+        alert.addAction(cancelAction)
+        
+        if PHPhotoLibrary.authorizationStatus() == .Authorized || PHPhotoLibrary.authorizationStatus() == .NotDetermined {
+            alert.addAction(libraryAction)
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            alert.addAction(takeAction)
+        }
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - Image picker controller delegate
@@ -106,7 +264,14 @@ class CreateFootprintTableViewController: UITableViewController {
 extension CreateFootprintTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        // TODO: implement
+        userPicture = info[UIImagePickerControllerEditedImage] as? UIImage
+        pictureImageView.image = userPicture
+        
+        picker.dismissViewControllerAnimated(true) {
+            self.view.setNeedsDisplay()
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+        }
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

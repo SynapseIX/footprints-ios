@@ -851,7 +851,11 @@
                                 <action selector="dismissAction:" destination="lA4-aD-cwf" id="C9z-UM-aXr"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="Qpe-wQ-dNY"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="Qpe-wQ-dNY">
+                            <connections>
+                                <action selector="saveAction:" destination="lA4-aD-cwf" id="DNX-yh-n63"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addDateLabel" destination="zvm-GB-atF" id="dkq-19-bO3"/>
