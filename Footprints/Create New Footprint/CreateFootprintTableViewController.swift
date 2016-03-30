@@ -69,6 +69,8 @@ class CreateFootprintTableViewController: UITableViewController {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         tableView.setContentOffset(CGPointZero, animated: true)
         
+        footprint.date = footprint.date ?? NSDate()
+        
         // Process photo
         var imageFilePath: NSURL?
         
