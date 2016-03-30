@@ -191,7 +191,6 @@ class CreateFootprintTableViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // TODO: implement
         if indexPath.section == 0 && indexPath.row == 0 {
             presentNameFootprintAlertController(indexPath)
         }
@@ -394,31 +393,35 @@ class CreateFootprintTableViewController: UITableViewController {
     // MARK: - Add place methods
     
     private func presentPlacePicker(indexPath: NSIndexPath) {
-        let northEast = CLLocationCoordinate2DMake(userLocation.coordinate.latitude + 0.001, userLocation.coordinate.longitude + 0.001)
-        let southWest = CLLocationCoordinate2DMake(userLocation.coordinate.latitude - 0.001, userLocation.coordinate.longitude - 0.001)
-        let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
-        let config = GMSPlacePickerConfig(viewport: viewport)
-        let placePicker = GMSPlacePicker(config: config)
-        
-        placePicker.pickPlaceWithCallback { (place, error) in
-            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if userLocation != nil {
+            let northEast = CLLocationCoordinate2DMake(userLocation.coordinate.latitude + 0.001, userLocation.coordinate.longitude + 0.001)
+            let southWest = CLLocationCoordinate2DMake(userLocation.coordinate.latitude - 0.001, userLocation.coordinate.longitude - 0.001)
+            let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
+            let config = GMSPlacePickerConfig(viewport: viewport)
+            let placePicker = GMSPlacePicker(config: config)
             
-            if let error = error {
-                dispatch_async(dispatch_get_main_queue()) {
-                    AppError.handleAsAlert("Ooops!", message: error.localizedDescription, presentingViewController: self, completion: nil)
+            placePicker.pickPlaceWithCallback { (place, error) in
+                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                
+                if let error = error {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        AppError.handleAsAlert("Ooops!", message: error.localizedDescription, presentingViewController: self, completion: nil)
+                    }
+                    
+                    return
                 }
                 
-                return
-            }
-            
-            if let place = place {
-                self.footprint.placeName = place.name
-                self.footprint.location = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.addPlaceLabel.text = self.footprint.placeName
+                if let place = place {
+                    self.footprint.placeName = place.name
+                    self.footprint.location = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.addPlaceLabel.text = self.footprint.placeName
+                    }
                 }
             }
+        } else {
+            AppError.handleAsAlert("Ooops!", message: "Footprints needs to access your location to determine places you are and places you were.", presentingViewController: self, completion: nil)
         }
     }
     
