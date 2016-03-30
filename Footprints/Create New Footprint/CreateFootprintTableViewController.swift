@@ -35,7 +35,25 @@ class CreateFootprintTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         saveButton.enabled = footprint.title != nil
+        
+        if footprint.notes != nil {
+            addTextNoteLabel.text = footprint.notes
+        } else {
+            addTextNoteLabel.text = "Write some notes"
+        }
+        
         // TODO: implement
+//        if placeName != nil {
+//            addPlaceLabel.text = placeName
+//        } else {
+//            addPlaceLabel.text = "Add that special place"
+//        }
+//        
+//        if date != nil {
+//            addDateLabel.text = AppUtils.formattedStringFromDate(date!)
+//        } else {
+//            addDateLabel.text = "Add a date to remember"
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -163,10 +181,10 @@ class CreateFootprintTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
         // TODO: implement
-//        if destinationViewController is TextNoteViewController {
-//            (destinationViewController as! TextNoteViewController).delegate = self
-//        }
-//        
+        if destinationViewController is TextNoteViewController {
+            (destinationViewController as! TextNoteViewController).delegate = self
+        }
+//
 //        if destinationViewController is SearchPlaceViewController {
 //            (destinationViewController as! SearchPlaceViewController).delegate = self
 //        }

@@ -792,6 +792,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="KtP-RC-WPZ" kind="show" id="pBO-kS-2bm"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DM0-Ev-dhw" imageView="0iG-SS-uQU" style="IBUITableViewCellStyleDefault" id="iAg-nl-k7K">
                                         <rect key="frame" x="0.0" y="389.5" width="600" height="44"/>
@@ -1035,6 +1038,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vop-SA-joh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4365" y="2628"/>
+        </scene>
+        <!--WRITE YOUR MEMORIES-->
+        <scene sceneID="rmf-as-Ldx">
+            <objects>
+                <viewController id="KtP-RC-WPZ" customClass="TextNoteViewController" customModule="Footprints" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r70-hA-sgh"/>
+                        <viewControllerLayoutGuide type="bottom" id="8FV-Kk-ya0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QUa-C6-2kk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ADC-9g-akZ">
+                                <rect key="frame" x="15" y="64" width="570" height="270"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KtP-RC-WPZ" id="cKT-1z-jav"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ADC-9g-akZ" firstAttribute="top" secondItem="r70-hA-sgh" secondAttribute="bottom" id="X7t-ur-AJR"/>
+                            <constraint firstItem="ADC-9g-akZ" firstAttribute="width" secondItem="QUa-C6-2kk" secondAttribute="width" multiplier="0.95" id="YDS-7n-feJ"/>
+                            <constraint firstItem="8FV-Kk-ya0" firstAttribute="top" secondItem="ADC-9g-akZ" secondAttribute="bottom" constant="266" id="fV4-ka-9LY"/>
+                            <constraint firstItem="ADC-9g-akZ" firstAttribute="centerX" secondItem="QUa-C6-2kk" secondAttribute="centerX" id="leY-Sm-8nh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="WRITE YOUR MEMORIES" id="nwP-oa-fyA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eki-kO-TNB">
+                            <connections>
+                                <action selector="addAction:" destination="KtP-RC-WPZ" id="AdW-bg-wKr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="eki-kO-TNB" id="ZUE-WG-gKV"/>
+                        <outlet property="textView" destination="ADC-9g-akZ" id="tZx-mp-v7R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="anN-K4-Ke6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6801" y="2628"/>
         </scene>
     </scenes>
     <resources>
