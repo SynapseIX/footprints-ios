@@ -80,13 +80,13 @@ class CloudKitHelper {
     class func fetchFootprintPicture(recordID: CKRecordID, completion: (picture: NSURL?) -> Void) {
         let predicate = NSPredicate(format: "recordID == %@", recordID)
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-            
+        
         let query = CKQuery(recordType: "Footprint", predicate: predicate)
         query.sortDescriptors = [sortDescriptor]
-            
+        
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["picture"]
-            
+        
         operation.recordFetchedBlock = { record in
             let asset = record["picture"] as? CKAsset
             completion(picture: asset?.fileURL)
@@ -97,7 +97,7 @@ class CloudKitHelper {
                 AppError.handleAsLog(error.description)
             }
         }
-            
+        
         database.addOperation(operation)
     }
     
@@ -157,6 +157,7 @@ class CloudKitHelper {
             }
         } else {
             let recordID = CKRecordID(recordName: NSUUID().UUIDString)
+            
             let record = CKRecord(recordType: "Footprint", recordID: recordID)
             record["title"] = footprint.title
             record["date"] = footprint.date

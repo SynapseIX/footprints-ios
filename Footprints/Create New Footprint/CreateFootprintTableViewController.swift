@@ -135,8 +135,6 @@ class CreateFootprintTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TODO: implement
-        NSLog("Selected section \(indexPath.section), row \(indexPath.row)...")
-        
         if indexPath.section == 0 && indexPath.row == 0 {
             presentNameFootprintAlertController(indexPath)
         }
@@ -144,6 +142,10 @@ class CreateFootprintTableViewController: UITableViewController {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 presentTakeOrChoosePictureAlertController(indexPath)
+            }
+            
+            if indexPath.row == 1 {
+                presentRecordAudioAlertController(indexPath)
             }
         }
     }
@@ -161,6 +163,21 @@ class CreateFootprintTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
         // TODO: implement
+//        if destinationViewController is TextNoteViewController {
+//            (destinationViewController as! TextNoteViewController).delegate = self
+//        }
+//        
+//        if destinationViewController is SearchPlaceViewController {
+//            (destinationViewController as! SearchPlaceViewController).delegate = self
+//        }
+//        
+//        if destinationViewController is SelectDateViewController {
+//            (destinationViewController as! SelectDateViewController).delegate = self
+//        }
+        
+        if destinationViewController is RecordAudioViewController {
+            (destinationViewController as! RecordAudioViewController).delegate = self
+        }
     }
     
     // MARK: - Name footprint methods
@@ -264,6 +281,53 @@ class CreateFootprintTableViewController: UITableViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Record audio methods
+    
+    private func presentRecordAudioAlertController(indexPath: NSIndexPath) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { action in
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        
+        let recordAction = UIAlertAction(title: "Record", style: .Default) { action in
+            self.performSegueWithIdentifier("recordAudioCreateSegue", sender: nil)
+        }
+        
+        let playAction = UIAlertAction(title: "Play", style: .Default) { action in
+            dispatch_async(dispatch_get_main_queue()) {
+                do {
+                    self.audioSession = AVAudioSession.sharedInstance()
+                    try self.audioSession.setActive(true)
+                    try self.audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .DuckOthers)
+                    
+                    let audioData = try NSData(contentsOfURL: self.footprint.audio!, options: .MappedRead)
+                    
+                    self.audioPlayer = try AVAudioPlayer(data: audioData)
+                    self.audioPlayer.delegate = self
+                    self.audioPlayer.play()
+                } catch {
+                    NSLog("\(error)")
+                }
+            }
+        }
+        
+        let removeAction = UIAlertAction(title: "Remove", style: .Destructive) { action in
+            self.footprint.audio = nil
+        }
+        
+        alert.addAction(cancelAction)
+        
+        if self.footprint.audio != nil {
+            alert.addAction(removeAction)
+            alert.addAction(playAction)
+        }
+        
+        alert.addAction(recordAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 }
 
 // MARK: - Image picker controller delegate

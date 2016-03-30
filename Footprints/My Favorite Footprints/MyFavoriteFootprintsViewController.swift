@@ -149,12 +149,10 @@ class MyFavoriteFootprintsViewController: UIViewController {
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(named: "no_picture")
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 }
             }
@@ -179,9 +177,20 @@ class MyFavoriteFootprintsViewController: UIViewController {
         if let picture = footprint.picture {
             imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
         } else {
-            imageView.image = UIImage(named: "no_picture")
+            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { picture in
+                if let picture = picture {
+                    footprint.picture = picture
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        imageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        imageView.image = UIImage(named: "no_picture")
+                    }
+                }
+            }
         }
-        
     }
     
     // MARK: - Favorite handler
