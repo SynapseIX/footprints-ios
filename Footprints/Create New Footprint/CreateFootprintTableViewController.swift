@@ -346,6 +346,7 @@ class CreateFootprintTableViewController: UITableViewController {
     
     private func presentRecordAudioAlertController(indexPath: NSIndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        alert.view.tintColor = AppTheme.disabledColor
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { action in
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -396,10 +397,11 @@ class CreateFootprintTableViewController: UITableViewController {
         if userLocation != nil {
             let northEast = CLLocationCoordinate2DMake(userLocation.coordinate.latitude + 0.001, userLocation.coordinate.longitude + 0.001)
             let southWest = CLLocationCoordinate2DMake(userLocation.coordinate.latitude - 0.001, userLocation.coordinate.longitude - 0.001)
+            
             let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
             let config = GMSPlacePickerConfig(viewport: viewport)
-            let placePicker = GMSPlacePicker(config: config)
             
+            let placePicker = GMSPlacePicker(config: config)
             placePicker.pickPlaceWithCallback { (place, error) in
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 
