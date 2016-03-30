@@ -9,6 +9,7 @@
 import UIKit
 import Photos
 import MobileCoreServices
+import GoogleMaps
 
 class CreateFootprintTableViewController: UITableViewController {
 
@@ -16,6 +17,7 @@ class CreateFootprintTableViewController: UITableViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var addTitleLabel: UILabel!
     @IBOutlet weak var addTextNoteLabel: UILabel!
+    @IBOutlet weak var addPlaceCell: UITableViewCell!
     @IBOutlet weak var addPlaceLabel: UILabel!
     @IBOutlet weak var addDateLabel: UILabel!
     @IBOutlet weak var pictureImageView: UIImageView!
@@ -26,6 +28,9 @@ class CreateFootprintTableViewController: UITableViewController {
     var audioSession: AVAudioSession!
     var audioPlayer: AVAudioPlayer!
     
+    var locationManager: CLLocationManager!
+    var userLocation: CLLocation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -33,6 +38,7 @@ class CreateFootprintTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        checkForLocationAccess()
         
         saveButton.enabled = footprint.title != nil
         
@@ -114,6 +120,7 @@ class CreateFootprintTableViewController: UITableViewController {
     }
     
     // MARK: - UI methods
+    
     private func setupUI() {
         clearsSelectionOnViewWillAppear = true
         saveButton.enabled = false
@@ -137,6 +144,46 @@ class CreateFootprintTableViewController: UITableViewController {
         // Remove navigation bar border
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        
+        // Initialize add places UI
+        addPlaceCell.userInteractionEnabled = false
+        addPlaceLabel.textColor = AppTheme.disabledColor
+    }
+    
+    // MARK: - Location manager methods
+    
+    private func setupLocationManager() {
+        locationManager = locationManager ?? CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+    
+    private func checkForLocationAccess() {
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        
+        switch authorizationStatus {
+        case .NotDetermined:
+            requestLocationAccess()
+        case .Denied:
+            handleLocationAccess(false)
+        case .AuthorizedWhenInUse:
+            handleLocationAccess(true)
+        default:
+            break
+        }
+    }
+    
+    private func requestLocationAccess() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    private func handleLocationAccess(authorized: Bool) {
+        if authorized {
+            setupLocationManager()
+        } else {
+            AppError.handleAsAlert("Ooops!", message: "Footprints needs to access your location to determine places you are and places you were.", presentingViewController: self, completion: nil)
+        }
     }
     
     // MARK: - Table view delegate
@@ -154,6 +201,16 @@ class CreateFootprintTableViewController: UITableViewController {
             
             if indexPath.row == 1 {
                 presentRecordAudioAlertController(indexPath)
+            }
+        }
+        
+        if indexPath.section == 2 {
+            if indexPath.row == 1 {
+                if footprint.location == nil {
+                    presentPlacePicker(indexPath)
+                } else {
+                    presentManagePlaceAlertController(indexPath)
+                }
             }
         }
     }
@@ -331,6 +388,66 @@ class CreateFootprintTableViewController: UITableViewController {
         presentViewController(alert, animated: true, completion: nil)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    // MARK: - Add place methods
+    
+    private func presentPlacePicker(indexPath: NSIndexPath) {
+        let northEast = CLLocationCoordinate2DMake(userLocation.coordinate.latitude + 0.001, userLocation.coordinate.longitude + 0.001)
+        let southWest = CLLocationCoordinate2DMake(userLocation.coordinate.latitude - 0.001, userLocation.coordinate.longitude - 0.001)
+        let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
+        let config = GMSPlacePickerConfig(viewport: viewport)
+        let placePicker = GMSPlacePicker(config: config)
+        
+        placePicker.pickPlaceWithCallback { (place, error) in
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
+            if let error = error {
+                dispatch_async(dispatch_get_main_queue()) {
+                    AppError.handleAsAlert("Ooops!", message: error.localizedDescription, presentingViewController: self, completion: nil)
+                }
+                
+                return
+            }
+            
+            if let place = place {
+                self.footprint.placeName = place.name
+                self.footprint.location = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.addPlaceLabel.text = self.footprint.placeName
+                }
+            }
+        }
+    }
+    
+    private func presentManagePlaceAlertController(indexPath: NSIndexPath) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        alert.view.tintColor = AppTheme.disabledColor
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { action in
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        
+        let removeAction = UIAlertAction(title: "Remove", style: .Destructive) { action in
+            self.footprint.placeName = nil
+            self.footprint.location = nil
+            
+            self.addPlaceLabel.text = "Add that special place"
+        }
+        
+        let selectPlaceAction = UIAlertAction(title: "Select New Place", style: .Default) { action in
+            self.presentPlacePicker(indexPath)
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(removeAction)
+        alert.addAction(selectPlaceAction)
+        
+        presentViewController(alert, animated: true) {
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+    }
+    
 }
 
 // MARK: - Image picker controller delegate
@@ -391,4 +508,34 @@ extension CreateFootprintTableViewController: AVAudioPlayerDelegate {
         }
     }
 
+}
+
+// MARK: - Location manager delegate
+
+extension CreateFootprintTableViewController: CLLocationManagerDelegate {
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations.last
+        addPlaceCell.userInteractionEnabled = true
+        addPlaceLabel.textColor = UIColor.whiteColor()
+        
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        weak var weakSelf = self
+        
+        if status == .AuthorizedWhenInUse {
+            dispatch_async(dispatch_get_main_queue()) {
+                weakSelf?.handleLocationAccess(true)
+            }
+        }
+        
+        if status == .Denied {
+            dispatch_async(dispatch_get_main_queue()) {
+                weakSelf?.handleLocationAccess(false)
+            }
+        }
+    }
+    
 }
