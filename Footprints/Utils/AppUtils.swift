@@ -11,6 +11,7 @@ import AVFoundation
 
 class AppUtils {
     
+    static let googleApisKey = "AIzaSyDAONSyUyjaCSnnT32aZTQdN1CvPgQwUo0"
     static let appStoreURL = NSURL(string: "https://itunes.apple.com/us/app/id1058674366?ls=1&mt=8")!
 
     class func imageWithFillColor(color: UIColor, rect: CGRect) -> UIImage {

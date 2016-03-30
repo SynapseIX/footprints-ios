@@ -1111,7 +1111,7 @@
                                     <!--2015-11-13 23:09:26 +0000-->
                                 </date>
                             </datePicker>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="lyD-Ox-T5y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="lyD-Ox-T5y">
                                 <rect key="frame" x="120.5" y="64" width="360" height="360"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lyD-Ox-T5y" secondAttribute="height" multiplier="1:1" id="Exb-NC-kM6"/>
