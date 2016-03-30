@@ -839,6 +839,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="5zJ-mM-Ew6" kind="show" id="rRH-Xg-dlr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1084,6 +1087,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anN-K4-Ke6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6801" y="2628"/>
+        </scene>
+        <!--WHEN DID IT HAPPEN?-->
+        <scene sceneID="cab-sJ-bgs">
+            <objects>
+                <viewController id="5zJ-mM-Ew6" customClass="SelectDateViewController" customModule="Footprints" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="50j-a7-nRB"/>
+                        <viewControllerLayoutGuide type="bottom" id="JCk-pe-jWO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RJy-O5-i5n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPK-VN-UEI">
+                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                            </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="93F-0y-ay2">
+                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <date key="date" timeIntervalSinceReferenceDate="469148966.77313298">
+                                    <!--2015-11-13 23:09:26 +0000-->
+                                </date>
+                            </datePicker>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="lyD-Ox-T5y">
+                                <rect key="frame" x="120.5" y="64" width="360" height="360"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lyD-Ox-T5y" secondAttribute="height" multiplier="1:1" id="Exb-NC-kM6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lyD-Ox-T5y" firstAttribute="top" secondItem="50j-a7-nRB" secondAttribute="bottom" id="6bJ-Ha-bSd"/>
+                            <constraint firstItem="JCk-pe-jWO" firstAttribute="top" secondItem="VPK-VN-UEI" secondAttribute="bottom" id="E5P-1d-OOX"/>
+                            <constraint firstItem="93F-0y-ay2" firstAttribute="centerX" secondItem="RJy-O5-i5n" secondAttribute="centerX" id="Gb0-7k-OCb"/>
+                            <constraint firstItem="lyD-Ox-T5y" firstAttribute="centerX" secondItem="RJy-O5-i5n" secondAttribute="centerX" id="RiF-57-IpQ"/>
+                            <constraint firstItem="VPK-VN-UEI" firstAttribute="width" secondItem="93F-0y-ay2" secondAttribute="width" id="Sns-Nq-O4I"/>
+                            <constraint firstItem="93F-0y-ay2" firstAttribute="width" secondItem="RJy-O5-i5n" secondAttribute="width" id="dCe-JY-rS2"/>
+                            <constraint firstItem="VPK-VN-UEI" firstAttribute="height" secondItem="93F-0y-ay2" secondAttribute="height" id="fV0-Wo-ZCc"/>
+                            <constraint firstItem="VPK-VN-UEI" firstAttribute="centerX" secondItem="RJy-O5-i5n" secondAttribute="centerX" id="hzW-rb-lRy"/>
+                            <constraint firstItem="lyD-Ox-T5y" firstAttribute="width" secondItem="RJy-O5-i5n" secondAttribute="width" multiplier="0.6" id="iAM-XS-ekR"/>
+                            <constraint firstItem="JCk-pe-jWO" firstAttribute="top" secondItem="93F-0y-ay2" secondAttribute="bottom" id="kbb-Vb-S1D"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="WHEN DID IT HAPPEN?" id="7MO-4s-B4g">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="I0V-SC-RQP">
+                            <connections>
+                                <action selector="saveAction:" destination="5zJ-mM-Ew6" id="T9I-yT-HRI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="calendarViewTopSpaceConstraint" destination="6bJ-Ha-bSd" id="1fd-Yf-YOK"/>
+                        <outlet property="datePicker" destination="93F-0y-ay2" id="EZ0-9X-mvY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mpd-TS-r4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7613" y="2628"/>
         </scene>
     </scenes>
     <resources>

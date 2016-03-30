@@ -17,6 +17,7 @@
 		CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC90A1CA47BF1007D3BAD /* AppError.swift */; };
 		CF9D304B1CAC37C00033C744 /* RecordAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */; };
 		CF9D304E1CAC3EF40033C744 /* TextNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */; };
+		CF9D30511CAC44CC0033C744 /* SelectDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */; };
 		CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA486D1CA4996200B9033E /* AppTheme.swift */; };
 		CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48701CA4998700B9033E /* AppUtils.swift */; };
 		CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48721CA499AE00B9033E /* DeviceModel.swift */; };
@@ -49,6 +50,7 @@
 		CF1BC90A1CA47BF1007D3BAD /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordAudioViewController.swift; sourceTree = "<group>"; };
 		CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNoteViewController.swift; sourceTree = "<group>"; };
+		CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateViewController.swift; sourceTree = "<group>"; };
 		CFDA486D1CA4996200B9033E /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		CFDA48701CA4998700B9033E /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		CFDA48721CA499AE00B9033E /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
@@ -152,6 +154,14 @@
 			path = "Write Notes";
 			sourceTree = "<group>";
 		};
+		CF9D304F1CAC44BA0033C744 /* Add Date */ = {
+			isa = PBXGroup;
+			children = (
+				CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */,
+			);
+			path = "Add Date";
+			sourceTree = "<group>";
+		};
 		CFDA486B1CA498DF00B9033E /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +238,7 @@
 			children = (
 				CF9D30491CAC37A10033C744 /* Record Audio */,
 				CF9D304C1CAC3ECD0033C744 /* Write Notes */,
+				CF9D304F1CAC44BA0033C744 /* Add Date */,
 				CFF1C5E91CA9CB8E00E19D9E /* CreateBaseViewController.swift */,
 				CFF1C5EB1CA9D29F00E19D9E /* CreateFootprintTableViewController.swift */,
 			);
@@ -326,6 +337,7 @@
 				CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */,
 				CFF1C5E71CA8DA8400E19D9E /* ShortcutIdentifier.swift in Sources */,
 				CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */,
+				CF9D30511CAC44CC0033C744 /* SelectDateViewController.swift in Sources */,
 				CF1BC8F21CA46F84007D3BAD /* AppDelegate.swift in Sources */,
 				CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */,
 				CFF1C5DD1CA7891A00E19D9E /* FootprintTableViewCell.swift in Sources */,

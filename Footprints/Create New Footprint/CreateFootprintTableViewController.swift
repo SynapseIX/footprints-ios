@@ -42,18 +42,11 @@ class CreateFootprintTableViewController: UITableViewController {
             addTextNoteLabel.text = "Write some notes"
         }
         
-        // TODO: implement
-//        if placeName != nil {
-//            addPlaceLabel.text = placeName
-//        } else {
-//            addPlaceLabel.text = "Add that special place"
-//        }
-//        
-//        if date != nil {
-//            addDateLabel.text = AppUtils.formattedStringFromDate(date!)
-//        } else {
-//            addDateLabel.text = "Add a date to remember"
-//        }
+        if footprint.date != nil {
+            addDateLabel.text = AppUtils.formattedStringFromDate(footprint.date!)
+        } else {
+            addDateLabel.text = "Add a date to remember"
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,9 +62,6 @@ class CreateFootprintTableViewController: UITableViewController {
     @IBAction func saveAction(sender: AnyObject) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         tableView.setContentOffset(CGPointZero, animated: true)
-        
-        // TODO: set selected date
-        footprint.date = NSDate()
         
         // Process photo
         var imageFilePath: NSURL?
@@ -180,21 +170,16 @@ class CreateFootprintTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
-        // TODO: implement
+        if destinationViewController is RecordAudioViewController {
+            (destinationViewController as! RecordAudioViewController).delegate = self
+        }
+        
         if destinationViewController is TextNoteViewController {
             (destinationViewController as! TextNoteViewController).delegate = self
         }
-//
-//        if destinationViewController is SearchPlaceViewController {
-//            (destinationViewController as! SearchPlaceViewController).delegate = self
-//        }
-//        
-//        if destinationViewController is SelectDateViewController {
-//            (destinationViewController as! SelectDateViewController).delegate = self
-//        }
         
-        if destinationViewController is RecordAudioViewController {
-            (destinationViewController as! RecordAudioViewController).delegate = self
+        if destinationViewController is SelectDateViewController {
+            (destinationViewController as! SelectDateViewController).delegate = self
         }
     }
     
