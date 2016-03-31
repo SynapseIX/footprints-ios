@@ -83,6 +83,7 @@ class FootprintMapViewController: UIViewController {
             let marker = GMSMarker(position: footprint.location!.coordinate)
             marker.icon = UIImage(named: "pin")
             marker.userData = footprint
+            marker.tracksInfoWindowChanges = true
             marker.map = mapView
             
             // TODO: remove this when custom info windows work
