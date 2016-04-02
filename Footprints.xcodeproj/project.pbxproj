@@ -16,6 +16,7 @@
 		CF1BC9051CA4707B007D3BAD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1BC9041CA4707B007D3BAD /* CloudKit.framework */; };
 		CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */; };
 		CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC90A1CA47BF1007D3BAD /* AppError.swift */; };
+		CF92F10B1CB03ECD005322C7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */; };
 		CF9D304B1CAC37C00033C744 /* RecordAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */; };
 		CF9D304E1CAC3EF40033C744 /* TextNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */; };
 		CF9D30511CAC44CC0033C744 /* SelectDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */; };
@@ -54,6 +55,7 @@
 		CF1BC9041CA4707B007D3BAD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		CF1BC90A1CA47BF1007D3BAD /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordAudioViewController.swift; sourceTree = "<group>"; };
 		CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNoteViewController.swift; sourceTree = "<group>"; };
 		CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				CFF1C5E21CA85A6900E19D9E /* My Favorite Footprints */,
 				CFF1C5E81CA9CABA00E19D9E /* Create New Footprint */,
 				CFBFA8901CAC6A4100799EDC /* My Footprints In The World */,
+				CF92F1091CB03CE5005322C7 /* Settings */,
 				CF1BC8F11CA46F84007D3BAD /* AppDelegate.swift */,
 				CF1BC8F31CA46F84007D3BAD /* LaunchViewController.swift */,
 				CF1BC8F51CA46F84007D3BAD /* Main.storyboard */,
@@ -159,6 +162,14 @@
 				CF1BC90A1CA47BF1007D3BAD /* AppError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		CF92F1091CB03CE5005322C7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		CF9D30491CAC37A10033C744 /* Record Audio */ = {
@@ -435,6 +446,7 @@
 				CF9D304E1CAC3EF40033C744 /* TextNoteViewController.swift in Sources */,
 				CF1BC8F41CA46F84007D3BAD /* LaunchViewController.swift in Sources */,
 				CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */,
+				CF92F10B1CB03ECD005322C7 /* SettingsTableViewController.swift in Sources */,
 				CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */,
 				CFF1C5E71CA8DA8400E19D9E /* ShortcutIdentifier.swift in Sources */,
 				CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */,

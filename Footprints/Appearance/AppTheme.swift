@@ -13,6 +13,7 @@ class AppTheme {
     static let darkGrayColor = UIColor(red: 28.0 / 255.0, green: 28.0 / 255.0, blue: 28.0 / 255.0, alpha: 1.0)
     static let lightPinkColor = UIColor(red: 239.0 / 255.0, green: 68.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
     static let disabledColor = UIColor(red: 66.0 / 255.0, green: 66.0 / 255.0, blue: 66.0 / 255.0, alpha: 1.0)
+    static let redColor = UIColor(red: 244.0 / 255.0, green: 67.0 / 255.0, blue: 54.0 / 255.0, alpha: 1.0)
     static let tableVieCellSelectionColor = UIColor(red: 102.0 / 255.0, green: 102.0 / 255.0, blue: 102.0 / 255.0, alpha: 1.0)
     
     static let headingFont = UIFont(name: "DINCondensed-Bold", size: 22.0)
