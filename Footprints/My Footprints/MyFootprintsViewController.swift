@@ -35,6 +35,7 @@ class MyFootprintsViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        data = CloudKitHelper.allFootprints
         
         if data.count == 0 {
             reloadData(false)
@@ -206,12 +207,10 @@ class MyFootprintsViewController: UIViewController {
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
-                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.pictureImageView.image = UIImage(named: "no_picture")
-                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     }
                 }
             }
@@ -242,12 +241,10 @@ class MyFootprintsViewController: UIViewController {
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         imageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
                         imageView.image = UIImage(named: "no_picture")
-                        self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
                 }
             }

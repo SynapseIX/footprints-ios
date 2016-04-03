@@ -17,6 +17,7 @@
 		CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */; };
 		CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC90A1CA47BF1007D3BAD /* AppError.swift */; };
 		CF92F10B1CB03ECD005322C7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */; };
+		CF92F10E1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF92F10D1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift */; };
 		CF9D304B1CAC37C00033C744 /* RecordAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */; };
 		CF9D304E1CAC3EF40033C744 /* TextNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */; };
 		CF9D30511CAC44CC0033C744 /* SelectDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */; };
@@ -56,6 +57,7 @@
 		CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		CF1BC90A1CA47BF1007D3BAD /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		CF92F10D1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicencesAndAttributionsViewController.swift; sourceTree = "<group>"; };
 		CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordAudioViewController.swift; sourceTree = "<group>"; };
 		CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNoteViewController.swift; sourceTree = "<group>"; };
 		CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateViewController.swift; sourceTree = "<group>"; };
@@ -167,9 +169,18 @@
 		CF92F1091CB03CE5005322C7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				CF92F10C1CB09560005322C7 /* Licenses and Attributions */,
 				CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		CF92F10C1CB09560005322C7 /* Licenses and Attributions */ = {
+			isa = PBXGroup;
+			children = (
+				CF92F10D1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift */,
+			);
+			path = "Licenses and Attributions";
 			sourceTree = "<group>";
 		};
 		CF9D30491CAC37A10033C744 /* Record Audio */ = {
@@ -459,6 +470,7 @@
 				CFDA48801CA4B71A00B9033E /* MyFootprintsViewController.swift in Sources */,
 				CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */,
 				CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */,
+				CF92F10E1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift in Sources */,
 				CFBFA8951CAC802500799EDC /* InfoWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

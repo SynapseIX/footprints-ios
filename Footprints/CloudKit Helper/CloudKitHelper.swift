@@ -18,7 +18,7 @@ class CloudKitHelper {
     // MARK: - Account methods
     
     class func checkAccountStatus(onAvailable: () -> Void, onNoAccount: () -> Void, onRestricted: () -> Void, onError: (error: NSError?) -> Void) {
-        CKContainer.defaultContainer().accountStatusWithCompletionHandler { accountStatus, error in
+        CKContainer.defaultContainer().accountStatusWithCompletionHandler { (accountStatus, error) in
             if error == nil {
                 switch accountStatus {
                 case .Available:
@@ -67,7 +67,7 @@ class CloudKitHelper {
             fetchedFootprints.append(footprint)
         }
         
-        operation.queryCompletionBlock = { cursor, error in
+        operation.queryCompletionBlock = { (cursor, error) in
             let theFootprints = fetchedFootprints
             allFootprints = theFootprints
             
@@ -87,7 +87,7 @@ class CloudKitHelper {
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["picture"]
         
-        operation.recordFetchedBlock = { record in
+        operation.recordFetchedBlock = { (record) in
             let asset = record["picture"] as? CKAsset
             completion(picture: asset?.fileURL)
         }
@@ -111,7 +111,7 @@ class CloudKitHelper {
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["audio"]
         
-        operation.recordFetchedBlock = { record in
+        operation.recordFetchedBlock = { (record) in
             let asset = record["audio"] as? CKAsset
             completion(audio: asset?.fileURL)
         }
@@ -179,4 +179,29 @@ class CloudKitHelper {
             }
         }
     }
+    
+    // MARK: - Delete methods
+    
+    class func deleteFootprint(recordID: CKRecordID, completion: (error: NSError?) -> Void) {
+        database.deleteRecordWithID(recordID) { (recordID, error) in
+            completion(error: error)
+        }
+    }
+    
+    class func deleteAllFootprints(completion: (error: NSError?) -> Void) {
+        var recordIDs = [CKRecordID]()
+        
+        for footprint in allFootprints {
+            recordIDs.append(footprint.recordID)
+        }
+        
+        let operation = CKModifyRecordsOperation()
+        operation.recordIDsToDelete = recordIDs
+        operation.modifyRecordsCompletionBlock = { (savedRecordIDs, deletedRecordIDs, error) in
+            completion(error: error)
+        }
+        
+        database.addOperation(operation)
+    }
+    
 }
