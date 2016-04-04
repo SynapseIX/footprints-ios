@@ -101,7 +101,7 @@ class MyFootprintsViewController: UIViewController {
     // MARK: - UI Methods
     
     func setupUI() {
-        tableView.estimatedRowHeight = 465.0
+        tableView.estimatedRowHeight = 320.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.setContentOffset(CGPointMake(0, 44), animated: false)
         tableView.registerNib(UINib(nibName: "FootprintTableViewCell", bundle: nil), forCellReuseIdentifier: tableViewCellIdentifier)
