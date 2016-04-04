@@ -8,7 +8,7 @@
 
 import CloudKit
 
-class Footprint {
+class Footprint: NSObject {
     
     var recordID: CKRecordID!
     var title: String!

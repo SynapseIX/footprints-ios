@@ -78,14 +78,6 @@ class MyFavoriteFootprintsViewController: UIViewController {
         tableView.registerNib(UINib(nibName: "FootprintTableViewCell", bundle: nil), forCellReuseIdentifier: tableViewCellIdentifier)
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        // Setup footprint tab bar item
-        // TODO: uncomment once implemented
-        /*let tabBarItemImage = UIImage(named: "footprints_tab")?.imageWithRenderingMode(.AlwaysOriginal)
-         let footprintTabBarItem = tabBarController?.tabBar.items?[2]
-         
-         footprintTabBarItem?.selectedImage = tabBarItemImage
-         footprintTabBarItem?.image = tabBarItemImage*/
-        
         // Remove navigation bar border
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)

@@ -55,7 +55,7 @@ class DetailTableViewController: UITableViewController {
         if footprint.placeName != nil {
             addPlaceLabel.text = footprint.placeName!
         } else {
-            addPlaceLabel.text = "Add that special name"
+            addPlaceLabel.text = "Add that special place"
         }
         
         if footprint.date != nil {
@@ -163,6 +163,21 @@ class DetailTableViewController: UITableViewController {
         // Initialize add places UI
         addPlaceCell.userInteractionEnabled = false
         addPlaceLabel.textColor = AppTheme.disabledColor
+        
+        // Setup refresh control
+        refreshControl = UIRefreshControl()
+        refreshControl!.backgroundColor = AppTheme.darkGrayColor
+        refreshControl!.tintColor = UIColor.whiteColor()
+        refreshControl!.addTarget(self, action: #selector(DetailTableViewController.refresh), forControlEvents: .ValueChanged)
+        
+    }
+    
+    func refresh() {
+        tableView.reloadData()
+        
+        if refreshControl!.refreshing {
+            refreshControl!.endRefreshing()
+        }
     }
     
     // MARK: - Location manager methods
@@ -227,6 +242,7 @@ class DetailTableViewController: UITableViewController {
         if indexPath.section == 0 {
             if footprint.picture != nil {
                 pictureImageView.hidden = false
+                pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
                 return UIScreen.mainScreen().bounds.size.width
             } else {
                 pictureImageView.hidden = true
@@ -485,6 +501,14 @@ class DetailTableViewController: UITableViewController {
                     }
                     
                     return
+                }
+                
+                let index = CloudKitHelper.allFootprints.indexOf {
+                    $0.recordID == self.footprint.recordID
+                }
+                
+                if let index = index {
+                    CloudKitHelper.allFootprints.removeAtIndex(index)
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
