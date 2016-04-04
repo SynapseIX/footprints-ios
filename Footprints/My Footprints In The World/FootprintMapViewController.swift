@@ -97,6 +97,15 @@ class FootprintMapViewController: UIViewController {
             $0.location != nil
         }
     }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController as! UINavigationController
+        let detailTableViewController = destinationViewController.topViewController as! DetailTableViewController
+        
+        detailTableViewController.footprint = sender as! Footprint
+    }
 
 }
 
@@ -146,9 +155,7 @@ extension FootprintMapViewController: GMSMapViewDelegate {
     
     func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
         let footprint = marker.userData as! Footprint
-        
-        // TODO: show detail when done
-        NSLog("Tapped window for %@", footprint.title)
+        performSegueWithIdentifier("showDetailMapSegue", sender: footprint)
     }
     
 }

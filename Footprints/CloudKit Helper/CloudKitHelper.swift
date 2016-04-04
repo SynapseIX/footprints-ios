@@ -92,7 +92,7 @@ class CloudKitHelper {
             completion(picture: asset?.fileURL)
         }
         
-        operation.queryCompletionBlock = { cursor, error in
+        operation.queryCompletionBlock = { (cursor, error) in
             if let error = error {
                 AppError.handleAsLog(error.description)
             }
@@ -129,7 +129,7 @@ class CloudKitHelper {
     
     class func saveFootprint(footprint: Footprint, completion:(record: CKRecord?, error: NSError?) -> Void) {
         if let recordID = footprint.recordID {
-            database.fetchRecordWithID(recordID) { record, error in
+            database.fetchRecordWithID(recordID) { (record, error) in
                 if error == nil {
                     if let fetchedRecord = record {
                         fetchedRecord["title"] = footprint.title

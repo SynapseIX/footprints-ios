@@ -20,9 +20,9 @@ class TextNoteViewController: UIViewController {
         
         if delegate is CreateFootprintTableViewController  {
             textView.text = (delegate as? CreateFootprintTableViewController)?.footprint.notes
-        } /*else if delegate is DetailTableViewController {
-            textView.text = (delegate as? DetailTableViewController)?.textNotes
-        }*/ // TODO: uncomment when detail is done
+        } else if delegate is DetailTableViewController {
+            textView.text = (delegate as? DetailTableViewController)?.footprint.notes
+        }
         
         textView.becomeFirstResponder()
     }
@@ -34,9 +34,9 @@ class TextNoteViewController: UIViewController {
     @IBAction func addAction(sender: AnyObject) {
         if delegate is CreateFootprintTableViewController {
             (delegate as? CreateFootprintTableViewController)?.footprint.notes = textView.text.characters.count > 0 ? textView.text : nil
-        } /*else if delegate is DetailTableViewController {
-            (delegate as? DetailTableViewController)?.textNotes = textView.text.characters.count > 0 ? textView.text : nil
-        }*/ // TODO: uncomment when detail is done
+        } else if delegate is DetailTableViewController {
+            (delegate as? DetailTableViewController)?.footprint.notes = textView.text.characters.count > 0 ? textView.text : nil
+        }
         
         navigationController?.popViewControllerAnimated(true)
     }

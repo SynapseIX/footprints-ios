@@ -94,7 +94,6 @@ class MyFootprintsViewController: UIViewController {
             defaults.removeObjectForKey("launchCreateNew")
             defaults.synchronize()
             
-            // TODO: present the actual view controller
             self.tabBarController?.selectedIndex = 2
         }
     }
@@ -382,6 +381,17 @@ class MyFootprintsViewController: UIViewController {
         
         presentViewController(alert, animated: true, completion: nil)
     }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        searchBar.text = nil
+        
+        let destinationViewController = segue.destinationViewController as! UINavigationController
+        let detailTableViewController = destinationViewController.topViewController as! DetailTableViewController
+        
+        detailTableViewController.footprint = sender as! Footprint
+    }
 
 }
 
@@ -429,8 +439,7 @@ extension MyFootprintsViewController: UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
-        // TODO: uncomment once implemented
-        // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
+        performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
     }
     
 }
@@ -461,9 +470,7 @@ extension MyFootprintsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let footprint = data[indexPath.item]
-        
-        // TODO: uncomment once implemented
-        // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
+        performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

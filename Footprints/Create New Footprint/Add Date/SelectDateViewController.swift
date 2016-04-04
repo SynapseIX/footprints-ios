@@ -36,9 +36,9 @@ class SelectDateViewController: UIViewController {
     @IBAction func saveAction(sender: AnyObject) {
         if delegate is CreateFootprintTableViewController {
             (delegate as? CreateFootprintTableViewController)?.footprint.date = datePicker.date
-        } /*else if delegate is DetailTableViewController {
-            (delegate as? DetailTableViewController)?.date = datePicker.date
-        }*/ // TODO: uncomment once detail is done
+        } else if delegate is DetailTableViewController {
+            (delegate as? DetailTableViewController)?.footprint.date = datePicker.date
+        }
         
         navigationController?.popViewControllerAnimated(true)
     }

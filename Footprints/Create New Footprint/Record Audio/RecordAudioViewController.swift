@@ -79,9 +79,9 @@ class RecordAudioViewController: UIViewController {
     @IBAction func saveAction(sender: AnyObject) {
         if delegate is CreateFootprintTableViewController {
             (delegate as! CreateFootprintTableViewController).footprint.audio = soundToShareFilePath
-        } /*else if delegate is DetailTableViewController {
-            (delegate as! DetailTableViewController).audioURL = soundToShareFilePath
-        }*/ // TODO: uncoment when detail is done
+        } else if delegate is DetailTableViewController {
+            (delegate as! DetailTableViewController).footprint.audio = soundToShareFilePath
+        }
         
         if audioRecorder.recording {
             audioRecorder.stop()

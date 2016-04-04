@@ -24,6 +24,7 @@
 		CFBFA8921CAC76E400799EDC /* FootprintMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBFA8911CAC76E400799EDC /* FootprintMapViewController.swift */; };
 		CFBFA8951CAC802500799EDC /* InfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBFA8941CAC802500799EDC /* InfoWindow.swift */; };
 		CFBFA8991CAC99F900799EDC /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFBFA8981CAC99F900799EDC /* InfoWindow.xib */; };
+		CFC482CD1CB2BDD2005C99D6 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC482CC1CB2BDD2005C99D6 /* DetailTableViewController.swift */; };
 		CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA486D1CA4996200B9033E /* AppTheme.swift */; };
 		CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48701CA4998700B9033E /* AppUtils.swift */; };
 		CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48721CA499AE00B9033E /* DeviceModel.swift */; };
@@ -64,6 +65,7 @@
 		CFBFA8911CAC76E400799EDC /* FootprintMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintMapViewController.swift; sourceTree = "<group>"; };
 		CFBFA8941CAC802500799EDC /* InfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWindow.swift; sourceTree = "<group>"; };
 		CFBFA8981CAC99F900799EDC /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
+		CFC482CC1CB2BDD2005C99D6 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		CFDA486D1CA4996200B9033E /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		CFDA48701CA4998700B9033E /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		CFDA48721CA499AE00B9033E /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				CFF1C5E51CA8DA5F00E19D9E /* Quick Actions */,
 				CFDA48811CA4BE3D00B9033E /* Model */,
 				CFDA486B1CA498DF00B9033E /* Permissions */,
+				CFC482CB1CB2BB8F005C99D6 /* Detail */,
 				CFDA487E1CA4B27C00B9033E /* My Footprints */,
 				CFF1C5E21CA85A6900E19D9E /* My Favorite Footprints */,
 				CFF1C5E81CA9CABA00E19D9E /* Create New Footprint */,
@@ -223,6 +226,14 @@
 				CFBFA8981CAC99F900799EDC /* InfoWindow.xib */,
 			);
 			path = "Info Window";
+			sourceTree = "<group>";
+		};
+		CFC482CB1CB2BB8F005C99D6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CFC482CC1CB2BDD2005C99D6 /* DetailTableViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		CFDA486B1CA498DF00B9033E /* Permissions */ = {
@@ -458,6 +469,7 @@
 				CF1BC8F41CA46F84007D3BAD /* LaunchViewController.swift in Sources */,
 				CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */,
 				CF92F10B1CB03ECD005322C7 /* SettingsTableViewController.swift in Sources */,
+				CFC482CD1CB2BDD2005C99D6 /* DetailTableViewController.swift in Sources */,
 				CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */,
 				CFF1C5E71CA8DA8400E19D9E /* ShortcutIdentifier.swift in Sources */,
 				CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */,

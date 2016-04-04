@@ -325,6 +325,17 @@ class MyFavoriteFootprintsViewController: UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        searchBar.text = nil
+        
+        let destinationViewController = segue.destinationViewController as! UINavigationController
+        let detailTableViewController = destinationViewController.topViewController as! DetailTableViewController
+        
+        detailTableViewController.footprint = sender as! Footprint
+    }
+    
 }
 
 // MARK: - Table view data source
@@ -371,8 +382,7 @@ extension MyFavoriteFootprintsViewController: UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
-        // TODO: uncomment once implemented
-        // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
+        performSegueWithIdentifier("showDetailFavoriteSegue", sender: footprint)
     }
     
 }
@@ -403,9 +413,7 @@ extension MyFavoriteFootprintsViewController: UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let footprint = data[indexPath.item]
-        
-        // TODO: uncomment once implemented
-        // performSegueWithIdentifier("showDetailMainSegue", sender: footprint)
+        performSegueWithIdentifier("showDetailFavoriteSegue", sender: footprint)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
