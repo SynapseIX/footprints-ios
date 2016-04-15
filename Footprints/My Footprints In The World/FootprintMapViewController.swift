@@ -27,7 +27,6 @@ class FootprintMapViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
         mapView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
         myLocationButton.enabled = mapView.myLocation != nil
     }

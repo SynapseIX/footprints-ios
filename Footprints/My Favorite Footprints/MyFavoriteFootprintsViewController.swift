@@ -133,18 +133,38 @@ class MyFavoriteFootprintsViewController: UIViewController {
         cell.pictureImageView.image = UIImage(named: "default_picture")
         
         if let picture = footprint.picture {
-            cell.pictureImageView?.image = UIImage(data: NSData(contentsOfURL: picture)!)
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                if let data = NSData(contentsOfURL: picture) {
+                    if let image = UIImage(data: data) {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            if let updateCell = self.tableView.cellForRowAtIndexPath(indexPath) as? FootprintTableViewCell {
+                                updateCell.pictureImageView.image = image
+                            }
+                        }
+                    }
+                }
+            }
         } else {
             CloudKitHelper.fetchFootprintPicture(footprint.recordID) { picture in
                 if let picture = picture {
                     footprint.picture = picture
                     
-                    dispatch_async(dispatch_get_main_queue()) {
-                        cell.pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                        if let data = NSData(contentsOfURL: footprint.picture!) {
+                            if let image = UIImage(data: data) {
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    if let updateCell = self.tableView.cellForRowAtIndexPath(indexPath) as? FootprintTableViewCell {
+                                        updateCell.pictureImageView.image = image
+                                    }
+                                }
+                            }
+                        }
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
-                        cell.pictureImageView.image = UIImage(named: "no_picture")
+                        if let updateCell = self.tableView.cellForRowAtIndexPath(indexPath) as? FootprintTableViewCell {
+                            updateCell.pictureImageView.image = UIImage(named: "no_picture")
+                        }
                     }
                 }
             }
@@ -167,14 +187,28 @@ class MyFavoriteFootprintsViewController: UIViewController {
         imageView.image = UIImage(named: "default_picture")
         
         if let picture = footprint.picture {
-            imageView.image = UIImage(data: NSData(contentsOfURL: picture)!)
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                if let data = NSData(contentsOfURL: picture) {
+                    if let image = UIImage(data: data) {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            imageView.image = image
+                        }
+                    }
+                }
+            }
         } else {
             CloudKitHelper.fetchFootprintPicture(footprint.recordID) { picture in
                 if let picture = picture {
                     footprint.picture = picture
                     
-                    dispatch_async(dispatch_get_main_queue()) {
-                        imageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                        if let data = NSData(contentsOfURL: footprint.picture!) {
+                            if let image = UIImage(data: data) {
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    imageView.image = image
+                                }
+                            }
+                        }
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue()) {
