@@ -190,8 +190,11 @@ class MyFavoriteFootprintsViewController: UIViewController {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 if let data = NSData(contentsOfURL: picture) {
                     if let image = UIImage(data: data) {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            imageView.image = image
+                        if let cell = self.collectionView.cellForItemAtIndexPath(indexPath) {
+                            dispatch_async(dispatch_get_main_queue()) {
+                                let imageView = cell.viewWithTag(1) as! UIImageView
+                                imageView.image = image
+                            }
                         }
                     }
                 }
@@ -204,15 +207,21 @@ class MyFavoriteFootprintsViewController: UIViewController {
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                         if let data = NSData(contentsOfURL: footprint.picture!) {
                             if let image = UIImage(data: data) {
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    imageView.image = image
+                                if let cell = self.collectionView.cellForItemAtIndexPath(indexPath) {
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                        let imageView = cell.viewWithTag(1) as! UIImageView
+                                        imageView.image = image
+                                    }
                                 }
                             }
                         }
                     }
                 } else {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        imageView.image = UIImage(named: "no_picture")
+                    if let cell = self.collectionView.cellForItemAtIndexPath(indexPath) {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let imageView = cell.viewWithTag(1) as! UIImageView
+                            imageView.image = UIImage(named: "no_picture")
+                        }
                     }
                 }
             }
