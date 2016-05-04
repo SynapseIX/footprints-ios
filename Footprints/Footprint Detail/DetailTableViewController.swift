@@ -63,6 +63,12 @@ class DetailTableViewController: UITableViewController {
         } else {
             addDateLabel.text = "Add a date to remember"
         }
+        
+        CloudKitHelper.fetchFootprintAudio(footprint.recordID) { (audio) in
+            if let audio = audio {
+                self.footprint.audio = audio;
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -169,7 +175,6 @@ class DetailTableViewController: UITableViewController {
         refreshControl!.backgroundColor = AppTheme.darkGrayColor
         refreshControl!.tintColor = UIColor.whiteColor()
         refreshControl!.addTarget(self, action: #selector(DetailTableViewController.refresh), forControlEvents: .ValueChanged)
-        
     }
     
     func refresh() {
@@ -230,6 +235,16 @@ class DetailTableViewController: UITableViewController {
         if indexPath.section == 2 {
             if indexPath.row == 1 {
                 presentPlacePicker(indexPath)
+            }
+        }
+        
+        if indexPath.section == 3 {
+            if indexPath.row == 0 {
+                if footprint.audio != nil {
+                    presentRecordAudioAlertController(indexPath)
+                } else {
+                    performSegueWithIdentifier("recordAudioDetailSegue", sender: nil)
+                }
             }
         }
         
@@ -384,7 +399,7 @@ class DetailTableViewController: UITableViewController {
         }
         
         let recordAction = UIAlertAction(title: "Record", style: .Default) { action in
-            self.performSegueWithIdentifier("recordAudioCreateSegue", sender: nil)
+            self.performSegueWithIdentifier("recordAudioDetailSegue", sender: nil)
         }
         
         let playAction = UIAlertAction(title: "Play", style: .Default) { action in

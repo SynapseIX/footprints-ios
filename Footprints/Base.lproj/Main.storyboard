@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1616,9 +1616,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="VqW-wj-otI" kind="show" id="WLF-FU-Kif"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1676,6 +1673,7 @@
                         <outlet property="pictureImageView" destination="4Sj-3W-vvM" id="1MO-HF-oUh"/>
                         <outlet property="saveButton" destination="rgs-rN-UBm" id="OxJ-Z6-2zH"/>
                         <outlet property="tableView" destination="KyV-Ro-Fx2" id="r36-YV-QG8"/>
+                        <segue destination="VqW-wj-otI" kind="show" identifier="recordAudioDetailSegue" id="rCs-vR-lUE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lZ-ZH-lp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1724,9 +1722,9 @@
         <image name="world" width="338" height="338"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s4z-56-tVh"/>
-        <segue reference="hak-ws-sbT"/>
         <segue reference="mmU-wX-XMK"/>
-        <segue reference="WLF-FU-Kif"/>
+        <segue reference="hak-ws-sbT"/>
+        <segue reference="s4z-56-tVh"/>
+        <segue reference="rCs-vR-lUE"/>
     </inferredMetricsTieBreakers>
 </document>
