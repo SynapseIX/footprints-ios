@@ -1471,6 +1471,10 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="FDu-Wh-tsC">
+                                                    <rect key="frame" x="564" y="12.5" width="20" height="20"/>
+                                                    <color key="color" red="0.93725490196078431" green="0.26666666666666666" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Sj-3W-vvM">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                                 </imageView>
@@ -1479,6 +1483,8 @@
                                                 <constraint firstItem="Go6-4W-Oi4" firstAttribute="centerY" secondItem="ipS-4Q-Tpf" secondAttribute="centerY" id="957-TE-lRL"/>
                                                 <constraint firstItem="4Sj-3W-vvM" firstAttribute="centerY" secondItem="2lJ-rn-bXE" secondAttribute="centerY" id="AJY-c6-Pgl"/>
                                                 <constraint firstItem="ipS-4Q-Tpf" firstAttribute="height" secondItem="2lJ-rn-bXE" secondAttribute="height" id="Ghh-zt-ABD"/>
+                                                <constraint firstItem="FDu-Wh-tsC" firstAttribute="centerY" secondItem="2lJ-rn-bXE" secondAttribute="centerY" id="N0m-D4-Gho"/>
+                                                <constraint firstAttribute="trailing" secondItem="FDu-Wh-tsC" secondAttribute="trailing" constant="16" id="c3C-hQ-6wF"/>
                                                 <constraint firstItem="4Sj-3W-vvM" firstAttribute="height" secondItem="2lJ-rn-bXE" secondAttribute="height" id="eWa-Kq-sRq"/>
                                                 <constraint firstItem="4Sj-3W-vvM" firstAttribute="width" secondItem="2lJ-rn-bXE" secondAttribute="width" id="fij-aH-w5i"/>
                                                 <constraint firstItem="ipS-4Q-Tpf" firstAttribute="leading" secondItem="2lJ-rn-bXE" secondAttribute="leading" constant="15" id="gXB-u7-22r"/>
@@ -1670,6 +1676,7 @@
                         <outlet property="addTextNoteLabel" destination="WHD-Jr-Zkk" id="atz-59-QPB"/>
                         <outlet property="addTitleLabel" destination="cYR-4d-cnI" id="06q-YJ-na5"/>
                         <outlet property="dismissButton" destination="7SQ-1J-PM3" id="vwb-b9-lGL"/>
+                        <outlet property="loadingPictureView" destination="FDu-Wh-tsC" id="xBh-tj-0ev"/>
                         <outlet property="pictureImageView" destination="4Sj-3W-vvM" id="1MO-HF-oUh"/>
                         <outlet property="saveButton" destination="rgs-rN-UBm" id="OxJ-Z6-2zH"/>
                         <outlet property="tableView" destination="KyV-Ro-Fx2" id="r36-YV-QG8"/>

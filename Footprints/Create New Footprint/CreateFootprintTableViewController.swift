@@ -446,8 +446,8 @@ class CreateFootprintTableViewController: UITableViewController {
             self.presentPlacePicker(indexPath)
         }
         
-        alert.addAction(cancelAction)
         alert.addAction(removeAction)
+        alert.addAction(cancelAction)
         alert.addAction(selectPlaceAction)
         
         presentViewController(alert, animated: true) {

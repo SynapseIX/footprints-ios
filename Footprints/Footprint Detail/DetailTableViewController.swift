@@ -21,6 +21,7 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var addPlaceLabel: UILabel!
     @IBOutlet weak var addDateLabel: UILabel!
     @IBOutlet weak var pictureImageView: UIImageView!
+    @IBOutlet weak var loadingPictureView: UIActivityIndicatorView!
     
     var footprint: Footprint!
     
@@ -42,8 +43,18 @@ class DetailTableViewController: UITableViewController {
         
         saveButton.enabled = footprint.title != nil
         
-        if footprint.picture != nil {
-            pictureImageView.image = UIImage(data: NSData(contentsOfURL: footprint.picture!)!)
+        if footprint.picture == nil {
+            CloudKitHelper.fetchFootprintPicture(footprint.recordID) { (picture) in
+                if let picture = picture {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.userPicture = UIImage(data: NSData(contentsOfURL: picture)!)
+                        self.pictureImageView.image = self.userPicture
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        } else {
+            loadingPictureView.stopAnimating()
         }
         
         if footprint.notes != nil {
@@ -64,9 +75,11 @@ class DetailTableViewController: UITableViewController {
             addDateLabel.text = "Add a date to remember"
         }
         
-        CloudKitHelper.fetchFootprintAudio(footprint.recordID) { (audio) in
-            if let audio = audio {
-                self.footprint.audio = audio;
+        if footprint.audio == nil {
+            CloudKitHelper.fetchFootprintAudio(footprint.recordID) { (audio) in
+                if let audio = audio {
+                    self.footprint.audio = audio;
+                }
             }
         }
     }
@@ -234,7 +247,11 @@ class DetailTableViewController: UITableViewController {
         
         if indexPath.section == 2 {
             if indexPath.row == 1 {
-                presentPlacePicker(indexPath)
+                if footprint.location == nil {
+                    presentPlacePicker(indexPath)
+                } else {
+                    presentManagePlaceAlertController(indexPath)
+                }
             }
         }
         
@@ -371,7 +388,7 @@ class DetailTableViewController: UITableViewController {
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
         
-        if userPicture != nil {
+        if pictureImageView.image != nil {
             alert.addAction(removeAction)
         }
         
@@ -492,8 +509,8 @@ class DetailTableViewController: UITableViewController {
             self.presentPlacePicker(indexPath)
         }
         
-        alert.addAction(cancelAction)
         alert.addAction(removeAction)
+        alert.addAction(cancelAction)
         alert.addAction(selectPlaceAction)
         
         presentViewController(alert, animated: true) {
