@@ -40,41 +40,51 @@ class CloudKitHelper {
     // MARK: - Fetch methods
     
     class func fetchAllFootprintsNoAssets(completion: (error: NSError?) -> Void) {
-        let predicate = NSPredicate(value: true)
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-        
-        let query = CKQuery(recordType: "Footprint", predicate: predicate)
-        query.sortDescriptors = [sortDescriptor]
-        
-        let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["title", "notes", "placeName", "location", "date", "favorite"]
-        
-        var fetchedFootprints = [Footprint]()
-        
-        operation.recordFetchedBlock = { record in
-            let footprint = Footprint()
-            footprint.recordID = record.recordID
-            footprint.title = record["title"] as! String
-            footprint.notes = record["notes"] as? String
-            footprint.placeName = record["placeName"] as? String
-            footprint.location = record["location"] as? CLLocation
-            footprint.date = record["date"] as! NSDate
+        checkAccountStatus({
+            let predicate = NSPredicate(value: true)
+            let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
             
-            if let favorite = record["favorite"] as? Int {
-                footprint.favorite = favorite
+            let query = CKQuery(recordType: "Footprint", predicate: predicate)
+            query.sortDescriptors = [sortDescriptor]
+            
+            let operation = CKQueryOperation(query: query)
+            operation.desiredKeys = ["title", "notes", "placeName", "location", "date", "favorite"]
+            
+            var fetchedFootprints = [Footprint]()
+            
+            operation.recordFetchedBlock = { record in
+                let footprint = Footprint()
+                footprint.recordID = record.recordID
+                footprint.title = record["title"] as! String
+                footprint.notes = record["notes"] as? String
+                footprint.placeName = record["placeName"] as? String
+                footprint.location = record["location"] as? CLLocation
+                footprint.date = record["date"] as! NSDate
+                
+                if let favorite = record["favorite"] as? Int {
+                    footprint.favorite = favorite
+                }
+                
+                fetchedFootprints.append(footprint)
             }
             
-            fetchedFootprints.append(footprint)
-        }
-        
-        operation.queryCompletionBlock = { (cursor, error) in
-            let theFootprints = fetchedFootprints
-            allFootprints = theFootprints
+            operation.queryCompletionBlock = { (cursor, error) in
+                let theFootprints = fetchedFootprints
+                allFootprints = theFootprints
+                
+                completion(error: error)
+            }
             
-            completion(error: error)
+            database.addOperation(operation)
+        }, onNoAccount: {
+            completion(error: NSError(domain: "iCloud", code: -1, userInfo: [NSLocalizedDescriptionKey: "Sign in to your iCloud account to start using Footprints. On the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID."]))
+        }, onRestricted: {
+            completion(error: NSError(domain: "iCloud", code: -2, userInfo: [NSLocalizedDescriptionKey: "iCloud access is restricted by parental controls. Please ask your guardian to disable iCloud restrictions."]))
+        }) { (error) in
+            if let error = error {
+                completion(error: error)
+            }
         }
-        
-        database.addOperation(operation)
     }
     
     class func fetchFootprintPicture(recordID: CKRecordID, completion: (picture: NSURL?) -> Void) {
