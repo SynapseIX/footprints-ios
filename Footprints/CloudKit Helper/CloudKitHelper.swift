@@ -14,7 +14,6 @@ class CloudKitHelper {
     private static let database = CKContainer.defaultContainer().privateCloudDatabase;
     static var allFootprints = [Footprint]()
     
-    
     // MARK: - Account methods
     
     class func checkAccountStatus(onAvailable: () -> Void, onNoAccount: () -> Void, onRestricted: () -> Void, onError: (error: NSError?) -> Void) {
