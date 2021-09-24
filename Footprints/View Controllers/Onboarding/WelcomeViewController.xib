@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="Footprints" customModuleProvider="target">
+            <connections>
+                <outlet property="messageLabel" destination="LnI-Hk-HHe" id="IBs-A7-TXi"/>
+                <outlet property="startButton" destination="px3-pR-ylU" id="aXL-l4-PR8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="welcomeLabel" destination="XuR-Vh-9Bl" id="is3-sb-0Rj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fp_onboarding_1" translatesAutoresizingMaskIntoConstraints="NO" id="NfR-gt-Zph">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="259"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="NfR-gt-Zph" secondAttribute="height" multiplier="8:5" id="gzQ-Bf-NLd"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Footprints" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuR-Vh-9Bl">
+                    <rect key="frame" x="16" y="283" width="382" height="48"/>
+                    <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="40"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to your very own digital treasure box. Let's get everything ready to create a lifetime of great memories and moments." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnI-Hk-HHe">
+                    <rect key="frame" x="16" y="355" width="382" height="61"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px3-pR-ylU">
+                    <rect key="frame" x="139.5" y="480" width="135" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Let's Get Started"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NfR-gt-Zph" secondAttribute="trailing" id="5Se-kE-3qv"/>
+                <constraint firstItem="NfR-gt-Zph" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8b2-58-dCh"/>
+                <constraint firstItem="px3-pR-ylU" firstAttribute="top" secondItem="LnI-Hk-HHe" secondAttribute="bottom" constant="64" id="Hww-Jh-wFc"/>
+                <constraint firstItem="NfR-gt-Zph" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IPc-Cm-3Jt"/>
+                <constraint firstItem="XuR-Vh-9Bl" firstAttribute="top" secondItem="NfR-gt-Zph" secondAttribute="bottom" constant="24" id="IY4-Ud-KFs"/>
+                <constraint firstItem="NfR-gt-Zph" firstAttribute="width" secondItem="NfR-gt-Zph" secondAttribute="height" multiplier="8:5" id="SXz-rM-x9Y"/>
+                <constraint firstItem="LnI-Hk-HHe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="aOd-6R-kb3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LnI-Hk-HHe" secondAttribute="trailing" constant="16" id="dyk-wk-8lM"/>
+                <constraint firstItem="XuR-Vh-9Bl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="eCN-4I-mND"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XuR-Vh-9Bl" secondAttribute="trailing" constant="16" id="jFU-YQ-9WR"/>
+                <constraint firstItem="LnI-Hk-HHe" firstAttribute="top" secondItem="XuR-Vh-9Bl" secondAttribute="bottom" constant="24" id="kVr-UX-NSB"/>
+                <constraint firstItem="px3-pR-ylU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="wYS-s1-aZa"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="124"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fp_onboarding_1" width="640" height="400"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -17,11 +17,16 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     }
     
     func start() {
-        self.navigationController.delegate = self
+        navigationController.delegate = self
+        navigationController.setNavigationBarHidden(true, animated: false)
         
-        let viewController = ViewController.instantiate()
-        viewController.coordinator = self
-        navigationController.pushViewController(viewController, animated: false)
+        // If user hasn't completed onboarding
+        let onboardingCoordinator = OnboardingCoordinator(navigationController: navigationController)
+        onboardingCoordinator.parent = self
+        children.append(onboardingCoordinator)
+        onboardingCoordinator.start()
+        
+        // TODO: navigate home
     }
     
     func childDidFinish(_ child: Coordinator?) {
