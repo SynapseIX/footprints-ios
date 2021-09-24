@@ -2,7 +2,7 @@
 
 Footprints is your digital treasure box for your fondest memories. Store and relive your most precious moments with photos, audio notes, text notes and places.
 
-Bookmark your favorite ones to easily find them. Search your footprints by title, notes and places. It's your personal collection, but you can also share your footprints with friends and family on Twitter, Facebook and Instagram.
+Bookmark your favorite ones to easily find them. Search your footprints by title, notes and places. It's your personal collection, but you can also share your footprints with friends and family.
 
 Track your footprints in the world by locating them on a map. Cover the entire world with your footprints!
 

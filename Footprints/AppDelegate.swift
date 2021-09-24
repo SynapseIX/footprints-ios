@@ -2,59 +2,35 @@
 //  AppDelegate.swift
 //  Footprints
 //
-//  Created by Jorge Tapia on 3/24/16.
-//  Copyright © 2016 Jorge Tapia. All rights reserved.
+//  Created by Jorge Tapia on 9/24/21.
 //
 
 import UIKit
-import GoogleMaps
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        AppTheme.apply()
-        GMSServices.provideAPIKey(AppUtils.googleApisKey)
-        
-        if let shortcutItem =
-            launchOptions?[UIApplicationLaunchOptionsShortcutItemKey]
-                as? UIApplicationShortcutItem {
-            handleQuickAction(shortcutItem)
-            
-            return false
-        }
-        
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
         return true
     }
-    
-    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-        completionHandler(handleQuickAction(shortcutItem))
+
+    // MARK: UISceneSession Lifecycle
+
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        // Called when a new scene session is being created.
+        // Use this method to select a configuration to create the new scene with.
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-    
-    // MARK: - Quick action handler
-    
-    private func handleQuickAction(shortcutItem: UIApplicationShortcutItem) -> Bool {
-        let shortcutType = shortcutItem.type
-        
-        guard let shortcutIdentifier = ShortcutIdentifier(fullIdentifier: shortcutType) else {
-            return false
-        }
-        
-        if shortcutIdentifier == .CreateNew {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            
-            if defaults.boolForKey("permissionsSetup") {
-                defaults.setBool(true, forKey: "launchCreateNew")
-                defaults.synchronize()
-                
-                return true
-            }
-        }
-        
-        return false
+
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+        // Called when the user discards a scene session.
+        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+
 
 }
 
