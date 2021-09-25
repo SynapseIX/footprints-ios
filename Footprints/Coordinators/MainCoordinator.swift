@@ -49,9 +49,8 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         }
         
         // Process child coordinators once view controllers are popped out of navigation controller
-        
-//        if let viewController = fromViewController as? ViewController {
-//            childDidFinish(viewController.coordinator)
-//        }
+        if let welcomeViewController = fromViewController as? WelcomeViewController {
+            childDidFinish(welcomeViewController.coordinator)
+        }
     }
 }

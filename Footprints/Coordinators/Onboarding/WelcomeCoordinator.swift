@@ -1,16 +1,17 @@
 //
-//  OnboardingCoordinator.swift
+//  WelcomeCoordinator.swift
 //  Footprints
 //
-//  Created by Jorge Tapia on 9/24/21.
+//  Created by Jorge Tapia on 9/25/21.
 //
 
 import UIKit
 
-class OnboardingCoordinator: Coordinator {
-    weak var parent: MainCoordinator?
-    var navigationController: UINavigationController
+class WelcomeCoordinator: Coordinator {
+    weak var parent: OnboardingCoordinator?
     var children = [Coordinator]()
+    
+    var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -21,5 +22,9 @@ class OnboardingCoordinator: Coordinator {
         welcomeViewController.coordinator = self
         navigationController.pushViewController(welcomeViewController, animated: false)
     }
+    
+    func startButtonTapped() {
+        // TODO: implement
+        print("startButtonTapped")
+    }
 }
-

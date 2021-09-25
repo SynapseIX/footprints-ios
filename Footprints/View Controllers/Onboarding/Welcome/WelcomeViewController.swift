@@ -20,7 +20,7 @@ class WelcomeViewController: UIViewController, IBInstantiable {
     let messageText = NSLocalizedString("WelcomeMessage", comment: "Message text")
     let startButtonTitle = NSLocalizedString("StartButtonTitle", comment: "Start button title")
     
-    var coordinator: OnboardingCoordinator?
+    var coordinator: WelcomeCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +56,6 @@ class WelcomeViewController: UIViewController, IBInstantiable {
     
     // MARK: - IBActions
     @IBAction func startButtonAction(_ sender: Any) {
-        // TODO: implement
+        coordinator?.startButtonTapped()
     }
 }

@@ -19,6 +19,7 @@
 		CF6AC8CF26FE5D3200E4D380 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */; };
 		CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */; };
 		CF6AC8D726FED5D600E4D380 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6AC8D626FED5D600E4D380 /* Localizable.strings */; };
+		CF6AC8DB26FEE12300E4D380 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		CF6AC8D626FED5D600E4D380 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +99,8 @@
 		CF183ADD26FE4C2600A1E3C1 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				CF6AC8D926FEE0F300E4D380 /* Onboarding */,
 				CF183AE026FE4CC800A1E3C1 /* MainCoordinator.swift */,
-				CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				CF6AC8D526FED07100E4D380 /* Welcome */,
+				CF6AC8D826FEE0AA00E4D380 /* Location */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -126,6 +129,22 @@
 				CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		CF6AC8D826FEE0AA00E4D380 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		CF6AC8D926FEE0F300E4D380 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */,
+				CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +222,7 @@
 				CF183ADF26FE4C4200A1E3C1 /* Coordinator.swift in Sources */,
 				CF183AC626FE4B0E00A1E3C1 /* AppDelegate.swift in Sources */,
 				CF183AE126FE4CC800A1E3C1 /* MainCoordinator.swift in Sources */,
+				CF6AC8DB26FEE12300E4D380 /* WelcomeCoordinator.swift in Sources */,
 				CF183AE326FE4E6800A1E3C1 /* IBInstantiable.swift in Sources */,
 				CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */,
 				CF183AC826FE4B0E00A1E3C1 /* SceneDelegate.swift in Sources */,
