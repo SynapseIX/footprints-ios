@@ -8,10 +8,10 @@
 import UIKit
 
 class WelcomeCoordinator: Coordinator {
+    var navigationController: UINavigationController
+    
     weak var parent: OnboardingCoordinator?
     var children = [Coordinator]()
-    
-    var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
