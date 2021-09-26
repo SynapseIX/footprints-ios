@@ -43,11 +43,11 @@ class OnboardingCoordinator: NSObject, Coordinator {
 
 extension OnboardingCoordinator: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        // Process child coordinators once view controllers are popped out of navigation controller
         guard let viewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(viewController) else {
             return
         }
         
+        // Remove child coordinator once view controller is popped
         if viewController is OnboardingViewController {
             removeChildCallback(self)
         }
