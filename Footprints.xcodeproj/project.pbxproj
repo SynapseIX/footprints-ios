@@ -18,6 +18,8 @@
 		CF301A0027002A9900D66037 /* LocationPermissionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3019FF27002A9900D66037 /* LocationPermissionsCoordinator.swift */; };
 		CF301A0327002B6A00D66037 /* LocationPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF301A0127002B6A00D66037 /* LocationPermissionsViewController.swift */; };
 		CF301A0427002B6A00D66037 /* LocationPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */; };
+		CF301A092700EB4D00D66037 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF301A082700EB4D00D66037 /* LocationService.swift */; };
+		CF301A0B2700F6A700D66037 /* LocalizableKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF301A0A2700F6A700D66037 /* LocalizableKey.swift */; };
 		CF6AC8CE26FE5D3200E4D380 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8CC26FE5D3200E4D380 /* WelcomeViewController.swift */; };
 		CF6AC8CF26FE5D3200E4D380 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */; };
 		CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */; };
@@ -41,6 +43,8 @@
 		CF3019FF27002A9900D66037 /* LocationPermissionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsCoordinator.swift; sourceTree = "<group>"; };
 		CF301A0127002B6A00D66037 /* LocationPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsViewController.swift; sourceTree = "<group>"; };
 		CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationPermissionsViewController.xib; sourceTree = "<group>"; };
+		CF301A082700EB4D00D66037 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		CF301A0A2700F6A700D66037 /* LocalizableKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableKey.swift; sourceTree = "<group>"; };
 		CF6AC8CC26FE5D3200E4D380 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
@@ -83,13 +87,15 @@
 			children = (
 				CF183ADD26FE4C2600A1E3C1 /* Coordinators */,
 				CF183AE826FE511A00A1E3C1 /* View Controllers */,
+				CF301A072700EB1F00D66037 /* Services */,
 				CF6AC8DC26FEE83F00E4D380 /* Helpers */,
 				CF183AC526FE4B0E00A1E3C1 /* AppDelegate.swift */,
 				CF183AC726FE4B0E00A1E3C1 /* SceneDelegate.swift */,
-				CF183ADE26FE4C4200A1E3C1 /* Coordinator.swift */,
 				CF183AE226FE4E6800A1E3C1 /* IBInstantiable.swift */,
+				CF183ADE26FE4C4200A1E3C1 /* Coordinator.swift */,
 				CF183ACE26FE4B1000A1E3C1 /* Assets.xcassets */,
 				CF6AC8D626FED5D600E4D380 /* Localizable.strings */,
+				CF301A0A2700F6A700D66037 /* LocalizableKey.swift */,
 				CF183AD026FE4B1000A1E3C1 /* LaunchScreen.storyboard */,
 				CF183AD326FE4B1000A1E3C1 /* Info.plist */,
 				CF183AD926FE4B4D00A1E3C1 /* Footprints.entitlements */,
@@ -129,6 +135,14 @@
 				CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		CF301A072700EB1F00D66037 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CF301A082700EB4D00D66037 /* LocationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		CF6AC8CB26FE5B0B00E4D380 /* Onboarding */ = {
@@ -243,6 +257,7 @@
 				CF183ADF26FE4C4200A1E3C1 /* Coordinator.swift in Sources */,
 				CF6AC8DE26FEE85D00E4D380 /* UserDefaults+Extensions.swift in Sources */,
 				CF183AC626FE4B0E00A1E3C1 /* AppDelegate.swift in Sources */,
+				CF301A0B2700F6A700D66037 /* LocalizableKey.swift in Sources */,
 				CF183AE126FE4CC800A1E3C1 /* MainCoordinator.swift in Sources */,
 				CF301A0027002A9900D66037 /* LocationPermissionsCoordinator.swift in Sources */,
 				CF301A0327002B6A00D66037 /* LocationPermissionsViewController.swift in Sources */,
@@ -250,6 +265,7 @@
 				CF183AE326FE4E6800A1E3C1 /* IBInstantiable.swift in Sources */,
 				CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */,
 				CF183AC826FE4B0E00A1E3C1 /* SceneDelegate.swift in Sources */,
+				CF301A092700EB4D00D66037 /* LocationService.swift in Sources */,
 				CF6AC8CE26FE5D3200E4D380 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

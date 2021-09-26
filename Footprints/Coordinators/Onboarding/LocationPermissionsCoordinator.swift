@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LocationPermissionsCoordinator: NSObject, Coordinator {
     var navigationController: UINavigationController
@@ -16,7 +17,12 @@ class LocationPermissionsCoordinator: NSObject, Coordinator {
     private var navigationStyle: NavigationStyle
     private var removeChildCallback: RemoveChildCallback
     
-    init(navigationController: UINavigationController, navigationStyle: NavigationStyle, removeCoordinatorWith removeChildCallback: @escaping RemoveChildCallback) {
+    var locationService: LocationService?
+    
+    init(navigationController: UINavigationController,
+         navigationStyle: NavigationStyle,
+         removeCoordinatorWith removeChildCallback: @escaping RemoveChildCallback) {
+        
         self.navigationController = navigationController
         self.navigationStyle = navigationStyle
         self.removeChildCallback = removeChildCallback
@@ -27,7 +33,12 @@ class LocationPermissionsCoordinator: NSObject, Coordinator {
         
         let viewController = LocationPermissionsViewController.instantiate()
         viewController.coordinator = self
+        locationService?.delegate = viewController
         navigate(to: viewController, with: .push)
+    }
+    
+    func requestAuthorizationTapped() {
+        locationService?.requestAuthorization()
     }
 }
 
@@ -45,3 +56,4 @@ extension LocationPermissionsCoordinator: UINavigationControllerDelegate {
         }
     }
 }
+

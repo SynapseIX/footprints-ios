@@ -30,8 +30,8 @@ class OnboardingCoordinator: Coordinator {
     
     func navigateToLocationPermissions() {
         let coordinator = LocationPermissionsCoordinator(navigationController: navigationController,
-                                                                            navigationStyle: .push,
-                                                                            removeCoordinatorWith: removeChild)
+                                                         navigationStyle: .push,
+                                                         removeCoordinatorWith: removeChild)
         coordinator.parent = self
         addChild(coordinator: coordinator, with: .locationPermissionsCoordinator)
         coordinator.start()

@@ -1,5 +1,15 @@
 // WelcomeViewController
-"WelcomeText" = "Welcome to Footprints";
-"WelcomeMessage" = "Welcome to your very own digital treasure box. Let's get everything ready to create a lifetime of great memories and moments.";
-"StartButtonTitle" = "Let's Get Started";
+"welcomeToFootprints" = "Welcome to Footprints";
+"welcomeMessage" = "Welcome to your very own digital treasure box. Let's get everything ready to create a lifetime of great memories and moments.";
+"letsGetStarted" = "Let's Get Started";
+
+
+// Location Alerts
+"enableLocationAuthorizationAlertTitle" = "Location Access Needed";
+"enableLocationAuthorizationAlertMessage" = "We need your permission to access your location in order to find places around you. You can do this later in the Settings app.";
+
+// General
+"openSettings" = "Open Settings";
+"cancel" = "Cancel";
+"dismiss" = "Dismiss";
 

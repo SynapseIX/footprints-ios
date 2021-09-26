@@ -16,9 +16,9 @@ class WelcomeViewController: UIViewController, IBInstantiable {
     var startButtonTintColor: UIColor? = UIColor.black
     var startButtonBackgroundColor: UIColor? = UIColor.white
     
-    let welcometext = NSLocalizedString("WelcomeText", comment: "Header text")
-    let messageText = NSLocalizedString("WelcomeMessage", comment: "Message text")
-    let startButtonTitle = NSLocalizedString("StartButtonTitle", comment: "Start button title")
+    let welcometext = NSLocalizedString(LocalizableKey.welcomeToFootprints, comment: "Header text")
+    let messageText = NSLocalizedString(LocalizableKey.welcomeMessage, comment: "Message text")
+    let startButtonTitle = NSLocalizedString(LocalizableKey.letsGetStarted, comment: "Start button title")
     
     var coordinator: WelcomeCoordinator?
     
