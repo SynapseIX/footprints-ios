@@ -15,6 +15,9 @@
 		CF183ADF26FE4C4200A1E3C1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF183ADE26FE4C4200A1E3C1 /* Coordinator.swift */; };
 		CF183AE126FE4CC800A1E3C1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF183AE026FE4CC800A1E3C1 /* MainCoordinator.swift */; };
 		CF183AE326FE4E6800A1E3C1 /* IBInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF183AE226FE4E6800A1E3C1 /* IBInstantiable.swift */; };
+		CF301A0027002A9900D66037 /* LocationPermissionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3019FF27002A9900D66037 /* LocationPermissionsCoordinator.swift */; };
+		CF301A0327002B6A00D66037 /* LocationPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF301A0127002B6A00D66037 /* LocationPermissionsViewController.swift */; };
+		CF301A0427002B6A00D66037 /* LocationPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */; };
 		CF6AC8CE26FE5D3200E4D380 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8CC26FE5D3200E4D380 /* WelcomeViewController.swift */; };
 		CF6AC8CF26FE5D3200E4D380 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */; };
 		CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */; };
@@ -35,6 +38,9 @@
 		CF183ADE26FE4C4200A1E3C1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CF183AE026FE4CC800A1E3C1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		CF183AE226FE4E6800A1E3C1 /* IBInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBInstantiable.swift; sourceTree = "<group>"; };
+		CF3019FF27002A9900D66037 /* LocationPermissionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsCoordinator.swift; sourceTree = "<group>"; };
+		CF301A0127002B6A00D66037 /* LocationPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsViewController.swift; sourceTree = "<group>"; };
+		CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationPermissionsViewController.xib; sourceTree = "<group>"; };
 		CF6AC8CC26FE5D3200E4D380 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
@@ -119,6 +125,8 @@
 		CF3019FE270029CB00D66037 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				CF301A0127002B6A00D66037 /* LocationPermissionsViewController.swift */,
+				CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 			children = (
 				CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */,
 				CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */,
+				CF3019FF27002A9900D66037 /* LocationPermissionsCoordinator.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -216,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF301A0427002B6A00D66037 /* LocationPermissionsViewController.xib in Resources */,
 				CF183AD226FE4B1000A1E3C1 /* LaunchScreen.storyboard in Resources */,
 				CF6AC8D726FED5D600E4D380 /* Localizable.strings in Resources */,
 				CF6AC8CF26FE5D3200E4D380 /* WelcomeViewController.xib in Resources */,
@@ -234,6 +244,8 @@
 				CF6AC8DE26FEE85D00E4D380 /* UserDefaults+Extensions.swift in Sources */,
 				CF183AC626FE4B0E00A1E3C1 /* AppDelegate.swift in Sources */,
 				CF183AE126FE4CC800A1E3C1 /* MainCoordinator.swift in Sources */,
+				CF301A0027002A9900D66037 /* LocationPermissionsCoordinator.swift in Sources */,
+				CF301A0327002B6A00D66037 /* LocationPermissionsViewController.swift in Sources */,
 				CF6AC8DB26FEE12300E4D380 /* WelcomeCoordinator.swift in Sources */,
 				CF183AE326FE4E6800A1E3C1 /* IBInstantiable.swift in Sources */,
 				CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */,

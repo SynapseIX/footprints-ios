@@ -11,8 +11,11 @@ typealias RemoveChildCallback = (Coordinator) -> ()
 
 enum CoordinatorKeys: String {
     case mainCoordinator
+    
+    // Onboarding
     case onboardingCoordinator
     case welcomeCoordinator
+    case locationPermissionsCoordinator
 }
 
 enum NavigationStyle {

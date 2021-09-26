@@ -1,13 +1,13 @@
 //
-//  WelcomeCoordinator.swift
+//  LocationPermissionsCoordinator.swift
 //  Footprints
 //
-//  Created by Jorge Tapia on 9/25/21.
+//  Created by Jorge Tapia on 9/26/21.
 //
 
 import UIKit
 
-class WelcomeCoordinator: NSObject, Coordinator {
+class LocationPermissionsCoordinator: NSObject, Coordinator {
     var navigationController: UINavigationController
     
     weak var parent: OnboardingCoordinator?
@@ -25,26 +25,22 @@ class WelcomeCoordinator: NSObject, Coordinator {
     func start() {
         navigationController.delegate = self
         
-        let viewController = WelcomeViewController.instantiate()
+        let viewController = LocationPermissionsViewController.instantiate()
         viewController.coordinator = self
-        navigate(to: viewController, with: navigationStyle, animated: false)
-    }
-    
-    func startButtonTapped() {
-        parent?.navigateToLocationPermissions()
+        navigate(to: viewController, with: .push)
     }
 }
 
 // MARK: - UINavigationControllerDelegate
 
-extension WelcomeCoordinator: UINavigationControllerDelegate {
+extension LocationPermissionsCoordinator: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // Process child coordinators once view controllers are popped out of navigation controller
         guard let viewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(viewController) else {
             return
         }
         
-        if viewController is WelcomeViewController {
+        if viewController is LocationPermissionsViewController {
             removeChildCallback(self)
         }
     }

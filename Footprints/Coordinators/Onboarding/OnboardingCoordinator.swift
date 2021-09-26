@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class OnboardingCoordinator: Coordinator {
     static let onboardingCompletedKey = "onboardingCompletedKey"
     
@@ -22,12 +20,21 @@ class OnboardingCoordinator: Coordinator {
     }
     
     func start() {
-        let welcomeCoordinator = WelcomeCoordinator(navigationController: navigationController,
+        let coordinator = WelcomeCoordinator(navigationController: navigationController,
                                                     navigationStyle: .push,
                                                     removeCoordinatorWith: removeChild)
-        welcomeCoordinator.parent = self
-        addChild(coordinator: welcomeCoordinator, with: .welcomeCoordinator)
-        welcomeCoordinator.start()
+        coordinator.parent = self
+        addChild(coordinator: coordinator, with: .welcomeCoordinator)
+        coordinator.start()
+    }
+    
+    func navigateToLocationPermissions() {
+        let coordinator = LocationPermissionsCoordinator(navigationController: navigationController,
+                                                                            navigationStyle: .push,
+                                                                            removeCoordinatorWith: removeChild)
+        coordinator.parent = self
+        addChild(coordinator: coordinator, with: .locationPermissionsCoordinator)
+        coordinator.start()
     }
 }
 
