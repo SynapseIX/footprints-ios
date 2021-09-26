@@ -20,6 +20,7 @@
 		CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */; };
 		CF6AC8D726FED5D600E4D380 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6AC8D626FED5D600E4D380 /* Localizable.strings */; };
 		CF6AC8DB26FEE12300E4D380 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */; };
+		CF6AC8DE26FEE85D00E4D380 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8DD26FEE85D00E4D380 /* UserDefaults+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		CF6AC8D626FED5D600E4D380 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		CF6AC8DD26FEE85D00E4D380 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				CF183ADD26FE4C2600A1E3C1 /* Coordinators */,
 				CF183AE826FE511A00A1E3C1 /* View Controllers */,
+				CF6AC8DC26FEE83F00E4D380 /* Helpers */,
 				CF183AC526FE4B0E00A1E3C1 /* AppDelegate.swift */,
 				CF183AC726FE4B0E00A1E3C1 /* SceneDelegate.swift */,
 				CF183ADE26FE4C4200A1E3C1 /* Coordinator.swift */,
@@ -145,6 +148,14 @@
 				CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		CF6AC8DC26FEE83F00E4D380 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CF6AC8DD26FEE85D00E4D380 /* UserDefaults+Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF183ADF26FE4C4200A1E3C1 /* Coordinator.swift in Sources */,
+				CF6AC8DE26FEE85D00E4D380 /* UserDefaults+Extensions.swift in Sources */,
 				CF183AC626FE4B0E00A1E3C1 /* AppDelegate.swift in Sources */,
 				CF183AE126FE4CC800A1E3C1 /* MainCoordinator.swift in Sources */,
 				CF6AC8DB26FEE12300E4D380 /* WelcomeCoordinator.swift in Sources */,

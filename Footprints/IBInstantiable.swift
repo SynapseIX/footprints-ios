@@ -19,3 +19,4 @@ extension IBInstantiable where Self: UIViewController {
         return Self(nibName: nibName, bundle: Bundle.main)
     }
 }
+

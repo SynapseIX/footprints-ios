@@ -7,20 +7,26 @@
 
 import UIKit
 
+
+
 class OnboardingCoordinator: Coordinator {
+    static let onboardingCompletedKey = "onboardingCompletedKey"
+    
     var navigationController: UINavigationController
     
     weak var parent: MainCoordinator?
-    var children = [Coordinator]()
+    var children = [CoordinatorKeys: Coordinator]()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let welcomeCoordinator = WelcomeCoordinator(navigationController: navigationController)
+        let welcomeCoordinator = WelcomeCoordinator(navigationController: navigationController,
+                                                    navigationStyle: .push,
+                                                    removeCoordinatorWith: removeChild)
         welcomeCoordinator.parent = self
-        children.append(welcomeCoordinator)
+        addChild(coordinator: welcomeCoordinator, with: .welcomeCoordinator)
         welcomeCoordinator.start()
     }
 }
