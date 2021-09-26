@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="Footprints" customModuleProvider="target">
             <connections>
+                <outlet property="ctaButton" destination="px3-pR-ylU" id="aXL-l4-PR8"/>
                 <outlet property="messageLabel" destination="LnI-Hk-HHe" id="IBs-A7-TXi"/>
-                <outlet property="startButton" destination="px3-pR-ylU" id="aXL-l4-PR8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="welcomeLabel" destination="XuR-Vh-9Bl" id="is3-sb-0Rj"/>
             </connections>
@@ -27,7 +27,7 @@
                         <constraint firstAttribute="width" secondItem="NfR-gt-Zph" secondAttribute="height" multiplier="8:5" id="gzQ-Bf-NLd"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Footprints" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuR-Vh-9Bl">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Footprints" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuR-Vh-9Bl">
                     <rect key="frame" x="16" y="283" width="382" height="48"/>
                     <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="40"/>
                     <nil key="textColor"/>
@@ -40,14 +40,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px3-pR-ylU">
-                    <rect key="frame" x="100" y="480" width="214" height="44"/>
+                    <rect key="frame" x="140" y="480" width="134.5" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="POO-KP-ntH"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Let's Get Started"/>
                     <connections>
-                        <action selector="startButtonAction:" destination="-1" eventType="touchUpInside" id="zgj-st-Xmk"/>
+                        <action selector="ctaButtonAction:" destination="-1" eventType="touchUpInside" id="dmc-XG-XTC"/>
                     </connections>
                 </button>
             </subviews>
@@ -59,14 +59,13 @@
                 <constraint firstItem="px3-pR-ylU" firstAttribute="top" secondItem="LnI-Hk-HHe" secondAttribute="bottom" constant="64" id="Hww-Jh-wFc"/>
                 <constraint firstItem="NfR-gt-Zph" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IPc-Cm-3Jt"/>
                 <constraint firstItem="XuR-Vh-9Bl" firstAttribute="top" secondItem="NfR-gt-Zph" secondAttribute="bottom" constant="24" id="IY4-Ud-KFs"/>
-                <constraint firstItem="px3-pR-ylU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="KeH-bQ-PLI"/>
+                <constraint firstItem="px3-pR-ylU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="NW4-pS-83V"/>
                 <constraint firstItem="NfR-gt-Zph" firstAttribute="width" secondItem="NfR-gt-Zph" secondAttribute="height" multiplier="8:5" id="SXz-rM-x9Y"/>
                 <constraint firstItem="LnI-Hk-HHe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="aOd-6R-kb3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LnI-Hk-HHe" secondAttribute="trailing" constant="16" id="dyk-wk-8lM"/>
                 <constraint firstItem="XuR-Vh-9Bl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="eCN-4I-mND"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XuR-Vh-9Bl" secondAttribute="trailing" constant="16" id="jFU-YQ-9WR"/>
                 <constraint firstItem="LnI-Hk-HHe" firstAttribute="top" secondItem="XuR-Vh-9Bl" secondAttribute="bottom" constant="24" id="kVr-UX-NSB"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="px3-pR-ylU" secondAttribute="trailing" constant="100" id="qOa-Zx-dBV"/>
             </constraints>
             <point key="canvasLocation" x="139" y="124"/>
         </view>

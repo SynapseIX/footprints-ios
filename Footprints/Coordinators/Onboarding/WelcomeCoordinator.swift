@@ -30,7 +30,7 @@ class WelcomeCoordinator: NSObject, Coordinator {
         navigate(to: viewController, with: navigationStyle, animated: false)
     }
     
-    func startButtonTapped() {
+    func letsGetStartedTapped() {
         parent?.navigateToLocationPermissions()
     }
 }

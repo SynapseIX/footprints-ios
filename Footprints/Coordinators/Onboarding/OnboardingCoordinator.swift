@@ -33,6 +33,7 @@ class OnboardingCoordinator: Coordinator {
                                                          navigationStyle: .push,
                                                          removeCoordinatorWith: removeChild)
         coordinator.parent = self
+        coordinator.locationService = LocationService()
         addChild(coordinator: coordinator, with: .locationPermissionsCoordinator)
         coordinator.start()
     }

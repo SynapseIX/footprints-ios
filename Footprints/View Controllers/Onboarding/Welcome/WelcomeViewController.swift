@@ -11,14 +11,14 @@ class WelcomeViewController: UIViewController, IBInstantiable {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var ctaButton: UIButton!
     
-    var startButtonTintColor: UIColor? = UIColor.black
-    var startButtonBackgroundColor: UIColor? = UIColor.white
+    var ctaButtonTintColor: UIColor? = UIColor.black
+    var ctaButtonBackgroundColor: UIColor? = UIColor.white
     
-    let welcometext = NSLocalizedString(LocalizableKey.welcomeToFootprints, comment: "Header text")
-    let messageText = NSLocalizedString(LocalizableKey.welcomeMessage, comment: "Message text")
-    let startButtonTitle = NSLocalizedString(LocalizableKey.letsGetStarted, comment: "Start button title")
+    let welcometext = NSLocalizedString(LocalizableKey.welcomeToFootprints, comment: "Title")
+    let messageText = NSLocalizedString(LocalizableKey.welcomeMessage, comment: "Message")
+    let startButtonTitle = NSLocalizedString(LocalizableKey.letsGetStarted, comment: "CTA title")
     
     var coordinator: WelcomeCoordinator?
     
@@ -42,21 +42,21 @@ class WelcomeViewController: UIViewController, IBInstantiable {
         welcomeLabel.text = welcometext
         messageLabel.text = messageText
         
-        startButton.setTitle(startButtonTitle, for: UIControl.State())
-        startButton.tintColor = startButtonTintColor
-        startButton.backgroundColor = startButtonBackgroundColor
-        startButton.layer.cornerRadius = CGFloat(22.0)
+        ctaButton.setTitle(startButtonTitle, for: UIControl.State())
+        ctaButton.tintColor = ctaButtonTintColor
+        ctaButton.backgroundColor = ctaButtonBackgroundColor
+        ctaButton.layer.cornerRadius = CGFloat(22.0)
     }
     
     private func applyTheme() {
         let isDarkMode = traitCollection.userInterfaceStyle == .dark
-        startButtonTintColor = isDarkMode ? .black : .white
-        startButtonBackgroundColor = isDarkMode ? .white : .black
+        ctaButtonTintColor = isDarkMode ? .black : .white
+        ctaButtonBackgroundColor = isDarkMode ? .white : .black
     }
     
     // MARK: - IBActions
-    @IBAction func startButtonAction(_ sender: Any) {
-        coordinator?.startButtonTapped()
+    @IBAction func ctaButtonAction(_ sender: Any) {
+        coordinator?.letsGetStartedTapped()
     }
 }
 

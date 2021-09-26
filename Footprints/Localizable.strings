@@ -3,6 +3,10 @@
 "welcomeMessage" = "Welcome to your very own digital treasure box. Let's get everything ready to create a lifetime of great memories and moments.";
 "letsGetStarted" = "Let's Get Started";
 
+// LocationPermissionsViewController
+"greatPlacesMemories" = "Great Places Make Great Memories";
+"greatPlacesMessage" = "Remember that awesome ski trip? Or maybe that amazing walk on the beach? Footprints needs to access your location so that you can remember all the cool places that have a special meaning for you.";
+"allowLocationAccess" = "Allow Location Access";
 
 // Location Alerts
 "enableLocationAuthorizationAlertTitle" = "Location Access Needed";
