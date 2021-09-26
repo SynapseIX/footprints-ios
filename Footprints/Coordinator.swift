@@ -52,7 +52,7 @@ extension Coordinator {
         case .present:
             navigationController.present(viewController, animated: animated, completion: nil)
         case .push:
-            navigationController.pushViewController(viewController, animated: true)
+            navigationController.pushViewController(viewController, animated: animated)
         }
     }
 }
