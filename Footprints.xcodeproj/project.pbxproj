@@ -116,11 +116,18 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		CF3019FE270029CB00D66037 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		CF6AC8CB26FE5B0B00E4D380 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				CF6AC8D526FED07100E4D380 /* Welcome */,
-				CF6AC8D826FEE0AA00E4D380 /* Location */,
+				CF3019FE270029CB00D66037 /* Location */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -132,13 +139,6 @@
 				CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */,
 			);
 			path = Welcome;
-			sourceTree = "<group>";
-		};
-		CF6AC8D826FEE0AA00E4D380 /* Location */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Location;
 			sourceTree = "<group>";
 		};
 		CF6AC8D926FEE0F300E4D380 /* Onboarding */ = {
@@ -392,7 +392,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.profapps.Footprints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -421,7 +421,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.profapps.Footprints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
