@@ -33,6 +33,8 @@ class OnboardingCoordinator: NSObject, Coordinator {
     }
     
     func letsGetStartedTapped() {
+        // TODO: uncomment once home screen is stubbed
+        // UserDefaults.standard.hasCompletedOnboarding = true
         parent?.navigateHome()
     }
 }
