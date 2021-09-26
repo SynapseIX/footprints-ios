@@ -13,18 +13,14 @@
 		CF183AD226FE4B1000A1E3C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF183AD026FE4B1000A1E3C1 /* LaunchScreen.storyboard */; };
 		CF183ADC26FE4B5200A1E3C1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF183ADB26FE4B5200A1E3C1 /* CloudKit.framework */; };
 		CF183ADF26FE4C4200A1E3C1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF183ADE26FE4C4200A1E3C1 /* Coordinator.swift */; };
-		CF183AE126FE4CC800A1E3C1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF183AE026FE4CC800A1E3C1 /* MainCoordinator.swift */; };
+		CF183AE126FE4CC800A1E3C1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF183AE026FE4CC800A1E3C1 /* AppCoordinator.swift */; };
 		CF183AE326FE4E6800A1E3C1 /* IBInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF183AE226FE4E6800A1E3C1 /* IBInstantiable.swift */; };
-		CF301A0027002A9900D66037 /* LocationPermissionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3019FF27002A9900D66037 /* LocationPermissionsCoordinator.swift */; };
-		CF301A0327002B6A00D66037 /* LocationPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF301A0127002B6A00D66037 /* LocationPermissionsViewController.swift */; };
-		CF301A0427002B6A00D66037 /* LocationPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */; };
 		CF301A092700EB4D00D66037 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF301A082700EB4D00D66037 /* LocationService.swift */; };
 		CF301A0B2700F6A700D66037 /* LocalizableKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF301A0A2700F6A700D66037 /* LocalizableKey.swift */; };
-		CF6AC8CE26FE5D3200E4D380 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8CC26FE5D3200E4D380 /* WelcomeViewController.swift */; };
-		CF6AC8CF26FE5D3200E4D380 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */; };
+		CF6AC8CE26FE5D3200E4D380 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8CC26FE5D3200E4D380 /* OnboardingViewController.swift */; };
+		CF6AC8CF26FE5D3200E4D380 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6AC8CD26FE5D3200E4D380 /* OnboardingViewController.xib */; };
 		CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */; };
 		CF6AC8D726FED5D600E4D380 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6AC8D626FED5D600E4D380 /* Localizable.strings */; };
-		CF6AC8DB26FEE12300E4D380 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */; };
 		CF6AC8DE26FEE85D00E4D380 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AC8DD26FEE85D00E4D380 /* UserDefaults+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,18 +34,14 @@
 		CF183AD926FE4B4D00A1E3C1 /* Footprints.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Footprints.entitlements; sourceTree = "<group>"; };
 		CF183ADB26FE4B5200A1E3C1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CF183ADE26FE4C4200A1E3C1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		CF183AE026FE4CC800A1E3C1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CF183AE026FE4CC800A1E3C1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		CF183AE226FE4E6800A1E3C1 /* IBInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBInstantiable.swift; sourceTree = "<group>"; };
-		CF3019FF27002A9900D66037 /* LocationPermissionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsCoordinator.swift; sourceTree = "<group>"; };
-		CF301A0127002B6A00D66037 /* LocationPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsViewController.swift; sourceTree = "<group>"; };
-		CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationPermissionsViewController.xib; sourceTree = "<group>"; };
 		CF301A082700EB4D00D66037 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		CF301A0A2700F6A700D66037 /* LocalizableKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableKey.swift; sourceTree = "<group>"; };
-		CF6AC8CC26FE5D3200E4D380 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		CF6AC8CC26FE5D3200E4D380 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		CF6AC8CD26FE5D3200E4D380 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		CF6AC8D626FED5D600E4D380 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		CF6AC8DD26FEE85D00E4D380 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				CF6AC8D926FEE0F300E4D380 /* Onboarding */,
-				CF183AE026FE4CC800A1E3C1 /* MainCoordinator.swift */,
+				CF301A0C27010D3900D66037 /* Home */,
+				CF183AE026FE4CC800A1E3C1 /* AppCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -128,15 +121,6 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		CF3019FE270029CB00D66037 /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				CF301A0127002B6A00D66037 /* LocationPermissionsViewController.swift */,
-				CF301A0227002B6A00D66037 /* LocationPermissionsViewController.xib */,
-			);
-			path = Location;
-			sourceTree = "<group>";
-		};
 		CF301A072700EB1F00D66037 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,30 +129,26 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		CF301A0C27010D3900D66037 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		CF6AC8CB26FE5B0B00E4D380 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				CF6AC8D526FED07100E4D380 /* Welcome */,
-				CF3019FE270029CB00D66037 /* Location */,
+				CF6AC8CC26FE5D3200E4D380 /* OnboardingViewController.swift */,
+				CF6AC8CD26FE5D3200E4D380 /* OnboardingViewController.xib */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		CF6AC8D526FED07100E4D380 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				CF6AC8CC26FE5D3200E4D380 /* WelcomeViewController.swift */,
-				CF6AC8CD26FE5D3200E4D380 /* WelcomeViewController.xib */,
-			);
-			path = Welcome;
 			sourceTree = "<group>";
 		};
 		CF6AC8D926FEE0F300E4D380 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				CF6AC8D126FE612E00E4D380 /* OnboardingCoordinator.swift */,
-				CF6AC8DA26FEE12300E4D380 /* WelcomeCoordinator.swift */,
-				CF3019FF27002A9900D66037 /* LocationPermissionsCoordinator.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -239,10 +219,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF301A0427002B6A00D66037 /* LocationPermissionsViewController.xib in Resources */,
 				CF183AD226FE4B1000A1E3C1 /* LaunchScreen.storyboard in Resources */,
 				CF6AC8D726FED5D600E4D380 /* Localizable.strings in Resources */,
-				CF6AC8CF26FE5D3200E4D380 /* WelcomeViewController.xib in Resources */,
+				CF6AC8CF26FE5D3200E4D380 /* OnboardingViewController.xib in Resources */,
 				CF183ACF26FE4B1000A1E3C1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,15 +237,12 @@
 				CF6AC8DE26FEE85D00E4D380 /* UserDefaults+Extensions.swift in Sources */,
 				CF183AC626FE4B0E00A1E3C1 /* AppDelegate.swift in Sources */,
 				CF301A0B2700F6A700D66037 /* LocalizableKey.swift in Sources */,
-				CF183AE126FE4CC800A1E3C1 /* MainCoordinator.swift in Sources */,
-				CF301A0027002A9900D66037 /* LocationPermissionsCoordinator.swift in Sources */,
-				CF301A0327002B6A00D66037 /* LocationPermissionsViewController.swift in Sources */,
-				CF6AC8DB26FEE12300E4D380 /* WelcomeCoordinator.swift in Sources */,
+				CF183AE126FE4CC800A1E3C1 /* AppCoordinator.swift in Sources */,
 				CF183AE326FE4E6800A1E3C1 /* IBInstantiable.swift in Sources */,
 				CF6AC8D226FE612E00E4D380 /* OnboardingCoordinator.swift in Sources */,
 				CF183AC826FE4B0E00A1E3C1 /* SceneDelegate.swift in Sources */,
 				CF301A092700EB4D00D66037 /* LocationService.swift in Sources */,
-				CF6AC8CE26FE5D3200E4D380 /* WelcomeViewController.swift in Sources */,
+				CF6AC8CE26FE5D3200E4D380 /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

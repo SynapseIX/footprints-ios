@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  AppCoordinator.swift
 //  Footprints
 //
 //  Created by Jorge Tapia on 9/24/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator {    
+class AppCoordinator: Coordinator {    
     var navigationController: UINavigationController
     var children = [CoordinatorKeys: Coordinator]()
     
@@ -22,11 +22,18 @@ class MainCoordinator: Coordinator {
             // TODO: navigate home
         }
         else {
-            let onboardingCoordinator = OnboardingCoordinator(navigationController: navigationController)
+            let onboardingCoordinator = OnboardingCoordinator(navigationController: navigationController,
+                                                              navigationStyle: .push,
+                                                              removeCoordinatorWith: removeChild(coordinator:))
             onboardingCoordinator.parent = self
             addChild(coordinator: onboardingCoordinator, with: .onboardingCoordinator)
             onboardingCoordinator.start()
         }
+    }
+    
+    func navigateHome() {
+        // TODO: implement
+        print("navigateHome")
     }
 }
 

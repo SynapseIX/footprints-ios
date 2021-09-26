@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  OnboardingViewController.swift
 //  Footprints
 //
 //  Created by Jorge Tapia on 9/24/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController, IBInstantiable {
+class OnboardingViewController: UIViewController, IBInstantiable {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
@@ -20,7 +20,7 @@ class WelcomeViewController: UIViewController, IBInstantiable {
     let messageText = NSLocalizedString(LocalizableKey.welcomeMessage, comment: "Message")
     let startButtonTitle = NSLocalizedString(LocalizableKey.letsGetStarted, comment: "CTA title")
     
-    var coordinator: WelcomeCoordinator?
+    var coordinator: OnboardingCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

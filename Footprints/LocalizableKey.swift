@@ -13,11 +13,6 @@ struct LocalizableKey {
     static let welcomeMessage = "welcomeMessage"
     static let letsGetStarted = "letsGetStarted"
     
-    // LocationPermissionsViewController
-    static let greatPlacesMemories = "greatPlacesMemories"
-    static let greatPlacesMessage = "greatPlacesMessage"
-    static let allowLocationAccess = "allowLocationAccess"
-    
     // Location Alerts
     static let enableLocationAuthorizationAlertTitle = "enableLocationAuthorizationAlertTitle"
     static let enableLocationAuthorizationAlertMessage = "enableLocationAuthorizationAlertMessage"
