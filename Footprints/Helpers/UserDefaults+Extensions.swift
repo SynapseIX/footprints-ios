@@ -14,7 +14,7 @@ extension UserDefaults {
             UserDefaults.standard.bool(forKey: OnboardingCoordinator.onboardingCompletedKey)
         }
         set {
-            UserDefaults.standard.set(true, forKey: OnboardingCoordinator.onboardingCompletedKey)
+            UserDefaults.standard.set(newValue, forKey: OnboardingCoordinator.onboardingCompletedKey)
         }
     }
 }
