@@ -3,343 +3,225 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DBF9104D2E72B3212094732 /* Pods_Footprints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB09969E9FA9777742FE55C2 /* Pods_Footprints.framework */; };
-		CF1BC8F21CA46F84007D3BAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC8F11CA46F84007D3BAD /* AppDelegate.swift */; };
-		CF1BC8F41CA46F84007D3BAD /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC8F31CA46F84007D3BAD /* LaunchViewController.swift */; };
-		CF1BC8F71CA46F84007D3BAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1BC8F51CA46F84007D3BAD /* Main.storyboard */; };
-		CF1BC8F91CA46F84007D3BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF1BC8F81CA46F84007D3BAD /* Assets.xcassets */; };
-		CF1BC8FC1CA46F84007D3BAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1BC8FA1CA46F84007D3BAD /* LaunchScreen.storyboard */; };
-		CF1BC9051CA4707B007D3BAD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1BC9041CA4707B007D3BAD /* CloudKit.framework */; };
-		CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */; };
-		CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BC90A1CA47BF1007D3BAD /* AppError.swift */; };
-		CF92F10B1CB03ECD005322C7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */; };
-		CF92F10E1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF92F10D1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift */; };
-		CF9D304B1CAC37C00033C744 /* RecordAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */; };
-		CF9D304E1CAC3EF40033C744 /* TextNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */; };
-		CF9D30511CAC44CC0033C744 /* SelectDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */; };
-		CFBFA8921CAC76E400799EDC /* FootprintMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBFA8911CAC76E400799EDC /* FootprintMapViewController.swift */; };
-		CFBFA8951CAC802500799EDC /* InfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBFA8941CAC802500799EDC /* InfoWindow.swift */; };
-		CFBFA8991CAC99F900799EDC /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFBFA8981CAC99F900799EDC /* InfoWindow.xib */; };
-		CFC482D01CB2DF37005C99D6 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC482CF1CB2DF37005C99D6 /* DetailTableViewController.swift */; };
-		CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA486D1CA4996200B9033E /* AppTheme.swift */; };
-		CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48701CA4998700B9033E /* AppUtils.swift */; };
-		CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48721CA499AE00B9033E /* DeviceModel.swift */; };
-		CFDA48751CA49D3100B9033E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48741CA49D3100B9033E /* WelcomeViewController.swift */; };
-		CFDA48771CA4A31400B9033E /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48761CA4A31400B9033E /* LocationPermissionViewController.swift */; };
-		CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48781CA4A62100B9033E /* CameraPermissionsViewController.swift */; };
-		CFDA487B1CA4A92A00B9033E /* MicrophonePermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487A1CA4A92A00B9033E /* MicrophonePermissionViewController.swift */; };
-		CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */; };
-		CFDA48801CA4B71A00B9033E /* MyFootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */; };
-		CFDA48831CA4BE4A00B9033E /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA48821CA4BE4A00B9033E /* Footprint.swift */; };
-		CFF1C5DD1CA7891A00E19D9E /* FootprintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */; };
-		CFF1C5DE1CA7891A00E19D9E /* FootprintTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */; };
-		CFF1C5E41CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5E31CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift */; };
-		CFF1C5E71CA8DA8400E19D9E /* ShortcutIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5E61CA8DA8400E19D9E /* ShortcutIdentifier.swift */; };
-		CFF1C5EA1CA9CB8E00E19D9E /* CreateBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5E91CA9CB8E00E19D9E /* CreateBaseViewController.swift */; };
-		CFF1C5EC1CA9D29F00E19D9E /* CreateFootprintTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1C5EB1CA9D29F00E19D9E /* CreateFootprintTableViewController.swift */; };
+		CF4018A227062DFA00E29A55 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4018A127062DFA00E29A55 /* HomeTabView.swift */; };
+		CF44C17B2704F9070028E041 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF44C17A2704F9070028E041 /* NextButton.swift */; };
+		CFAB0D5B2702EE62005E8AEF /* FootprintsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D5A2702EE62005E8AEF /* FootprintsApp.swift */; };
+		CFAB0D5F2702EE63005E8AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFAB0D5E2702EE63005E8AEF /* Assets.xcassets */; };
+		CFAB0D622702EE63005E8AEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFAB0D612702EE63005E8AEF /* Preview Assets.xcassets */; };
+		CFAB0D6C2702EE63005E8AEF /* FootprintsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D6B2702EE63005E8AEF /* FootprintsTests.swift */; };
+		CFAB0D762702EE63005E8AEF /* FootprintsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D752702EE63005E8AEF /* FootprintsUITests.swift */; };
+		CFAB0D782702EE63005E8AEF /* FootprintsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D772702EE63005E8AEF /* FootprintsUITestsLaunchTests.swift */; };
+		CFAB0D872702EEF5005E8AEF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D862702EEF5005E8AEF /* OnboardingView.swift */; };
+		CFAB0D8B2702EF55005E8AEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0D8A2702EF55005E8AEF /* CloudKit.framework */; };
+		CFAB0D8E2702F151005E8AEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D8D2702F151005E8AEF /* Constants.swift */; };
+		CFAB0D912704E077005E8AEF /* OnboardingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D902704E077005E8AEF /* OnboardingCard.swift */; };
+		CFAB0D952704E915005E8AEF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFAB0D942704E915005E8AEF /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CFAB0D682702EE63005E8AEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFAB0D4F2702EE62005E8AEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFAB0D562702EE62005E8AEF;
+			remoteInfo = Footprints;
+		};
+		CFAB0D722702EE63005E8AEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFAB0D4F2702EE62005E8AEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFAB0D562702EE62005E8AEF;
+			remoteInfo = Footprints;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		4D9760010FDEBEBC1AD7EDB1 /* Pods-Footprints.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Footprints.release.xcconfig"; path = "Pods/Target Support Files/Pods-Footprints/Pods-Footprints.release.xcconfig"; sourceTree = "<group>"; };
-		BBE6D2B9444F6266155B61AA /* Pods-Footprints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Footprints.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Footprints/Pods-Footprints.debug.xcconfig"; sourceTree = "<group>"; };
-		CF1BC8EE1CA46F84007D3BAD /* Footprints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footprints.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF1BC8F11CA46F84007D3BAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF1BC8F31CA46F84007D3BAD /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		CF1BC8F61CA46F84007D3BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CF1BC8F81CA46F84007D3BAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CF1BC8FB1CA46F84007D3BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CF1BC8FD1CA46F84007D3BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF1BC9031CA47077007D3BAD /* Footprints.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Footprints.entitlements; sourceTree = "<group>"; };
-		CF1BC9041CA4707B007D3BAD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
-		CF1BC90A1CA47BF1007D3BAD /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		CF92F10D1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicencesAndAttributionsViewController.swift; sourceTree = "<group>"; };
-		CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordAudioViewController.swift; sourceTree = "<group>"; };
-		CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNoteViewController.swift; sourceTree = "<group>"; };
-		CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateViewController.swift; sourceTree = "<group>"; };
-		CFBFA8911CAC76E400799EDC /* FootprintMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintMapViewController.swift; sourceTree = "<group>"; };
-		CFBFA8941CAC802500799EDC /* InfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWindow.swift; sourceTree = "<group>"; };
-		CFBFA8981CAC99F900799EDC /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
-		CFC482CF1CB2DF37005C99D6 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
-		CFDA486D1CA4996200B9033E /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		CFDA48701CA4998700B9033E /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
-		CFDA48721CA499AE00B9033E /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
-		CFDA48741CA49D3100B9033E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		CFDA48761CA4A31400B9033E /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
-		CFDA48781CA4A62100B9033E /* CameraPermissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPermissionsViewController.swift; sourceTree = "<group>"; };
-		CFDA487A1CA4A92A00B9033E /* MicrophonePermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophonePermissionViewController.swift; sourceTree = "<group>"; };
-		CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsSetupViewController.swift; sourceTree = "<group>"; };
-		CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFootprintsViewController.swift; sourceTree = "<group>"; };
-		CFDA48821CA4BE4A00B9033E /* Footprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
-		CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintTableViewCell.swift; sourceTree = "<group>"; };
-		CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FootprintTableViewCell.xib; sourceTree = "<group>"; };
-		CFF1C5E31CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFavoriteFootprintsViewController.swift; sourceTree = "<group>"; };
-		CFF1C5E61CA8DA8400E19D9E /* ShortcutIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutIdentifier.swift; sourceTree = "<group>"; };
-		CFF1C5E91CA9CB8E00E19D9E /* CreateBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBaseViewController.swift; sourceTree = "<group>"; };
-		CFF1C5EB1CA9D29F00E19D9E /* CreateFootprintTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFootprintTableViewController.swift; sourceTree = "<group>"; };
-		DB09969E9FA9777742FE55C2 /* Pods_Footprints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Footprints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF4018A127062DFA00E29A55 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		CF44C17A2704F9070028E041 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		CFAB0D572702EE62005E8AEF /* Footprints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footprints.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFAB0D5A2702EE62005E8AEF /* FootprintsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintsApp.swift; sourceTree = "<group>"; };
+		CFAB0D5E2702EE63005E8AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFAB0D612702EE63005E8AEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CFAB0D672702EE63005E8AEF /* FootprintsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootprintsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFAB0D6B2702EE63005E8AEF /* FootprintsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintsTests.swift; sourceTree = "<group>"; };
+		CFAB0D712702EE63005E8AEF /* FootprintsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootprintsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFAB0D752702EE63005E8AEF /* FootprintsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintsUITests.swift; sourceTree = "<group>"; };
+		CFAB0D772702EE63005E8AEF /* FootprintsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CFAB0D862702EEF5005E8AEF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		CFAB0D882702EF4F005E8AEF /* Footprints.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Footprints.entitlements; sourceTree = "<group>"; };
+		CFAB0D8A2702EF55005E8AEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		CFAB0D8D2702F151005E8AEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFAB0D902704E077005E8AEF /* OnboardingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCard.swift; sourceTree = "<group>"; };
+		CFAB0D942704E915005E8AEF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CF1BC8EB1CA46F84007D3BAD /* Frameworks */ = {
+		CFAB0D542702EE62005E8AEF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF1BC9051CA4707B007D3BAD /* CloudKit.framework in Frameworks */,
-				2DBF9104D2E72B3212094732 /* Pods_Footprints.framework in Frameworks */,
+				CFAB0D8B2702EF55005E8AEF /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFAB0D642702EE63005E8AEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFAB0D6E2702EE63005E8AEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CD0FA239BA6FF453D24C2030 /* Pods */ = {
+		CF4018A027062DE800E29A55 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BBE6D2B9444F6266155B61AA /* Pods-Footprints.debug.xcconfig */,
-				4D9760010FDEBEBC1AD7EDB1 /* Pods-Footprints.release.xcconfig */,
+				CF4018A127062DFA00E29A55 /* HomeTabView.swift */,
 			);
-			name = Pods;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		CF1BC8E51CA46F84007D3BAD = {
+		CF44C1792704F8640028E041 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				CF1BC9041CA4707B007D3BAD /* CloudKit.framework */,
-				CF1BC8F01CA46F84007D3BAD /* Footprints */,
-				CF1BC8EF1CA46F84007D3BAD /* Products */,
-				CD0FA239BA6FF453D24C2030 /* Pods */,
-				EDE47A4947496802B76CEE16 /* Frameworks */,
+				CF44C17A2704F9070028E041 /* NextButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		CFAB0D4E2702EE62005E8AEF = {
+			isa = PBXGroup;
+			children = (
+				CFAB0D592702EE62005E8AEF /* Footprints */,
+				CFAB0D6A2702EE63005E8AEF /* FootprintsTests */,
+				CFAB0D742702EE63005E8AEF /* FootprintsUITests */,
+				CFAB0D582702EE62005E8AEF /* Products */,
+				CFAB0D892702EF55005E8AEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		CF1BC8EF1CA46F84007D3BAD /* Products */ = {
+		CFAB0D582702EE62005E8AEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CF1BC8EE1CA46F84007D3BAD /* Footprints.app */,
+				CFAB0D572702EE62005E8AEF /* Footprints.app */,
+				CFAB0D672702EE63005E8AEF /* FootprintsTests.xctest */,
+				CFAB0D712702EE63005E8AEF /* FootprintsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CF1BC8F01CA46F84007D3BAD /* Footprints */ = {
+		CFAB0D592702EE62005E8AEF /* Footprints */ = {
 			isa = PBXGroup;
 			children = (
-				CF1BC9091CA47BE8007D3BAD /* Error */,
-				CFDA486F1CA4997D00B9033E /* Utils */,
-				CFDA486C1CA4995800B9033E /* Appearance */,
-				CF1BC9061CA47A76007D3BAD /* CloudKit Helper */,
-				CFF1C5E51CA8DA5F00E19D9E /* Quick Actions */,
-				CFDA48811CA4BE3D00B9033E /* Model */,
-				CFDA486B1CA498DF00B9033E /* Permissions */,
-				CFC482CE1CB2DF37005C99D6 /* Footprint Detail */,
-				CFDA487E1CA4B27C00B9033E /* My Footprints */,
-				CFF1C5E21CA85A6900E19D9E /* My Favorite Footprints */,
-				CFF1C5E81CA9CABA00E19D9E /* Create New Footprint */,
-				CFBFA8901CAC6A4100799EDC /* My Footprints In The World */,
-				CF92F1091CB03CE5005322C7 /* Settings */,
-				CF1BC8F11CA46F84007D3BAD /* AppDelegate.swift */,
-				CF1BC8F31CA46F84007D3BAD /* LaunchViewController.swift */,
-				CF1BC8F51CA46F84007D3BAD /* Main.storyboard */,
-				CF1BC8F81CA46F84007D3BAD /* Assets.xcassets */,
-				CF1BC8FA1CA46F84007D3BAD /* LaunchScreen.storyboard */,
-				CF1BC9031CA47077007D3BAD /* Footprints.entitlements */,
-				CF1BC8FD1CA46F84007D3BAD /* Info.plist */,
+				CFAB0D932704E3F7005E8AEF /* Model */,
+				CFAB0D842702EED2005E8AEF /* Views */,
+				CFAB0D8C2702F13C005E8AEF /* Constants */,
+				CFAB0D5A2702EE62005E8AEF /* FootprintsApp.swift */,
+				CFAB0D5E2702EE63005E8AEF /* Assets.xcassets */,
+				CFAB0D942704E915005E8AEF /* Localizable.strings */,
+				CFAB0D882702EF4F005E8AEF /* Footprints.entitlements */,
+				CFAB0D602702EE63005E8AEF /* Preview Content */,
 			);
 			path = Footprints;
 			sourceTree = "<group>";
 		};
-		CF1BC9061CA47A76007D3BAD /* CloudKit Helper */ = {
+		CFAB0D602702EE63005E8AEF /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				CF1BC9071CA47AAD007D3BAD /* CloudKitHelper.swift */,
+				CFAB0D612702EE63005E8AEF /* Preview Assets.xcassets */,
 			);
-			path = "CloudKit Helper";
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		CF1BC9091CA47BE8007D3BAD /* Error */ = {
+		CFAB0D6A2702EE63005E8AEF /* FootprintsTests */ = {
 			isa = PBXGroup;
 			children = (
-				CF1BC90A1CA47BF1007D3BAD /* AppError.swift */,
+				CFAB0D6B2702EE63005E8AEF /* FootprintsTests.swift */,
 			);
-			path = Error;
+			path = FootprintsTests;
 			sourceTree = "<group>";
 		};
-		CF92F1091CB03CE5005322C7 /* Settings */ = {
+		CFAB0D742702EE63005E8AEF /* FootprintsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				CF92F10C1CB09560005322C7 /* Licenses and Attributions */,
-				CF92F10A1CB03ECD005322C7 /* SettingsTableViewController.swift */,
+				CFAB0D752702EE63005E8AEF /* FootprintsUITests.swift */,
+				CFAB0D772702EE63005E8AEF /* FootprintsUITestsLaunchTests.swift */,
 			);
-			path = Settings;
+			path = FootprintsUITests;
 			sourceTree = "<group>";
 		};
-		CF92F10C1CB09560005322C7 /* Licenses and Attributions */ = {
+		CFAB0D842702EED2005E8AEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF92F10D1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift */,
+				CFAB0D852702EEE1005E8AEF /* Onboarding */,
+				CF4018A027062DE800E29A55 /* Home */,
 			);
-			path = "Licenses and Attributions";
+			path = Views;
 			sourceTree = "<group>";
 		};
-		CF9D30491CAC37A10033C744 /* Record Audio */ = {
+		CFAB0D852702EEE1005E8AEF /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				CF9D304A1CAC37C00033C744 /* RecordAudioViewController.swift */,
+				CF44C1792704F8640028E041 /* Controls */,
+				CFAB0D8F2704E037005E8AEF /* Cards */,
+				CFAB0D862702EEF5005E8AEF /* OnboardingView.swift */,
 			);
-			path = "Record Audio";
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		CF9D304C1CAC3ECD0033C744 /* Write Notes */ = {
+		CFAB0D892702EF55005E8AEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CF9D304D1CAC3EF40033C744 /* TextNoteViewController.swift */,
-			);
-			path = "Write Notes";
-			sourceTree = "<group>";
-		};
-		CF9D304F1CAC44BA0033C744 /* Add Date */ = {
-			isa = PBXGroup;
-			children = (
-				CF9D30501CAC44CC0033C744 /* SelectDateViewController.swift */,
-			);
-			path = "Add Date";
-			sourceTree = "<group>";
-		};
-		CFBFA8901CAC6A4100799EDC /* My Footprints In The World */ = {
-			isa = PBXGroup;
-			children = (
-				CFBFA8931CAC7FDE00799EDC /* Info Window */,
-				CFBFA8911CAC76E400799EDC /* FootprintMapViewController.swift */,
-			);
-			path = "My Footprints In The World";
-			sourceTree = "<group>";
-		};
-		CFBFA8931CAC7FDE00799EDC /* Info Window */ = {
-			isa = PBXGroup;
-			children = (
-				CFBFA8941CAC802500799EDC /* InfoWindow.swift */,
-				CFBFA8981CAC99F900799EDC /* InfoWindow.xib */,
-			);
-			path = "Info Window";
-			sourceTree = "<group>";
-		};
-		CFC482CE1CB2DF37005C99D6 /* Footprint Detail */ = {
-			isa = PBXGroup;
-			children = (
-				CFC482CF1CB2DF37005C99D6 /* DetailTableViewController.swift */,
-			);
-			path = "Footprint Detail";
-			sourceTree = "<group>";
-		};
-		CFDA486B1CA498DF00B9033E /* Permissions */ = {
-			isa = PBXGroup;
-			children = (
-				CFDA48741CA49D3100B9033E /* WelcomeViewController.swift */,
-				CFDA48761CA4A31400B9033E /* LocationPermissionViewController.swift */,
-				CFDA48781CA4A62100B9033E /* CameraPermissionsViewController.swift */,
-				CFDA487A1CA4A92A00B9033E /* MicrophonePermissionViewController.swift */,
-				CFDA487C1CA4AB4600B9033E /* PermissionsSetupViewController.swift */,
-			);
-			path = Permissions;
-			sourceTree = "<group>";
-		};
-		CFDA486C1CA4995800B9033E /* Appearance */ = {
-			isa = PBXGroup;
-			children = (
-				CFDA486D1CA4996200B9033E /* AppTheme.swift */,
-			);
-			path = Appearance;
-			sourceTree = "<group>";
-		};
-		CFDA486F1CA4997D00B9033E /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				CFDA48701CA4998700B9033E /* AppUtils.swift */,
-				CFDA48721CA499AE00B9033E /* DeviceModel.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		CFDA487E1CA4B27C00B9033E /* My Footprints */ = {
-			isa = PBXGroup;
-			children = (
-				CFF1C5DA1CA7891A00E19D9E /* Table View Cell */,
-				CFDA487F1CA4B71A00B9033E /* MyFootprintsViewController.swift */,
-			);
-			path = "My Footprints";
-			sourceTree = "<group>";
-		};
-		CFDA48811CA4BE3D00B9033E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CFDA48821CA4BE4A00B9033E /* Footprint.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CFF1C5DA1CA7891A00E19D9E /* Table View Cell */ = {
-			isa = PBXGroup;
-			children = (
-				CFF1C5DB1CA7891A00E19D9E /* FootprintTableViewCell.swift */,
-				CFF1C5DC1CA7891A00E19D9E /* FootprintTableViewCell.xib */,
-			);
-			path = "Table View Cell";
-			sourceTree = "<group>";
-		};
-		CFF1C5E21CA85A6900E19D9E /* My Favorite Footprints */ = {
-			isa = PBXGroup;
-			children = (
-				CFF1C5E31CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift */,
-			);
-			path = "My Favorite Footprints";
-			sourceTree = "<group>";
-		};
-		CFF1C5E51CA8DA5F00E19D9E /* Quick Actions */ = {
-			isa = PBXGroup;
-			children = (
-				CFF1C5E61CA8DA8400E19D9E /* ShortcutIdentifier.swift */,
-			);
-			path = "Quick Actions";
-			sourceTree = "<group>";
-		};
-		CFF1C5E81CA9CABA00E19D9E /* Create New Footprint */ = {
-			isa = PBXGroup;
-			children = (
-				CF9D30491CAC37A10033C744 /* Record Audio */,
-				CF9D304C1CAC3ECD0033C744 /* Write Notes */,
-				CF9D304F1CAC44BA0033C744 /* Add Date */,
-				CFF1C5E91CA9CB8E00E19D9E /* CreateBaseViewController.swift */,
-				CFF1C5EB1CA9D29F00E19D9E /* CreateFootprintTableViewController.swift */,
-			);
-			path = "Create New Footprint";
-			sourceTree = "<group>";
-		};
-		EDE47A4947496802B76CEE16 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DB09969E9FA9777742FE55C2 /* Pods_Footprints.framework */,
+				CFAB0D8A2702EF55005E8AEF /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFAB0D8C2702F13C005E8AEF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CFAB0D8D2702F151005E8AEF /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		CFAB0D8F2704E037005E8AEF /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				CFAB0D902704E077005E8AEF /* OnboardingCard.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		CFAB0D932704E3F7005E8AEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CF1BC8ED1CA46F84007D3BAD /* Footprints */ = {
+		CFAB0D562702EE62005E8AEF /* Footprints */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CF1BC9001CA46F84007D3BAD /* Build configuration list for PBXNativeTarget "Footprints" */;
+			buildConfigurationList = CFAB0D7B2702EE63005E8AEF /* Build configuration list for PBXNativeTarget "Footprints" */;
 			buildPhases = (
-				5557C7E0BE6D0B3F1BDFEEE9 /* Check Pods Manifest.lock */,
-				CF1BC8EA1CA46F84007D3BAD /* Sources */,
-				CF1BC8EB1CA46F84007D3BAD /* Frameworks */,
-				CF1BC8EC1CA46F84007D3BAD /* Resources */,
-				CB0BC65C4052400F27030786 /* Embed Pods Frameworks */,
-				CA7F7F8A9C4A8BE2300E9DE7 /* Copy Pods Resources */,
+				CFAB0D532702EE62005E8AEF /* Sources */,
+				CFAB0D542702EE62005E8AEF /* Frameworks */,
+				CFAB0D552702EE62005E8AEF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -347,192 +229,200 @@
 			);
 			name = Footprints;
 			productName = Footprints;
-			productReference = CF1BC8EE1CA46F84007D3BAD /* Footprints.app */;
+			productReference = CFAB0D572702EE62005E8AEF /* Footprints.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CFAB0D662702EE63005E8AEF /* FootprintsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFAB0D7E2702EE63005E8AEF /* Build configuration list for PBXNativeTarget "FootprintsTests" */;
+			buildPhases = (
+				CFAB0D632702EE63005E8AEF /* Sources */,
+				CFAB0D642702EE63005E8AEF /* Frameworks */,
+				CFAB0D652702EE63005E8AEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFAB0D692702EE63005E8AEF /* PBXTargetDependency */,
+			);
+			name = FootprintsTests;
+			productName = FootprintsTests;
+			productReference = CFAB0D672702EE63005E8AEF /* FootprintsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CFAB0D702702EE63005E8AEF /* FootprintsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFAB0D812702EE63005E8AEF /* Build configuration list for PBXNativeTarget "FootprintsUITests" */;
+			buildPhases = (
+				CFAB0D6D2702EE63005E8AEF /* Sources */,
+				CFAB0D6E2702EE63005E8AEF /* Frameworks */,
+				CFAB0D6F2702EE63005E8AEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFAB0D732702EE63005E8AEF /* PBXTargetDependency */,
+			);
+			name = FootprintsUITests;
+			productName = FootprintsUITests;
+			productReference = CFAB0D712702EE63005E8AEF /* FootprintsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CF1BC8E61CA46F84007D3BAD /* Project object */ = {
+		CFAB0D4F2702EE62005E8AEF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "Jorge Tapia";
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
-					CF1BC8ED1CA46F84007D3BAD = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = RTCYSWYBFH;
-						SystemCapabilities = {
-							com.apple.iCloud = {
-								enabled = 1;
-							};
-						};
+					CFAB0D562702EE62005E8AEF = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					CFAB0D662702EE63005E8AEF = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = CFAB0D562702EE62005E8AEF;
+					};
+					CFAB0D702702EE63005E8AEF = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = CFAB0D562702EE62005E8AEF;
 					};
 				};
 			};
-			buildConfigurationList = CF1BC8E91CA46F84007D3BAD /* Build configuration list for PBXProject "Footprints" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = CFAB0D522702EE62005E8AEF /* Build configuration list for PBXProject "Footprints" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = CF1BC8E51CA46F84007D3BAD;
-			productRefGroup = CF1BC8EF1CA46F84007D3BAD /* Products */;
+			mainGroup = CFAB0D4E2702EE62005E8AEF;
+			productRefGroup = CFAB0D582702EE62005E8AEF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CF1BC8ED1CA46F84007D3BAD /* Footprints */,
+				CFAB0D562702EE62005E8AEF /* Footprints */,
+				CFAB0D662702EE63005E8AEF /* FootprintsTests */,
+				CFAB0D702702EE63005E8AEF /* FootprintsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CF1BC8EC1CA46F84007D3BAD /* Resources */ = {
+		CFAB0D552702EE62005E8AEF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF1BC8FC1CA46F84007D3BAD /* LaunchScreen.storyboard in Resources */,
-				CFBFA8991CAC99F900799EDC /* InfoWindow.xib in Resources */,
-				CF1BC8F91CA46F84007D3BAD /* Assets.xcassets in Resources */,
-				CF1BC8F71CA46F84007D3BAD /* Main.storyboard in Resources */,
-				CFF1C5DE1CA7891A00E19D9E /* FootprintTableViewCell.xib in Resources */,
+				CFAB0D622702EE63005E8AEF /* Preview Assets.xcassets in Resources */,
+				CFAB0D952704E915005E8AEF /* Localizable.strings in Resources */,
+				CFAB0D5F2702EE63005E8AEF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFAB0D652702EE63005E8AEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFAB0D6F2702EE63005E8AEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5557C7E0BE6D0B3F1BDFEEE9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CA7F7F8A9C4A8BE2300E9DE7 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Footprints/Pods-Footprints-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CB0BC65C4052400F27030786 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Footprints/Pods-Footprints-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		CF1BC8EA1CA46F84007D3BAD /* Sources */ = {
+		CFAB0D532702EE62005E8AEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFF1C5E41CA85A8200E19D9E /* MyFavoriteFootprintsViewController.swift in Sources */,
-				CF1BC90B1CA47BF1007D3BAD /* AppError.swift in Sources */,
-				CFDA48751CA49D3100B9033E /* WelcomeViewController.swift in Sources */,
-				CFDA48771CA4A31400B9033E /* LocationPermissionViewController.swift in Sources */,
-				CFDA48831CA4BE4A00B9033E /* Footprint.swift in Sources */,
-				CFF1C5EA1CA9CB8E00E19D9E /* CreateBaseViewController.swift in Sources */,
-				CF9D304B1CAC37C00033C744 /* RecordAudioViewController.swift in Sources */,
-				CFDA487B1CA4A92A00B9033E /* MicrophonePermissionViewController.swift in Sources */,
-				CF9D304E1CAC3EF40033C744 /* TextNoteViewController.swift in Sources */,
-				CF1BC8F41CA46F84007D3BAD /* LaunchViewController.swift in Sources */,
-				CFDA48791CA4A62100B9033E /* CameraPermissionsViewController.swift in Sources */,
-				CF92F10B1CB03ECD005322C7 /* SettingsTableViewController.swift in Sources */,
-				CFC482D01CB2DF37005C99D6 /* DetailTableViewController.swift in Sources */,
-				CFDA48731CA499AE00B9033E /* DeviceModel.swift in Sources */,
-				CFF1C5E71CA8DA8400E19D9E /* ShortcutIdentifier.swift in Sources */,
-				CFDA487D1CA4AB4600B9033E /* PermissionsSetupViewController.swift in Sources */,
-				CF9D30511CAC44CC0033C744 /* SelectDateViewController.swift in Sources */,
-				CF1BC8F21CA46F84007D3BAD /* AppDelegate.swift in Sources */,
-				CFDA48711CA4998700B9033E /* AppUtils.swift in Sources */,
-				CFF1C5DD1CA7891A00E19D9E /* FootprintTableViewCell.swift in Sources */,
-				CFBFA8921CAC76E400799EDC /* FootprintMapViewController.swift in Sources */,
-				CFF1C5EC1CA9D29F00E19D9E /* CreateFootprintTableViewController.swift in Sources */,
-				CFDA48801CA4B71A00B9033E /* MyFootprintsViewController.swift in Sources */,
-				CF1BC9081CA47AAD007D3BAD /* CloudKitHelper.swift in Sources */,
-				CFDA486E1CA4996200B9033E /* AppTheme.swift in Sources */,
-				CF92F10E1CB0957A005322C7 /* LicencesAndAttributionsViewController.swift in Sources */,
-				CFBFA8951CAC802500799EDC /* InfoWindow.swift in Sources */,
+				CF44C17B2704F9070028E041 /* NextButton.swift in Sources */,
+				CFAB0D912704E077005E8AEF /* OnboardingCard.swift in Sources */,
+				CF4018A227062DFA00E29A55 /* HomeTabView.swift in Sources */,
+				CFAB0D872702EEF5005E8AEF /* OnboardingView.swift in Sources */,
+				CFAB0D5B2702EE62005E8AEF /* FootprintsApp.swift in Sources */,
+				CFAB0D8E2702F151005E8AEF /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFAB0D632702EE63005E8AEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFAB0D6C2702EE63005E8AEF /* FootprintsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFAB0D6D2702EE63005E8AEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFAB0D782702EE63005E8AEF /* FootprintsUITestsLaunchTests.swift in Sources */,
+				CFAB0D762702EE63005E8AEF /* FootprintsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		CF1BC8F51CA46F84007D3BAD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CF1BC8F61CA46F84007D3BAD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		CFAB0D692702EE63005E8AEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFAB0D562702EE62005E8AEF /* Footprints */;
+			targetProxy = CFAB0D682702EE63005E8AEF /* PBXContainerItemProxy */;
 		};
-		CF1BC8FA1CA46F84007D3BAD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CF1BC8FB1CA46F84007D3BAD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
+		CFAB0D732702EE63005E8AEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFAB0D562702EE62005E8AEF /* Footprints */;
+			targetProxy = CFAB0D722702EE63005E8AEF /* PBXContainerItemProxy */;
 		};
-/* End PBXVariantGroup section */
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		CF1BC8FE1CA46F84007D3BAD /* Debug */ = {
+		CFAB0D792702EE63005E8AEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -546,38 +436,54 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		CF1BC8FF1CA46F84007D3BAD /* Release */ = {
+		CFAB0D7A2702EE63005E8AEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -585,63 +491,212 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		CF1BC9011CA46F84007D3BAD /* Debug */ = {
+		CFAB0D7C2702EE63005E8AEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBE6D2B9444F6266155B61AA /* Pods-Footprints.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Footprints/Footprints.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = Footprints/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Footprints/Preview Content\"";
+				DEVELOPMENT_TEAM = RTCYSWYBFH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.profapps.Footprints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		CF1BC9021CA46F84007D3BAD /* Release */ = {
+		CFAB0D7D2702EE63005E8AEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D9760010FDEBEBC1AD7EDB1 /* Pods-Footprints.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Footprints/Footprints.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = Footprints/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Footprints/Preview Content\"";
+				DEVELOPMENT_TEAM = RTCYSWYBFH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.profapps.Footprints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		CFAB0D7F2702EE63005E8AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RTCYSWYBFH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = profapps.co.FootprintsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Footprints.app/Footprints";
+			};
+			name = Debug;
+		};
+		CFAB0D802702EE63005E8AEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RTCYSWYBFH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = profapps.co.FootprintsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Footprints.app/Footprints";
+			};
+			name = Release;
+		};
+		CFAB0D822702EE63005E8AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RTCYSWYBFH;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = profapps.co.FootprintsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Footprints;
+			};
+			name = Debug;
+		};
+		CFAB0D832702EE63005E8AEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RTCYSWYBFH;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = profapps.co.FootprintsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Footprints;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CF1BC8E91CA46F84007D3BAD /* Build configuration list for PBXProject "Footprints" */ = {
+		CFAB0D522702EE62005E8AEF /* Build configuration list for PBXProject "Footprints" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF1BC8FE1CA46F84007D3BAD /* Debug */,
-				CF1BC8FF1CA46F84007D3BAD /* Release */,
+				CFAB0D792702EE63005E8AEF /* Debug */,
+				CFAB0D7A2702EE63005E8AEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CF1BC9001CA46F84007D3BAD /* Build configuration list for PBXNativeTarget "Footprints" */ = {
+		CFAB0D7B2702EE63005E8AEF /* Build configuration list for PBXNativeTarget "Footprints" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF1BC9011CA46F84007D3BAD /* Debug */,
-				CF1BC9021CA46F84007D3BAD /* Release */,
+				CFAB0D7C2702EE63005E8AEF /* Debug */,
+				CFAB0D7D2702EE63005E8AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFAB0D7E2702EE63005E8AEF /* Build configuration list for PBXNativeTarget "FootprintsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFAB0D7F2702EE63005E8AEF /* Debug */,
+				CFAB0D802702EE63005E8AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFAB0D812702EE63005E8AEF /* Build configuration list for PBXNativeTarget "FootprintsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFAB0D822702EE63005E8AEF /* Debug */,
+				CFAB0D832702EE63005E8AEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CF1BC8E61CA46F84007D3BAD /* Project object */;
+	rootObject = CFAB0D4F2702EE62005E8AEF /* Project object */;
 }
