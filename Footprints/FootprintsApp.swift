@@ -9,17 +9,17 @@ import SwiftUI
 
 @main
 struct FootprintsApp: App {
-    @AppStorage(needsOnboardingKey)
-    var needsOnboarding = true
+    @AppStorage(hasCompletedOnboardingKey)
+    var hasCompletedOnboarding = false
     
     var body: some Scene {
         WindowGroup {
-            if needsOnboarding {
-                OnboardingView()
+            if hasCompletedOnboarding {
+                HomeTabView()
+                    .transition(.scale)
             }
             else {
-                Text("Welcome to Footprints")
-                    .transition(.scale)
+                OnboardingView()
             }
         }
     }

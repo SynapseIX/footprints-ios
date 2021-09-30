@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Footprints
+
+  Created by Jorge Tapia on 9/29/21.
+  
+*/
+
+// Onboarding
+"WelcomeToFootprints" = "Welcome to Footprints";
+"WelcomeMessage" = "Welcome to your very own digital treasure box. Let's get everything ready to create a lifetime of great memories and moments.";
+"LetsGetStarted" = "Let's Get Started";
+
+"GreatPlacesMakeGreatMemories" = "Great Places Make Great Memories";
+"LocationMessage" = "Remember that breath-taking walk on the beach? Or maybe that amazing ski trip? Footprints needs to access your location so you can save all of those special places.";
+"AllowLocationAccess" = "Allow Location Access";
+
+"A1000Words" = "A Picture is Worth 1000 Words";
+"CameraMessage" = "Capture those magical moments with your camera. With pictures or short videos you can turn these into keepsakes.";
+"AllowCameraAccess" = "Allow Camera Access";
+
+"PhrasesLyricsThoughts" = "Phrases, Lyrics, or Great Thoughts";
+"MicMessage" = "Footprints needs to use your mic if you want to save short audio notes to enhance your memories.";
+"AllowMicAccess" = "Allow Microphone Access";
+
+"WeAreReady" = "We're Ready";
+"ReadyMessage" = "We're all set! Now it’s time for you to start creating keepsakes, and cover the world with footprints.";
+"ContinueToFootprints" = "Continue to Footprints";

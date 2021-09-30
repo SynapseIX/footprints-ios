@@ -7,4 +7,4 @@
 
 import Foundation
 
-let needsOnboardingKey = "needsOnboarding"
+let hasCompletedOnboardingKey = "hasCompletedOnboarding"

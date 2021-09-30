@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF4018A227062DFA00E29A55 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4018A127062DFA00E29A55 /* HomeTabView.swift */; };
+		CF44C17B2704F9070028E041 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF44C17A2704F9070028E041 /* NextButton.swift */; };
 		CFAB0D5B2702EE62005E8AEF /* FootprintsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D5A2702EE62005E8AEF /* FootprintsApp.swift */; };
 		CFAB0D5F2702EE63005E8AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFAB0D5E2702EE63005E8AEF /* Assets.xcassets */; };
 		CFAB0D622702EE63005E8AEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFAB0D612702EE63005E8AEF /* Preview Assets.xcassets */; };
@@ -16,6 +18,8 @@
 		CFAB0D872702EEF5005E8AEF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D862702EEF5005E8AEF /* OnboardingView.swift */; };
 		CFAB0D8B2702EF55005E8AEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0D8A2702EF55005E8AEF /* CloudKit.framework */; };
 		CFAB0D8E2702F151005E8AEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D8D2702F151005E8AEF /* Constants.swift */; };
+		CFAB0D912704E077005E8AEF /* OnboardingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D902704E077005E8AEF /* OnboardingCard.swift */; };
+		CFAB0D952704E915005E8AEF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFAB0D942704E915005E8AEF /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF4018A127062DFA00E29A55 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		CF44C17A2704F9070028E041 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		CFAB0D572702EE62005E8AEF /* Footprints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footprints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFAB0D5A2702EE62005E8AEF /* FootprintsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintsApp.swift; sourceTree = "<group>"; };
 		CFAB0D5E2702EE63005E8AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		CFAB0D882702EF4F005E8AEF /* Footprints.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Footprints.entitlements; sourceTree = "<group>"; };
 		CFAB0D8A2702EF55005E8AEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CFAB0D8D2702F151005E8AEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFAB0D902704E077005E8AEF /* OnboardingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCard.swift; sourceTree = "<group>"; };
+		CFAB0D942704E915005E8AEF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF4018A027062DE800E29A55 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CF4018A127062DFA00E29A55 /* HomeTabView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CF44C1792704F8640028E041 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				CF44C17A2704F9070028E041 /* NextButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		CFAB0D4E2702EE62005E8AEF = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +125,12 @@
 		CFAB0D592702EE62005E8AEF /* Footprints */ = {
 			isa = PBXGroup;
 			children = (
+				CFAB0D932704E3F7005E8AEF /* Model */,
 				CFAB0D842702EED2005E8AEF /* Views */,
 				CFAB0D8C2702F13C005E8AEF /* Constants */,
 				CFAB0D5A2702EE62005E8AEF /* FootprintsApp.swift */,
 				CFAB0D5E2702EE63005E8AEF /* Assets.xcassets */,
+				CFAB0D942704E915005E8AEF /* Localizable.strings */,
 				CFAB0D882702EF4F005E8AEF /* Footprints.entitlements */,
 				CFAB0D602702EE63005E8AEF /* Preview Content */,
 			);
@@ -140,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				CFAB0D852702EEE1005E8AEF /* Onboarding */,
+				CF4018A027062DE800E29A55 /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +174,8 @@
 		CFAB0D852702EEE1005E8AEF /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				CF44C1792704F8640028E041 /* Controls */,
+				CFAB0D8F2704E037005E8AEF /* Cards */,
 				CFAB0D862702EEF5005E8AEF /* OnboardingView.swift */,
 			);
 			path = Onboarding;
@@ -166,6 +195,21 @@
 				CFAB0D8D2702F151005E8AEF /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		CFAB0D8F2704E037005E8AEF /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				CFAB0D902704E077005E8AEF /* OnboardingCard.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		CFAB0D932704E3F7005E8AEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFAB0D622702EE63005E8AEF /* Preview Assets.xcassets in Resources */,
+				CFAB0D952704E915005E8AEF /* Localizable.strings in Resources */,
 				CFAB0D5F2702EE63005E8AEF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +343,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF44C17B2704F9070028E041 /* NextButton.swift in Sources */,
+				CFAB0D912704E077005E8AEF /* OnboardingCard.swift in Sources */,
+				CF4018A227062DFA00E29A55 /* HomeTabView.swift in Sources */,
 				CFAB0D872702EEF5005E8AEF /* OnboardingView.swift in Sources */,
 				CFAB0D5B2702EE62005E8AEF /* FootprintsApp.swift in Sources */,
 				CFAB0D8E2702F151005E8AEF /* Constants.swift in Sources */,
@@ -469,15 +517,13 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = profapps.co.Footprints;
+				PRODUCT_BUNDLE_IDENTIFIER = co.profapps.Footprints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -501,15 +547,13 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = profapps.co.Footprints;
+				PRODUCT_BUNDLE_IDENTIFIER = co.profapps.Footprints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -526,7 +570,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RTCYSWYBFH;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,7 +581,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Footprints.app/Footprints";
 			};
 			name = Debug;
@@ -551,7 +595,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RTCYSWYBFH;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,7 +606,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Footprints.app/Footprints";
 			};
 			name = Release;
@@ -585,7 +629,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = Footprints;
 			};
 			name = Debug;
@@ -608,7 +652,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = Footprints;
 			};
 			name = Release;
