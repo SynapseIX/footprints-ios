@@ -1,5 +1,5 @@
 //
-//  HomeTabView.swift
+//  MainTabView.swift
 //  Footprints
 //
 //  Created by Jorge Tapia on 9/30/21.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-enum HomeTabType: String {
+enum MainTabType: String {
     case home
 }
 
-struct HomeTabView: View {
-    @State private var selectedTab: HomeTabType = .home
+struct MainTabView: View {
+    @State private var selectedTab: MainTabType = .home
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -20,15 +20,15 @@ struct HomeTabView: View {
                 .tabItem {
                     Image(systemName: "house")
                         .font(.system(size: 24))
-                        .tag(HomeTabType.home)
+                        .tag(MainTabType.home)
                 }
-                .tag(HomeTabType.home)
+                .tag(MainTabType.home)
         }
     }
 }
 
-struct HomeTabView_Previews: PreviewProvider {
+struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTabView()
+        MainTabView()
     }
 }

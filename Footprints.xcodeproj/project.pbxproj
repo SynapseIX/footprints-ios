@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF4018A227062DFA00E29A55 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4018A127062DFA00E29A55 /* HomeTabView.swift */; };
+		CF4018A227062DFA00E29A55 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4018A127062DFA00E29A55 /* MainTabView.swift */; };
 		CF44C17B2704F9070028E041 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF44C17A2704F9070028E041 /* NextButton.swift */; };
 		CFAB0D5B2702EE62005E8AEF /* FootprintsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB0D5A2702EE62005E8AEF /* FootprintsApp.swift */; };
 		CFAB0D5F2702EE63005E8AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFAB0D5E2702EE63005E8AEF /* Assets.xcassets */; };
@@ -40,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CF4018A127062DFA00E29A55 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		CF4018A127062DFA00E29A55 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		CF44C17A2704F9070028E041 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		CFAB0D572702EE62005E8AEF /* Footprints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footprints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFAB0D5A2702EE62005E8AEF /* FootprintsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintsApp.swift; sourceTree = "<group>"; };
@@ -85,10 +85,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF4018A027062DE800E29A55 /* Home */ = {
+		CF4018A027062DE800E29A55 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CF4018A127062DFA00E29A55 /* HomeTabView.swift */,
+				CF4018A327064B7B00E29A55 /* Tabs */,
+				CF4018A127062DFA00E29A55 /* MainTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CF4018A327064B7B00E29A55 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				CF4018A427064B8700E29A55 /* Home */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		CF4018A427064B8700E29A55 /* Home */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -166,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				CFAB0D852702EEE1005E8AEF /* Onboarding */,
-				CF4018A027062DE800E29A55 /* Home */,
+				CF4018A027062DE800E29A55 /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,7 +361,7 @@
 			files = (
 				CF44C17B2704F9070028E041 /* NextButton.swift in Sources */,
 				CFAB0D912704E077005E8AEF /* OnboardingCard.swift in Sources */,
-				CF4018A227062DFA00E29A55 /* HomeTabView.swift in Sources */,
+				CF4018A227062DFA00E29A55 /* MainTabView.swift in Sources */,
 				CFAB0D872702EEF5005E8AEF /* OnboardingView.swift in Sources */,
 				CFAB0D5B2702EE62005E8AEF /* FootprintsApp.swift in Sources */,
 				CFAB0D8E2702F151005E8AEF /* Constants.swift in Sources */,

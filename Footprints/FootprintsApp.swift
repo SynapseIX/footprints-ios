@@ -15,7 +15,7 @@ struct FootprintsApp: App {
     var body: some Scene {
         WindowGroup {
             if hasCompletedOnboarding {
-                HomeTabView()
+                MainTabView()
                     .transition(.scale)
             }
             else {
